@@ -1250,11 +1250,11 @@ main { padding-top: 0; }
 
 /* Scroll indicator */
 .hero-hotel {
-  min-height: 80vh;
-  height: 80vh;
+  min-height: calc(80vh + 150px);
+  height: calc(80vh + 150px);
 }
 .hero-hotel .hero-inner {
-  min-height: 80vh;
+  min-height: calc(80vh + 150px);
 }
 .hero-scroll {
   position: absolute;
@@ -1369,8 +1369,8 @@ main { padding-top: 0; }
   .philosophy-content { padding: 60px 48px; }
 }
 @media (max-width: 640px) {
-  .hero-hotel { min-height: 70vh; height: 70vh; }
-  .hero-hotel .hero-inner { min-height: 70vh; }
+  .hero-hotel { min-height: calc(70vh + 100px); height: calc(70vh + 100px); }
+  .hero-hotel .hero-inner { min-height: calc(70vh + 100px); }
   .hero-inner-left {
     justify-content: flex-end;
     padding-bottom: 8vh;
