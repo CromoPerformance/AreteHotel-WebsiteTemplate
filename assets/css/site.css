@@ -125,7 +125,7 @@ main { padding-top: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.42) 0%, rgba(7, 20, 34, 0.35) 32%, rgba(7, 20, 34, 0.58) 100%);
 }
-.hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center calc(50% - 100px); }
+.hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
 .hero.hero-rooms { background-image: url('../DSCF4045.avif'); background-position: center center; }
 .hero.hero-restaurant { background-image: url('../DSCF4405.avif'); background-position: center center; }
 .hero.hero-buzios { background-image: url('../DSCF4192.avif'); background-position: center center; }
