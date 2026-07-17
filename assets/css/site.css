@@ -151,6 +151,11 @@ a { color: inherit; text-decoration: none; }
   border-color: rgba(21, 32, 45, 0.58);
   color: var(--ink);
 }
+.site-header.scrolled .nav-cta:hover {
+  background: #081525;
+  color: #fff;
+  border-color: #081525;
+}
 
 main { padding-top: 0; }
 
