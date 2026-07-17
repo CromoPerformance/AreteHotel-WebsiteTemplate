@@ -484,20 +484,19 @@ main { padding-top: 0; }
 /* Testimonials */
 .testimonials {
   background: #f5f6f8;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 80px 40px;
   position: relative;
-  overflow: hidden;
 }
 .testimonials-slider {
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: 320px;
+  height: 360px;
   overflow: visible;
 }
 .testimonial {
