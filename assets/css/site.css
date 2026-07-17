@@ -1973,7 +1973,7 @@ main { padding-top: 0; }
    ======================================== */
 .mosaic {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 640px;
   overflow: hidden;
@@ -2013,9 +2013,9 @@ main { padding-top: 0; }
   line-height: 1.2;
 }
 @media (max-width: 640px) {
-  .mosaic { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
-  .mosaic-large { grid-row: auto; }
-  .mosaic-item { height: 40vh; }
+  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; height: auto; }
+  .mosaic-large { grid-row: 1; grid-column: 1 / 3; }
+  .mosaic-item { height: 35vh; }
 }
 
 /* ========================================
