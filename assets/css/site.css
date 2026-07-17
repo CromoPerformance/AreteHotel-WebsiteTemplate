@@ -123,7 +123,7 @@ main { padding-top: 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 20, 34, 0.28) 0%, rgba(7, 20, 34, 0.18) 32%, rgba(7, 20, 34, 0.48) 100%);
+  background: linear-gradient(180deg, rgba(7, 20, 34, 0.42) 0%, rgba(7, 20, 34, 0.35) 32%, rgba(7, 20, 34, 0.58) 100%);
 }
 .hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center center; }
 .hero.hero-rooms { background-image: url('../DSCF4045.avif'); background-position: center center; }
@@ -545,6 +545,17 @@ main { padding-top: 0; }
 }
 .booking-input:focus { outline: none; }
 .booking-input option { font-family: var(--sans); padding: 8px; }
+.booking-field select.booking-input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a96a5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  padding-right: 20px;
+}
+.booking-field select.booking-input:hover { background-color: rgba(248, 248, 244, 0.4); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c6570' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0 center; }
+.booking-field input[type="date"].booking-input {
+  color: var(--ink);
+}
+.booking-field input[type="date"].booking-input:invalid { color: #8a96a5; }
 .booking-btn {
   display: flex;
   align-items: center;
