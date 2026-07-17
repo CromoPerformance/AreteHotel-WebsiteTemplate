@@ -1417,22 +1417,9 @@ main { padding-top: 0; }
 .pillars {
   position: relative;
   padding: 120px 10%;
-  overflow: hidden;
-}
-.pillars-overlay {
-  position: absolute;
-  inset: 0;
-  background: url('../hotel/HOTEL-GALERIA-01.avif') center/cover no-repeat;
-}
-.pillars-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(8, 21, 37, 0.92);
+  background: #081525;
 }
 .pillars-inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 64px;
