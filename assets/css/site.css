@@ -200,7 +200,7 @@ main { padding-top: 0; }
 }
 
 .manifesto, .editorial, .location-intro, .foot-note { background: var(--white); }
-.manifesto { padding: 140px 24px 130px; }
+.manifesto { padding: 180px 24px 170px; }
 .manifesto-inner {
   max-width: 1220px;
   margin: 0 auto;
@@ -231,7 +231,7 @@ main { padding-top: 0; }
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 80px;
   height: 1px;
   background: rgba(111, 143, 183, 0.50);
 }
