@@ -2021,11 +2021,6 @@ main { padding-top: 0; }
 /* ========================================
    EXPERIENCIAS — Dark Split (Concierge)
    ======================================== */
-.nature-split-reverse {
-  grid-template-areas: "content image";
-}
-.nature-split-reverse .nature-split-image { grid-area: image; }
-.nature-split-reverse .nature-split-content { grid-area: content; }
 .nature-split-dark .nature-split-content {
   background: var(--navy);
 }
@@ -2037,9 +2032,6 @@ main { padding-top: 0; }
 }
 .nature-split-dark .nature-split-text {
   color: rgba(111, 143, 183, 0.7);
-}
-@media (max-width: 640px) {
-  .nature-split-reverse { grid-template-areas: "image" "content"; }
 }
 
 /* ========================================
