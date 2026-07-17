@@ -172,7 +172,7 @@ main { padding-top: 0; }
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
 .hero.hero-home { background-image: url('../home/HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
-.hero.hero-hotel { background-image: url('../shared/DSCF4289.avif'); background-position: center 70%; }
+.hero.hero-hotel { background-image: url('../hotel/HOTEL-HERO.avif'); background-position: center 70%; }
 .hero.hero-rooms { background-image: url('../acomodacoes/DSCF4045.avif'); background-position: center center; }
 .hero.hero-restaurant { background-image: url('../restaurante/DSCF4405.avif'); background-position: center center; }
 .hero.hero-buzios { background-image: url('../buzios/DSCF4192.avif'); background-position: center center; }
