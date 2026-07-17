@@ -4,37 +4,39 @@ Boutique hotel website template for Hotel Aretê in Búzios, Rio de Janeiro. Sta
 
 ## Stack
 
-- **HTML5** — single-page homepage
+- **HTML5** — multi-page structure
 - **CSS3** — custom properties, grid, flexbox, animations
-- **Vanilla JS** — no frameworks, no build step
-- **Google Fonts** — Cormorant Garamond, Jost, Alex Brush
+- **Google Fonts** — Cormorant Garamond, Jost
 - **Images** — AVIF format, 76 hotel photographs
 
 ## Structure
 
 ```
-├── index.html          # Homepage (all sections)
+├── index.html          # Homepage
+├── acomodacoes.html    # Acomodações
+├── restaurante.html    # Restaurante
+├── experiencias.html   # Experiências
+├── buzios.html         # Búzios destino
+├── blog.html           # Blog
 ├── assets/
-│   ├── css/style.css   # Global styles (950+ lines)
-│   ├── js/main.js      # Interactions (nav, slider, testimonials, reveals)
+│   ├── css/site.css    # Global styles (522 lines)
 │   └── *.avif          # 76 hotel images
 ├── .gitignore
 └── README.md
 ```
 
-## Sections
+## Sections (index.html)
 
-1. **Hero** — fullscreen with parallax zoom
-2. **O Hotel** — brand story + masonry images
-3. **Premiações** — awards grid (Condé Nast, Travel+Leisure, TripAdvisor, Forbes)
-4. **Galeria** — 12-image grid with hover effects
-5. **Acomodações** — horizontal slider with 5 room cards
-6. **Depoimentos** — auto-rotating testimonials
-7. **Contato** — reservation form
-8. **Restaurante** — split layout with menu preview
-9. **Vivências** — 4 experience cards
-10. **Destino** — Búzios info + facts
-11. **Localização** — 3 airport routes + Google Maps embed
+1. **Hero** — fullscreen with parallax
+2. **Manifesto** — brand philosophy
+3. **Filosofia** — split layout
+4. **Natureza** — location story
+5. **Amenities** — Búzios highlights
+6. **Quando ir** — seasonal info
+7. **Stats** — key numbers
+8. **Acomodações** — room preview
+9. **Gastronomia** — split layout
+10. **Footer** — full footer with contact
 
 ## Deploy
 
@@ -67,5 +69,5 @@ Original WordPress theme files were converted to static HTML. To migrate back:
 ## Credits
 
 - Design: Hotel Aretê brand
-- Development: Claude + Gemini + GPT
+- Development: Cromo Performance
 - Photography: Hotel Aretê archive (76 AVIF images)
