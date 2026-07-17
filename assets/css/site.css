@@ -172,7 +172,7 @@ main { padding-top: 0; }
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
 .hero.hero-home { background-image: url('../home/HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
-.hero.hero-hotel { background-image: url('../hotel/HOTEL-HERO.avif'); background-position: center center; }
+.hero.hero-hotel { background-image: url('../shared/DSCF4289.avif'); background-position: center 70%; }
 .hero.hero-rooms { background-image: url('../acomodacoes/DSCF4045.avif'); background-position: center center; }
 .hero.hero-restaurant { background-image: url('../restaurante/DSCF4405.avif'); background-position: center center; }
 .hero.hero-buzios { background-image: url('../buzios/DSCF4192.avif'); background-position: center center; }
@@ -1330,7 +1330,7 @@ main { padding-top: 0; }
   min-height: 760px;
 }
 .philosophy-image {
-  background: url('../shared/DSCF4153.avif') center/cover no-repeat;
+  background: url('../shared/DSCF3998.avif') center/cover no-repeat;
   min-height: 760px;
 }
 .philosophy-content {
@@ -1392,4 +1392,21 @@ main { padding-top: 0; }
   .philosophy-image { min-height: 40vh; }
   .philosophy-content { padding: 48px 24px; }
   .philosophy-content .section-heading { font-size: clamp(36px, 8vw, 52px); }
+}
+
+/* ========================================
+   HOTEL PAGE — Dual Gallery
+   ======================================== */
+.dual-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.dual-gallery-img {
+  height: 70vh;
+  background: center/cover no-repeat;
+}
+@media (max-width: 640px) {
+  .dual-gallery { grid-template-columns: 1fr; }
+  .dual-gallery-img { height: 50vh; }
 }
