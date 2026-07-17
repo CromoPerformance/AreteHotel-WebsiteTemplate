@@ -439,14 +439,14 @@ main { padding-top: 0; }
   font-family: var(--serif);
   font-weight: 300;
   font-size: clamp(72px, 9vw, 110px);
-  line-height: 1.0;
+  line-height: 0.92;
   color: #fff;
   letter-spacing: 0.01em;
 }
 .marina-subtitle {
   margin: 28px 0 0;
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 300;
   font-style: italic;
   color: rgba(255, 255, 255, 0.72);
