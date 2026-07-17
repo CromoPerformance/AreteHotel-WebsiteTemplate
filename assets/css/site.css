@@ -222,12 +222,21 @@ main { padding-top: 0; }
   font-size: clamp(28px, 3.5vw, 56px);
   line-height: 1.3;
   color: #1a2230;
+  position: relative;
+  padding: 50px 0;
 }
-.dash-accent {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 400;
+.manifesto-text::before,
+.manifesto-text::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: rgba(111, 143, 183, 0.50);
 }
+.manifesto-text::before { top: 0; }
+.manifesto-text::after { bottom: 0; }
 
 .split {
   display: grid;
