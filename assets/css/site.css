@@ -1541,20 +1541,20 @@ main { padding-top: 0; }
 }
 .diff-item {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 100px 1fr;
   gap: 40px;
-  align-items: start;
-  padding: 48px 0;
+  align-items: center;
+  padding: 32px 0;
   border-top: 1px solid var(--line);
 }
 .diff-item:last-child { border-bottom: 1px solid var(--line); }
 .diff-numeral {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: 56px;
   font-weight: 300;
-  color: rgba(111, 143, 183, 0.50);
+  color: rgba(111, 143, 183, 0.40);
   line-height: 1;
-  padding-top: 4px;
+  text-align: center;
 }
 .diff-heading {
   margin: 0 0 16px;
@@ -1588,7 +1588,7 @@ main { padding-top: 0; }
 }
 @media (max-width: 640px) {
   .differentials { padding: 60px 24px; }
-  .diff-item { grid-template-columns: 50px 1fr; gap: 24px; padding: 36px 0; }
-  .diff-numeral { font-size: 26px; }
+  .diff-item { grid-template-columns: 60px 1fr; gap: 24px; padding: 28px 0; }
+  .diff-numeral { font-size: 40px; }
   .diff-heading { font-size: 22px; }
 }
