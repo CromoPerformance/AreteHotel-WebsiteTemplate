@@ -16,9 +16,8 @@
       </div>
 
       <a class="brand" href="index.html" aria-label="Hotel Aretê Búzios">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Hotel Aretê</span>
-        <span class="brand-sub">Búzios</span>
+        <img class="brand-logo brand-logo-white" src="assets/191010_Marca_Hotel_Arete_Buzios_Vert_Mono.png" alt="Hotel Aretê Búzios">
+        <img class="brand-logo brand-logo-blue" src="assets/191010_Marca_Hotel_Arete_Buzios_Vert_RGB.png" alt="Hotel Aretê Búzios">
       </a>
 
       <div class="nav-group right">
@@ -181,9 +180,7 @@
         <div class="footer-top">
           <div class="footer-brand">
             <a class="brand" href="index.html" aria-label="Hotel Aretê Búzios">
-              <span class="brand-mark" aria-hidden="true"></span>
-              <span class="brand-name">Hotel Aretê</span>
-              <span class="brand-sub">Búzios</span>
+              <img class="brand-logo" src="assets/191010_Marca_Hotel_Arete_Buzios_Vert_Mono.png" alt="Hotel Aretê Búzios">
             </a>
             <p class="footer-tagline">Um santuário entre o mar e a mata</p>
             <p class="footer-text">Localizado às margens dos canais navegáveis de Búzios, o Hotel Aretê é um testemunho da arte de viver bem. A 20 minutos do centro, em contato permanente com a natureza costeira do Rio de Janeiro.</p>
@@ -235,5 +232,20 @@
     </section>
   </main>
 
+  <script>
+    const header = document.querySelector('.site-header');
+    const hero = document.querySelector('.hero');
+    
+    function updateHeader() {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  </script>
 </body>
 </html>
