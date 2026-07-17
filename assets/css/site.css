@@ -1992,25 +1992,42 @@ main { padding-top: 0; }
   left: 0;
   right: 0;
   padding: 32px 28px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  background: linear-gradient(transparent 0%, rgba(0,0,0,0.7) 100%);
   display: flex;
   flex-direction: column;
   gap: 6px;
+  transition: background 0.35s ease;
+}
+.mosaic-item:hover .mosaic-caption {
+  background: linear-gradient(transparent 0%, rgba(0,0,0,0.85) 100%);
+}
+.mosaic-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 21, 37, 0.3);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.mosaic-item:hover::after {
+  opacity: 1;
 }
 .mosaic-overline {
   font-family: var(--sans);
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(111, 143, 183, 0.85);
+  color: rgba(180, 210, 240, 0.95);
 }
 .mosaic-label {
   font-family: var(--serif);
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
   line-height: 1.2;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 @media (max-width: 640px) {
   .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; height: auto; }
