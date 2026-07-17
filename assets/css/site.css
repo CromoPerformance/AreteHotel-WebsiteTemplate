@@ -1232,11 +1232,18 @@ main { padding-top: 0; }
   padding-bottom: 10vh;
   padding-left: 10%;
 }
-.hero-inner-left .hero-kicker { margin-bottom: 20px; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+.hero-inner-left .hero-kicker {
+  margin-bottom: 20px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+  font-size: 14px;
+  letter-spacing: 0.38em;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
 .hero-inner-left .hero-title {
   font-size: clamp(52px, 8vw, 110px);
   line-height: 0.92;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   text-shadow: 0 2px 16px rgba(0,0,0,0.25);
 }
 .hero-inner-left .hero-subtitle {
@@ -1250,11 +1257,11 @@ main { padding-top: 0; }
 
 /* Scroll indicator */
 .hero-hotel {
-  min-height: calc(80vh + 150px);
-  height: calc(80vh + 150px);
+  min-height: calc(80vh + 100px);
+  height: calc(80vh + 100px);
 }
 .hero-hotel .hero-inner {
-  min-height: calc(80vh + 150px);
+  min-height: calc(80vh + 100px);
 }
 .hero-scroll {
   position: absolute;
