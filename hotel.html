@@ -96,6 +96,44 @@
       </div>
       <div class="nature-split-image" aria-hidden="true"></div>
     </section>
+
+    <!-- Diferenciais -->
+    <section class="differentials">
+      <div class="differentials-header">
+        <div class="eyebrow">Exclusividade</div>
+        <h2 class="differentials-title">Diferenciais Aretê</h2>
+      </div>
+      <div class="differentials-list">
+        <div class="diff-item">
+          <div class="diff-numeral">01</div>
+          <div class="diff-content">
+            <h3 class="diff-heading">Completo Apoio Náutico</h3>
+            <p class="diff-text">O Hotel Aretê em conjunto com a BR Marinas Búzios proporcionam a comodidade de ancorar seu barco bem em frente ao Hotel. Vagas para barcos de até 55 pés, com infraestrutura de energia e água para sua lancha, iate ou veleiro.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-numeral">02</div>
+          <div class="diff-content">
+            <h3 class="diff-heading">Aeroporto Umberto Modiano</h3>
+            <p class="diff-text">Com o aeroporto a apenas 7 minutos da recepção do Hotel Aretê, você chega mais rápido e aproveita as delícias de Búzios sem pressa. Capacidade para jatos executivos, táxis aéreos e helicópteros.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-numeral">03</div>
+          <div class="diff-content">
+            <h3 class="diff-heading">Campo de Golfe Búzios</h3>
+            <p class="diff-text">Prazeroso e divertido, o golfe proporciona momentos de descontração com os amigos. O exclusivo Búzios Golf Club, a apenas 7 minutos do Hotel, foi projetado pelos arquitetos Pete e Perry Dye — considerado um dos melhores da América Latina.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-numeral">04</div>
+          <div class="diff-content">
+            <h3 class="diff-heading">Produtos Exclusivos Aretê</h3>
+            <p class="diff-text">Você estará cercado por itens desenvolvidos com exclusividade, por renomados artesãos: cerâmicas de Alice Felzenszwalb, Taciana Amorim, Ana Sanchez, Grupo Tupinambá e Cecília Cesário Alvim.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
@@ -109,6 +147,17 @@
     }
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
+
+    // Scroll animation for differential items
+    const diffItems = document.querySelectorAll('.diff-item');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    diffItems.forEach(function(item) { observer.observe(item); });
   </script>
 </body>
 </html>

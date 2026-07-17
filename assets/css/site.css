@@ -1500,7 +1500,7 @@ main { padding-top: 0; }
 }
 .nature-split-text:last-child { margin-bottom: 0; }
 .nature-split-image {
-  background: url('../shared/DSCF4064.avif') center/cover no-repeat;
+  background: url('../shared/DSCF4838.avif') center bottom/cover no-repeat;
   min-height: 600px;
 }
 @media (max-width: 1024px) {
@@ -1510,4 +1510,85 @@ main { padding-top: 0; }
   .nature-split { grid-template-columns: 1fr; }
   .nature-split-content { padding: 60px 24px; }
   .nature-split-image { min-height: 50vh; }
+}
+
+/* ========================================
+   HOTEL PAGE — Diferenciais
+   ======================================== */
+.differentials {
+  padding: 120px 10%;
+  background: #fff;
+}
+.differentials-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.differentials-header .eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 20px;
+}
+.differentials-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 300;
+  color: #1a2230;
+}
+.diff-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+.diff-item:last-child { border-bottom: 1px solid var(--line); }
+.diff-numeral {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: rgba(111, 143, 183, 0.50);
+  line-height: 1;
+  padding-top: 4px;
+}
+.diff-heading {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: #1a2230;
+  line-height: 1.2;
+}
+.diff-text {
+  margin: 0;
+  max-width: 680px;
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+/* Scroll animation */
+.diff-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.diff-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 1024px) {
+  .differentials { padding: 80px 6%; }
+}
+@media (max-width: 640px) {
+  .differentials { padding: 60px 24px; }
+  .diff-item { grid-template-columns: 50px 1fr; gap: 24px; padding: 36px 0; }
+  .diff-numeral { font-size: 26px; }
+  .diff-heading { font-size: 22px; }
 }
