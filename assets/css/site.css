@@ -399,6 +399,88 @@ main { padding-top: 0; }
   .stat-divider { width: 60px; height: 1px; }
 }
 
+/* Marina Hero */
+.marina-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.marina-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.marina-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+}
+.marina-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 clamp(60px, 8vw, 100px);
+}
+.marina-eyebrow {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.70);
+  margin-bottom: 28px;
+}
+.marina-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(72px, 9vw, 110px);
+  line-height: 1.0;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+.marina-subtitle {
+  margin: 28px 0 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+  max-width: 550px;
+}
+.marina-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 40px;
+  padding: 14px 36px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.60);
+  background: transparent;
+  transition: all 0.35s ease;
+  align-self: flex-start;
+}
+.marina-btn:hover {
+  background: #fff;
+  color: #0a1e3d;
+  border-color: #fff;
+}
+
+@media (max-width: 640px) {
+  .marina-hero-content { padding: 0 32px; }
+  .marina-title { font-size: clamp(52px, 14vw, 80px); }
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
