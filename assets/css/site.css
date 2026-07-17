@@ -1599,7 +1599,7 @@ main { padding-top: 0; }
 
 /* CTA Section */
 .cta-section {
-  background: var(--navy);
+  background: #1a3a5c;
   padding: 140px 10%;
   text-align: center;
 }
