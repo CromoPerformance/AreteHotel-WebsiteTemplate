@@ -1541,7 +1541,7 @@ main { padding-top: 0; }
 }
 .diff-item {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 140px 1fr;
   gap: 40px;
   align-items: center;
   padding: 32px 0;
@@ -1550,7 +1550,7 @@ main { padding-top: 0; }
 .diff-item:last-child { border-bottom: 1px solid var(--line); }
 .diff-numeral {
   font-family: var(--serif);
-  font-size: 56px;
+  font-size: 72px;
   font-weight: 300;
   color: rgba(111, 143, 183, 0.40);
   line-height: 1;
