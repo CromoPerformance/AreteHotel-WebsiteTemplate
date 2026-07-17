@@ -24,13 +24,26 @@
     </nav>
   </header>
   <main>
-    <section class="hero hero-buzios compact-hero">
+    <section class="hero hero-buzios hero-subpage">
       <div class="hero-inner">
         <div class="hero-kicker">Localização exclusiva</div>
-        <h1 class="hero-title tight">A marina</h1>
-        <p class="hero-subtitle small">Encravada na região dos Lagos, Búzios é uma península cercada de praias paradisíacas, canais navegáveis e uma vida noturna que rivaliza com os melhores balneários do mundo.</p>
+        <h1 class="hero-title">A marina</h1>
+        <p class="hero-subtitle">Encravada na região dos Lagos, Búzios é uma península cercada de praias paradisíacas, canais navegáveis e uma vida noturna que rivaliza com os melhores balneários do mundo.</p>
+      </div>
+      <div class="hero-scroll">
+        <span class="hero-scroll-text">Descobrir</span>
+        <div class="hero-scroll-line"></div>
       </div>
     </section>
   </main>
+  <script>
+    const header = document.querySelector('.site-header');
+    function updateHeader() {
+      if (window.scrollY > 80) { header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  </script>
 </body>
 </html>

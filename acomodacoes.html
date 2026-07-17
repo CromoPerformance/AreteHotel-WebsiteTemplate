@@ -24,11 +24,15 @@
     </nav>
   </header>
   <main>
-    <section class="hero hero-rooms compact-hero">
+    <section class="hero hero-rooms hero-subpage">
       <div class="hero-inner">
         <div class="hero-kicker">Acomodações</div>
-        <h1 class="hero-title tight">Seu quarto,<br>seu templo</h1>
-        <p class="hero-subtitle small">As 5 categorias de suítes foram projetadas para uma estadia confortável e aconchegante, em total conexão com a natureza solar de Búzios.</p>
+        <h1 class="hero-title">Seu quarto,<br>seu templo</h1>
+        <p class="hero-subtitle">As 5 categorias de suítes foram projetadas para uma estadia confortável e aconchegante, em total conexão com a natureza solar de Búzios.</p>
+      </div>
+      <div class="hero-scroll">
+        <span class="hero-scroll-text">Descobrir</span>
+        <div class="hero-scroll-line"></div>
       </div>
     </section>
     <section class="hero-panel">
@@ -46,5 +50,14 @@
       </div>
     </section>
   </main>
+  <script>
+    const header = document.querySelector('.site-header');
+    function updateHeader() {
+      if (window.scrollY > 80) { header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  </script>
 </body>
 </html>

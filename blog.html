@@ -24,13 +24,26 @@
     </nav>
   </header>
   <main>
-    <section class="hero compact-hero" style="background-image:url('assets/blog/DSCF4214.avif')">
+    <section class="hero hero-subpage" style="background-image:url('assets/blog/DSCF4214.avif')">
       <div class="hero-inner">
         <div class="hero-kicker">Blog</div>
-        <h1 class="hero-title tight">Notas de viagem</h1>
-        <p class="hero-subtitle small">Textos, referências e observações sobre Búzios, hospitalidade e paisagem.</p>
+        <h1 class="hero-title">Notas de viagem</h1>
+        <p class="hero-subtitle">Textos, referências e observações sobre Búzios, hospitalidade e paisagem.</p>
+      </div>
+      <div class="hero-scroll">
+        <span class="hero-scroll-text">Descobrir</span>
+        <div class="hero-scroll-line"></div>
       </div>
     </section>
   </main>
+  <script>
+    const header = document.querySelector('.site-header');
+    function updateHeader() {
+      if (window.scrollY > 80) { header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  </script>
 </body>
 </html>
