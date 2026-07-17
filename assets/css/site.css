@@ -104,7 +104,13 @@ a { color: inherit; text-decoration: none; }
   line-height: 1;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: all 0.35s ease;
+  background: transparent;
+}
+.nav-cta:hover {
+  background: #fff;
+  color: #0a1e3d;
+  border-color: #fff;
 }
 .site-header.scrolled .nav-cta {
   border-color: rgba(21, 32, 45, 0.58);
@@ -938,7 +944,13 @@ main { padding-top: 0; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.35s ease;
 }
+.social:hover {
+  background: #fff;
+  border-color: #fff;
+}
+.social:hover svg { stroke: #0a1e3d; }
 .social svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; }
 .footer-title {
   font-size: 12px;
@@ -1094,6 +1106,7 @@ main { padding-top: 0; }
   background: linear-gradient(135deg, #0a1e3d 0%, #132d54 100%);
   color: #fff;
   border: none;
+  border-radius: 0 4px 4px 0;
   font-family: var(--sans);
   font-size: 11px;
   line-height: 1;
@@ -1114,10 +1127,12 @@ main { padding-top: 0; }
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+.booking-btn::before { opacity: 0; }
 .booking-btn:hover::before { opacity: 1; }
-.booking-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(10, 30, 61, 0.35); }
-.booking-btn:active { transform: translateY(0); }
-.booking-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+.booking-btn:hover { box-shadow: 0 6px 20px rgba(10, 30, 61, 0.35); }
+.booking-btn:hover svg { transform: scale(1.15); }
+.booking-btn:active { }
+.booking-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.3s ease; }
 
 @media (max-width: 1240px) {
   .site-nav { padding: 0 20px; }
