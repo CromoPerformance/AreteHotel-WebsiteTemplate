@@ -1748,8 +1748,53 @@ main { padding-top: 0; }
 .suite-btn:hover {
   background: #0d2137;
 }
+
+/* ========================================
+   ACOMODAÇÕES — Amenities
+   ======================================== */
+.amenities-section {
+  background: #fff;
+  padding: 100px 10%;
+  text-align: center;
+}
+.amenities-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.amenities-title {
+  margin: 0 0 48px;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  color: #1a2230;
+}
+.amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7a8d;
+  line-height: 2.8;
+}
+.amenities-list span {
+  padding: 0 12px;
+}
+.amenities-sep {
+  font-size: 8px;
+  color: var(--blue);
+  opacity: 0.5;
+}
+
 @media (max-width: 1024px) {
   .suite-content { padding: 60px 48px; }
+  .amenities-section { padding: 80px 6%; }
 }
 @media (max-width: 640px) {
   .suite-block, .suite-block-reverse {
@@ -1759,4 +1804,6 @@ main { padding-top: 0; }
   .suite-image { min-height: 48vh; }
   .suite-content { padding: 48px 24px; }
   .suite-title { font-size: 28px; }
+  .amenities-section { padding: 60px 24px; }
+  .amenities-list span { padding: 0 8px; }
 }
