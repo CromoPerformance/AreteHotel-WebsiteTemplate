@@ -33,10 +33,41 @@
     <section class="hero hero-home" id="hero">
       <div class="hero-inner">
         <div class="hero-kicker">Búzios · Rio de Janeiro</div>
-        <h1 class="hero-title">Aretê</h1>
+        <h1 class="hero-title">Hotel <em>Aretê</em></h1>
         <p class="hero-subtitle small">Um santuário entre o mar e a mata</p>
-        <div class="hero-note">Hotel Aretê</div>
       </div>
+
+      <div class="booking-bar">
+        <div class="booking-bar-inner">
+          <div class="booking-field">
+            <label class="booking-label">Check-in</label>
+            <input type="date" class="booking-input" id="checkin">
+          </div>
+          <div class="booking-field">
+            <label class="booking-label">Check-out</label>
+            <input type="date" class="booking-input" id="checkout">
+          </div>
+          <div class="booking-field">
+            <label class="booking-label">Adultos</label>
+            <select class="booking-input" id="adults">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="booking-field">
+            <label class="booking-label">Crianças</label>
+            <select class="booking-input" id="children">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <button class="booking-btn" type="button">Verificar Disponibilidade</button>
+        </div>
+      </div>
+
       <div class="hero-cue">Descobrir</div>
     </section>
 
