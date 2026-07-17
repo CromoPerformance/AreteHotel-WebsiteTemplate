@@ -184,6 +184,17 @@
     }
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
+
+    // Scroll animation for differential items
+    const diffItems = document.querySelectorAll('.diff-item');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    diffItems.forEach(function(item) { observer.observe(item); });
   </script>
 </body>
 </html>

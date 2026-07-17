@@ -713,7 +713,7 @@ main { padding-top: 0; }
 }
 .dark-band { background: linear-gradient(180deg, #0a1730 0%, #0b1627 100%); color: rgba(255, 255, 255, 0.9); }
 .dark-band .section-heading, .dark-band .detail-title, .dark-band .hero-subtitle, .dark-band .copy-text, .dark-band .detail-copy, .dark-band .eyebrow, .dark-band .footer a, .dark-band .footer-text { color: rgba(255, 255, 255, 0.74); }
-.dark-quote { padding: 92px 24px 108px; text-align: center; }
+.dark-quote { padding: 92px 24px 108px; text-align: center; background: var(--navy); }
 .dark-quote-inner { max-width: 1280px; margin: 0 auto; }
 .dark-quote .manifesto-text { color: rgba(255, 255, 255, 0.95); }
 .dark-quote .line-accent { background: rgba(92, 134, 184, 0.82); }
