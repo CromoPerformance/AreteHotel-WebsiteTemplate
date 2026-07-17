@@ -1326,7 +1326,7 @@ main { padding-top: 0; }
    ======================================== */
 .philosophy {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 50% 50%;
   min-height: 760px;
 }
 .philosophy-image {
@@ -1409,4 +1409,64 @@ main { padding-top: 0; }
 @media (max-width: 640px) {
   .dual-gallery { grid-template-columns: 1fr; }
   .dual-gallery-img { height: 50vh; }
+}
+
+/* ========================================
+   HOTEL PAGE — Pilares
+   ======================================== */
+.pillars {
+  position: relative;
+  padding: 120px 10%;
+  overflow: hidden;
+}
+.pillars-overlay {
+  position: absolute;
+  inset: 0;
+  background: url('../hotel/HOTEL-GALERIA-01.avif') center/cover no-repeat;
+}
+.pillars-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 21, 37, 0.92);
+}
+.pillars-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px;
+}
+.pillar-numeral {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 300;
+  color: rgba(111, 143, 183, 0.45);
+  line-height: 1;
+  margin-bottom: 32px;
+}
+.pillar-title {
+  margin: 0 0 20px;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+}
+.pillar-text {
+  margin: 0;
+  max-width: 380px;
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.60);
+}
+@media (max-width: 1024px) {
+  .pillars-inner { gap: 40px; }
+}
+@media (max-width: 640px) {
+  .pillars { padding: 80px 6%; }
+  .pillars-inner { grid-template-columns: 1fr; gap: 56px; }
+  .pillar-text { max-width: 100%; }
 }
