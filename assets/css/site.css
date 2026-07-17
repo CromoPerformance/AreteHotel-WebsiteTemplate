@@ -123,7 +123,7 @@ main { padding-top: 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 20, 34, 0.42) 0%, rgba(7, 20, 34, 0.35) 32%, rgba(7, 20, 34, 0.58) 100%);
+  background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
 .hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
 .hero.hero-rooms { background-image: url('../DSCF4045.avif'); background-position: center center; }
