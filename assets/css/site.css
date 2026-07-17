@@ -1229,16 +1229,17 @@ main { padding-top: 0; }
   align-items: flex-start;
   justify-content: flex-end;
   text-align: left;
-  padding-bottom: 10vh;
+  padding-bottom: calc(10vh + 100px);
   padding-left: 10%;
 }
 .hero-inner-left .hero-kicker {
   margin-bottom: 20px;
   text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-  font-size: 14px;
-  letter-spacing: 0.38em;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.42em;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 .hero-inner-left .hero-title {
   font-size: clamp(52px, 8vw, 110px);
@@ -1380,7 +1381,7 @@ main { padding-top: 0; }
   .hero-hotel .hero-inner { min-height: calc(70vh + 100px); }
   .hero-inner-left {
     justify-content: flex-end;
-    padding-bottom: 8vh;
+    padding-bottom: calc(8vh + 60px);
     padding-left: 6%;
   }
   .hero-inner-left .hero-title { font-size: clamp(38px, 10vw, 56px); }
