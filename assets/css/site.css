@@ -125,7 +125,7 @@ main { padding-top: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.42) 0%, rgba(7, 20, 34, 0.35) 32%, rgba(7, 20, 34, 0.58) 100%);
 }
-.hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center top; }
+.hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center calc(50% - 100px); }
 .hero.hero-rooms { background-image: url('../DSCF4045.avif'); background-position: center center; }
 .hero.hero-restaurant { background-image: url('../DSCF4405.avif'); background-position: center center; }
 .hero.hero-buzios { background-image: url('../DSCF4192.avif'); background-position: center center; }
@@ -550,13 +550,13 @@ main { padding-top: 0; }
 .booking-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 4px);
+  bottom: calc(100% + 4px);
   left: 0;
   right: 0;
   z-index: 10;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(27, 38, 51, 0.08);
   overflow: hidden;
   padding: 6px 0;
