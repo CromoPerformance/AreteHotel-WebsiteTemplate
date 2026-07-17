@@ -1539,6 +1539,10 @@ main { padding-top: 0; }
   font-weight: 300;
   color: #1a2230;
 }
+.differentials-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .diff-item {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -1566,7 +1570,7 @@ main { padding-top: 0; }
 }
 .diff-text {
   margin: 0;
-  max-width: 680px;
+  max-width: 580px;
   font-family: var(--sans);
   font-size: 17px;
   font-weight: 300;
