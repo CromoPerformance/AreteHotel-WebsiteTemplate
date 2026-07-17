@@ -175,7 +175,7 @@ main { padding-top: 0; }
 .hero.hero-hotel { background-image: url('../hotel/HOTEL-HERO.avif'); background-position: center 70%; }
 .hero.hero-rooms { background-image: url('../acomodacoes/DSCF4611.avif'); background-position: center center; }
 .hero.hero-restaurant { background-image: url('../restaurante/DSCF4405.avif'); background-position: center center; }
-.hero.hero-buzios { background-image: url('../buzios/DSCF4192.avif'); background-position: center center; }
+.hero.hero-buzios { background-image: url('../buzios/BUZIOS-HERO.avif'); background-position: center calc(50% - 100px); }
 .hero.hero-experiencias { background-image: url('../experiencias/DSCF4182.avif'); background-position: center center; }
 .hero-subpage::before {
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.55) 0%, rgba(7, 20, 34, 0.48) 32%, rgba(7, 20, 34, 0.72) 100%);
@@ -1792,6 +1792,54 @@ main { padding-top: 0; }
   opacity: 0.5;
 }
 
+/* ========================================
+   BUZIOS — Stats
+   ======================================== */
+.stats-section {
+  background: var(--navy);
+  padding: 100px 10%;
+}
+.stats-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-col {
+  flex: 1;
+  text-align: center;
+  padding: 24px 0;
+}
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(48px, 6vw, 64px);
+  font-weight: 300;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(111, 143, 183, 0.7);
+  margin-bottom: 12px;
+}
+.stat-sub {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(111, 143, 183, 0.5);
+}
+.stat-divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(111, 143, 183, 0.25);
+}
 @media (max-width: 1024px) {
   .suite-content { padding: 60px 48px; }
   .amenities-section { padding: 80px 6%; }
@@ -1806,4 +1854,7 @@ main { padding-top: 0; }
   .suite-title { font-size: 28px; }
   .amenities-section { padding: 60px 24px; }
   .amenities-list span { padding: 0 8px; }
+  .stats-inner { flex-direction: column; gap: 0; }
+  .stat-divider { width: 60px; height: 1px; }
+  .stat-col { padding: 32px 0; }
 }
