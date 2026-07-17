@@ -1275,7 +1275,7 @@ main { padding-top: 0; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 24px;
+  padding-top: 36px;
   gap: 12px;
   z-index: 2;
 }
