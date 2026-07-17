@@ -1,4 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('../fonts/Dosis-ExtraLight.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/Dosis-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Dosis-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/Dosis-SemiBold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Quickpen';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/QuickpenBold.ttf') format('truetype');
+}
 
 :root {
   --paper: #f8f8f4;
@@ -10,7 +44,8 @@
   --blue: #6f8fb7;
   --mist: #f2f4f8;
   --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Jost', Arial, sans-serif;
+  --sans: 'Dosis', Arial, sans-serif;
+  --display: 'Quickpen', cursive;
   --shadow: 0 18px 36px rgba(8, 23, 42, 0.07);
 }
 
@@ -131,11 +166,11 @@ main { padding-top: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
-.hero.hero-home { background-image: url('../HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
-.hero.hero-rooms { background-image: url('../DSCF4045.avif'); background-position: center center; }
-.hero.hero-restaurant { background-image: url('../DSCF4405.avif'); background-position: center center; }
-.hero.hero-buzios { background-image: url('../DSCF4192.avif'); background-position: center center; }
-.hero.hero-experiencias { background-image: url('../DSCF4182.avif'); background-position: center center; }
+.hero.hero-home { background-image: url('../home/HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
+.hero.hero-rooms { background-image: url('../acomodacoes/DSCF4045.avif'); background-position: center center; }
+.hero.hero-restaurant { background-image: url('../restaurante/DSCF4405.avif'); background-position: center center; }
+.hero.hero-buzios { background-image: url('../buzios/DSCF4192.avif'); background-position: center center; }
+.hero.hero-experiencias { background-image: url('../experiencias/DSCF4182.avif'); background-position: center center; }
 .hero-inner {
   position: relative;
   z-index: 1;
@@ -633,10 +668,10 @@ main { padding-top: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.1));
 }
-.split-media.image-1 { background-image: url('../DSCF4289.avif'); }
-.split-media.image-2 { background-image: url('../DSCF4185.avif'); }
-.split-media.image-4 { background-image: url('../DSCF4405.avif'); }
-.split-media.image-6 { background-image: url('../DSCF4195.avif'); }
+.split-media.image-1 { background-image: url('../shared/DSCF4289.avif'); }
+.split-media.image-2 { background-image: url('../shared/DSCF4185.avif'); }
+.split-media.image-4 { background-image: url('../restaurante/DSCF4405.avif'); }
+.split-media.image-6 { background-image: url('../shared/DSCF4195.avif'); }
 
 .detail-list { display: grid; margin-top: 44px; border-top: 1px solid rgba(21, 32, 45, 0.08); }
 .detail-item {
@@ -743,8 +778,8 @@ main { padding-top: 0; }
   box-shadow: var(--shadow);
 }
 .hero-panel-media { background: center/cover no-repeat; min-height: 600px; }
-.hero-panel-media.room { background-image: url('../DSCF4045.avif'); }
-.hero-panel-media.food { background-image: url('../DSCF4405.avif'); }
+.hero-panel-media.room { background-image: url('../acomodacoes/DSCF4045.avif'); }
+.hero-panel-media.food { background-image: url('../restaurante/DSCF4405.avif'); }
 .hero-panel-copy {
   background: var(--mist);
   padding: 68px clamp(24px, 3.2vw, 58px);
