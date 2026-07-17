@@ -34,7 +34,7 @@
       <div class="hero-inner">
         <div class="hero-kicker">Búzios · Rio de Janeiro</div>
         <h1 class="hero-title">Hotel <em>Aretê</em></h1>
-        <p class="hero-subtitle small">Um santuário entre o mar e a mata</p>
+        <p class="hero-subtitle">Um santuário entre o mar e a mata</p>
       </div>
 
       <div class="booking-bar">
@@ -50,21 +50,24 @@
           <div class="booking-field">
             <label class="booking-label">Adultos</label>
             <select class="booking-input" id="adults">
-              <option value="1">1</option>
-              <option value="2" selected>2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+              <option value="1">1 Adulto</option>
+              <option value="2" selected>2 Adultos</option>
+              <option value="3">3 Adultos</option>
+              <option value="4">4 Adultos</option>
             </select>
           </div>
           <div class="booking-field">
             <label class="booking-label">Crianças</label>
             <select class="booking-input" id="children">
-              <option value="0" selected>0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
+              <option value="0" selected>Nenhuma</option>
+              <option value="1">1 Criança</option>
+              <option value="2">2 Crianças</option>
             </select>
           </div>
-          <button class="booking-btn" type="button">Verificar Disponibilidade</button>
+          <button class="booking-btn" type="button">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Verificar
+          </button>
         </div>
       </div>
 
@@ -277,6 +280,38 @@
     
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
+
+    // Booking bar functionality
+    const checkin = document.getElementById('checkin');
+    const checkout = document.getElementById('checkout');
+    const today = new Date().toISOString().split('T')[0];
+    
+    checkin.min = today;
+    checkout.min = today;
+    
+    checkin.addEventListener('change', function() {
+      const nextDay = new Date(this.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkout.min = nextDay.toISOString().split('T')[0];
+      if (checkout.value && checkout.value <= this.value) {
+        checkout.value = nextDay.toISOString().split('T')[0];
+      }
+    });
+
+    document.querySelector('.booking-btn').addEventListener('click', function() {
+      const ci = checkin.value;
+      const co = checkout.value;
+      const ad = document.getElementById('adults').value;
+      const ch = document.getElementById('children').value;
+      
+      if (!ci || !co) {
+        alert('Por favor, selecione as datas de check-in e check-out.');
+        return;
+      }
+      
+      const params = new URLSearchParams({ checkin: ci, checkout: co, adults: ad, children: ch });
+      window.location.href = 'acomodacoes.html?' + params.toString();
+    });
   </script>
 </body>
 </html>
