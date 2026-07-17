@@ -2022,47 +2022,30 @@ main { padding-top: 0; }
 /* ========================================
    EXPERIENCIAS — Dark Split (Concierge)
    ======================================== */
-.dark-split {
-  display: grid;
-  grid-template-columns: 50% 50%;
+.nature-split-reverse {
+  grid-template-areas: "content image";
 }
-.dark-split-image {
-  background: center/cover no-repeat;
-  min-height: 600px;
-}
-.dark-split-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 72px 80px 80px;
+.nature-split-reverse .nature-split-image { grid-area: image; }
+.nature-split-reverse .nature-split-content { grid-area: content; }
+.nature-split-dark .nature-split-content {
   background: var(--navy);
 }
-.dark-split-content .eyebrow {
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+.nature-split-dark .nature-split-content .eyebrow {
   color: var(--blue);
-  margin-bottom: 28px;
 }
-.dark-split-title {
-  margin: 0 0 32px;
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 42px);
-  font-weight: 300;
-  line-height: 1.15;
+.nature-split-dark .nature-split-title {
   color: #fff;
 }
-.dark-split-text {
-  margin: 0 0 40px;
-  max-width: 480px;
-  font-family: var(--sans);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.75;
+.nature-split-dark .nature-split-text {
   color: rgba(111, 143, 183, 0.7);
 }
+@media (max-width: 640px) {
+  .nature-split-reverse { grid-template-areas: "image" "content"; }
+}
+
+/* ========================================
+   EXPERIENCIAS — Button outline light
+   ======================================== */
 .btn-outline-light {
   display: inline-block;
   width: fit-content;
@@ -2082,9 +2065,4 @@ main { padding-top: 0; }
 .btn-outline-light:hover {
   border-color: #fff;
   background: rgba(255,255,255,0.08);
-}
-@media (max-width: 640px) {
-  .dark-split { grid-template-columns: 1fr; }
-  .dark-split-image { min-height: 48vh; }
-  .dark-split-content { padding: 60px 24px; }
 }
