@@ -1457,3 +1457,57 @@ main { padding-top: 0; }
   .pillars-inner { grid-template-columns: 1fr; gap: 56px; }
   .pillar-text { max-width: 100%; }
 }
+
+/* ========================================
+   HOTEL PAGE — Natureza & Localização
+   ======================================== */
+.nature-split {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.nature-split-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 72px 100px 10%;
+  background: #fff;
+}
+.nature-split-content .eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 28px;
+}
+.nature-split-title {
+  margin: 0 0 40px;
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.5vw, 52px);
+  font-weight: 300;
+  line-height: 1.08;
+  color: #1a2230;
+}
+.nature-split-text {
+  margin: 0 0 28px;
+  max-width: 480px;
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.nature-split-text:last-child { margin-bottom: 0; }
+.nature-split-image {
+  background: url('../shared/DSCF4064.avif') center/cover no-repeat;
+  min-height: 600px;
+}
+@media (max-width: 1024px) {
+  .nature-split-content { padding: 80px 48px; }
+}
+@media (max-width: 640px) {
+  .nature-split { grid-template-columns: 1fr; }
+  .nature-split-content { padding: 60px 24px; }
+  .nature-split-image { min-height: 50vh; }
+}
