@@ -349,12 +349,14 @@ main { padding-top: 0; }
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding: 80px 40px;
+  padding: 80px 80px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 .stat-block {
   text-align: center;
   flex: 1;
-  max-width: 320px;
   padding: 0 64px;
 }
 .stat-number {
