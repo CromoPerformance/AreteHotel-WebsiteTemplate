@@ -1213,3 +1213,132 @@ main { padding-top: 0; }
   .booking-field .booking-dropdown { min-width: 180px; }
   .booking-btn { flex: 0 0 100%; min-width: 0; padding: 16px; border-radius: 0 0 4px 4px; }
 }
+
+/* ========================================
+   HOTEL PAGE — Hero Left-Aligned
+   ======================================== */
+.hero-hotel {
+  background-image: url('../shared/DSCF4383.avif');
+  background-position: center center;
+}
+.hero-left .hero-inner,
+.hero-inner-left {
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: left;
+  padding-bottom: 12vh;
+}
+.hero-inner-left .hero-kicker { margin-bottom: 20px; }
+.hero-inner-left .hero-title {
+  font-size: clamp(52px, 8vw, 110px);
+  line-height: 0.92;
+  margin-bottom: 24px;
+}
+.hero-inner-left .hero-subtitle {
+  max-width: 520px;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+/* ========================================
+   HOTEL PAGE — Manifesto Centered
+   ======================================== */
+.manifesto-center { padding: 160px 24px 150px; }
+.manifesto-center .manifesto-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.manifesto-line {
+  width: 50px;
+  height: 1px;
+  background: rgba(111, 143, 183, 0.50);
+}
+.manifesto-text-center {
+  text-align: center;
+  max-width: 1100px;
+  font-size: clamp(32px, 4.5vw, 64px);
+  line-height: 1.4;
+  padding: 40px 0;
+  color: #081525;
+}
+/* Override the ::before/::after pseudo-lines for centered variant */
+.manifesto-center .manifesto-text-center::before,
+.manifesto-center .manifesto-text-center::after {
+  display: none;
+}
+
+/* ========================================
+   HOTEL PAGE — Filosofia Split
+   ======================================== */
+.philosophy {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 760px;
+}
+.philosophy-image {
+  background: url('../shared/DSCF4153.avif') center/cover no-repeat;
+  min-height: 760px;
+}
+.philosophy-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 72px 80px 80px;
+  background: #F6F8FA;
+}
+.philosophy-content .eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 28px;
+}
+.philosophy-content .section-heading {
+  margin: 0 0 40px;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 5.5vw, 80px);
+  line-height: 1.0;
+  color: #0a1e3d;
+}
+.philosophy-content .section-heading em { font-style: italic; }
+.philosophy-text {
+  margin: 0 0 24px;
+  max-width: 480px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #7A7A7A;
+}
+.philosophy-text:last-child { margin-bottom: 0; }
+
+/* ========================================
+   HOTEL PAGE — Responsive
+   ======================================== */
+@media (max-width: 1024px) {
+  .hero-inner-left .hero-title { font-size: clamp(44px, 7vw, 80px); }
+  .philosophy { grid-template-columns: 1fr; min-height: auto; }
+  .philosophy-image { min-height: 50vh; }
+  .philosophy-content { padding: 60px 48px; }
+}
+@media (max-width: 640px) {
+  .hero-hotel { min-height: 80vh; }
+  .hero-inner-left {
+    justify-content: flex-end;
+    padding-bottom: 10vh;
+  }
+  .hero-inner-left .hero-title { font-size: clamp(38px, 10vw, 56px); }
+  .hero-inner-left .hero-subtitle { font-size: 15px; max-width: 100%; }
+  .manifesto-center { padding: 100px 24px 90px; }
+  .manifesto-text-center { font-size: clamp(26px, 6vw, 40px); }
+  .philosophy-image { min-height: 40vh; }
+  .philosophy-content { padding: 48px 24px; }
+  .philosophy-content .section-heading { font-size: clamp(36px, 8vw, 52px); }
+}

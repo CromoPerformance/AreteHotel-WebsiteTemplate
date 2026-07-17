@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Hotel | Hotel Aretê Búzios</title>
+  <meta name="description" content="Conheça o Hotel Aretê em Búzios, um santuário entre o mar e a mata.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <div class="nav-group left">
+        <a class="nav-link" href="hotel.html" aria-current="page">O Hotel</a>
+        <a class="nav-link" href="acomodacoes.html">Acomodações</a>
+      </div>
+      <a class="brand" href="index.html" aria-label="Hotel Aretê Búzios">
+        <img class="brand-logo brand-logo-white" src="assets/logos/191010_Marca_Hotel_Arete_Buzios_Vert_Mono.png" alt="Hotel Aretê Búzios">
+        <img class="brand-logo brand-logo-blue" src="assets/logos/191010_Marca_Hotel_Arete_Buzios_Vert_RGB.png" alt="Hotel Aretê Búzios">
+      </a>
+      <div class="nav-group right">
+        <a class="nav-link" href="buzios.html">Búzios</a>
+        <a class="nav-link" href="experiencias.html">Experiências</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-cta" href="restaurante.html">Reservar</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero hero-hotel hero-left" id="hero">
+      <div class="hero-inner hero-inner-left">
+        <div class="hero-kicker">Hotel de Luxo · Búzios</div>
+        <h1 class="hero-title">Onde o tempo<br><em>ralenta</em></h1>
+        <p class="hero-subtitle">Um refúgio entre os canais navegáveis e a mata atlântica, onde cada detalhe foi pensado para o seu conforto.</p>
+      </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto manifesto-center">
+      <div class="manifesto-inner">
+        <div class="manifesto-line"></div>
+        <p class="manifesto-text manifesto-text-center">Do grego aretê — a palavra que carrega o peso de milênios de reflexão sobre o que significa realizar o mais alto potencial de cada momento.</p>
+        <div class="manifesto-line"></div>
+      </div>
+    </section>
+
+    <!-- Filosofia -->
+    <section class="philosophy">
+      <div class="philosophy-image" aria-hidden="true"></div>
+      <div class="philosophy-content">
+        <div class="eyebrow">Filosofia</div>
+        <h2 class="section-heading">Excelência<br><em>por definição</em></h2>
+        <p class="philosophy-text">Não é apenas um nome. É uma promessa que renovamos a cada manhã: a de criar um espaço onde o tempo parece ralentar, onde cada detalhe importa, onde o luxo é sobre estar presente.</p>
+        <p class="philosophy-text">Aninhado entre a vegetação nativa e as águas cristalinas de Búzios, o Aretê oferece uma experiência que transcende a hospedagem tradicional. Com ambientes amplos e arejados, cada espaço privilegia seu conforto, segurança e tranquilidade.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const header = document.querySelector('.site-header');
+    function updateHeader() {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  </script>
+</body>
+</html>
