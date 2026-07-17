@@ -260,6 +260,9 @@ main { padding-top: 0; }
   background-position: center;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
 }
+.hub-panel:hover .hub-panel-bg {
+  transform: scale(1.015);
+}
 .hub-panel-overlay {
   position: absolute;
   inset: 0;
@@ -275,13 +278,16 @@ main { padding-top: 0; }
   z-index: 1;
 }
 .hub-number {
-  display: block;
+  display: inline-block;
   font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 400;
-  color: rgba(111, 143, 183, 0.70);
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.06em;
   margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 4px 10px;
+  border-radius: 3px;
 }
 .hub-title {
   margin: 0;
@@ -315,9 +321,6 @@ main { padding-top: 0; }
 }
 .hub-link svg {
   transition: transform 0.3s ease;
-}
-.hub-panel:hover .hub-panel-bg {
-  transform: scale(1.05);
 }
 .hub-panel:hover .hub-link svg {
   transform: translateX(4px);
