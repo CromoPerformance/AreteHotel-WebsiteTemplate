@@ -39,30 +39,34 @@
 
       <div class="booking-bar">
         <div class="booking-bar-inner">
-          <div class="booking-field">
+          <div class="booking-field" id="checkinField">
             <label class="booking-label">Check-in</label>
-            <input type="date" class="booking-input" id="checkin">
+            <div class="booking-display" id="checkinDisplay">Selecionar data</div>
+            <input type="date" class="booking-input-hidden" id="checkin">
           </div>
-          <div class="booking-field">
+          <div class="booking-field" id="checkoutField">
             <label class="booking-label">Check-out</label>
-            <input type="date" class="booking-input" id="checkout">
+            <div class="booking-display" id="checkoutDisplay">Selecionar data</div>
+            <input type="date" class="booking-input-hidden" id="checkout">
           </div>
-          <div class="booking-field">
+          <div class="booking-field custom-select" id="adultsField">
             <label class="booking-label">Adultos</label>
-            <select class="booking-input" id="adults">
-              <option value="1">1 Adulto</option>
-              <option value="2" selected>2 Adultos</option>
-              <option value="3">3 Adultos</option>
-              <option value="4">4 Adultos</option>
-            </select>
+            <div class="booking-display" id="adultsDisplay">2 Adultos</div>
+            <div class="booking-dropdown" id="adultsDropdown">
+              <div class="booking-option selected" data-value="2">2 Adultos</div>
+              <div class="booking-option" data-value="1">1 Adulto</div>
+              <div class="booking-option" data-value="3">3 Adultos</div>
+              <div class="booking-option" data-value="4">4 Adultos</div>
+            </div>
           </div>
-          <div class="booking-field">
+          <div class="booking-field custom-select" id="childrenField">
             <label class="booking-label">Crianças</label>
-            <select class="booking-input" id="children">
-              <option value="0" selected>Nenhuma</option>
-              <option value="1">1 Criança</option>
-              <option value="2">2 Crianças</option>
-            </select>
+            <div class="booking-display" id="childrenDisplay">Nenhuma</div>
+            <div class="booking-dropdown" id="childrenDropdown">
+              <div class="booking-option selected" data-value="0">Nenhuma</div>
+              <div class="booking-option" data-value="1">1 Criança</div>
+              <div class="booking-option" data-value="2">2 Crianças</div>
+            </div>
           </div>
           <button class="booking-btn" type="button">
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -266,7 +270,6 @@
 
   <script>
     const header = document.querySelector('.site-header');
-    const hero = document.querySelector('.hero');
     
     function updateHeader() {
       if (window.scrollY > 80) {
@@ -279,35 +282,95 @@
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Booking bar functionality
-    const checkin = document.getElementById('checkin');
-    const checkout = document.getElementById('checkout');
+    // Custom date picker: click display → open native date picker
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+    const checkinDisplay = document.getElementById('checkinDisplay');
+    const checkoutDisplay = document.getElementById('checkoutDisplay');
     const today = new Date().toISOString().split('T')[0];
     
-    checkin.min = today;
-    checkout.min = today;
-    
-    checkin.addEventListener('change', function() {
+    checkinInput.min = today;
+    checkoutInput.min = today;
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const [y, m, d] = dateStr.split('-');
+      return d + '/' + m + '/' + y;
+    }
+
+    document.getElementById('checkinField').addEventListener('click', function(e) {
+      if (e.target.closest('.booking-dropdown')) return;
+      checkinInput.showPicker();
+    });
+    document.getElementById('checkoutField').addEventListener('click', function(e) {
+      if (e.target.closest('.booking-dropdown')) return;
+      checkoutInput.showPicker();
+    });
+
+    checkinInput.addEventListener('change', function() {
+      checkinDisplay.textContent = formatDate(this.value);
+      checkinDisplay.classList.remove('placeholder');
       const nextDay = new Date(this.value);
       nextDay.setDate(nextDay.getDate() + 1);
-      checkout.min = nextDay.toISOString().split('T')[0];
-      if (checkout.value && checkout.value <= this.value) {
-        checkout.value = nextDay.toISOString().split('T')[0];
+      checkoutInput.min = nextDay.toISOString().split('T')[0];
+      if (checkoutInput.value && checkoutInput.value <= this.value) {
+        checkoutInput.value = nextDay.toISOString().split('T')[0];
+        checkoutDisplay.textContent = formatDate(checkoutInput.value);
+      }
+    });
+    checkoutInput.addEventListener('change', function() {
+      checkoutDisplay.textContent = formatDate(this.value);
+      checkoutDisplay.classList.remove('placeholder');
+    });
+
+    // Custom select dropdowns
+    document.querySelectorAll('.booking-field.custom-select').forEach(function(field) {
+      var display = field.querySelector('.booking-display');
+      var dropdown = field.querySelector('.booking-dropdown');
+      var options = dropdown.querySelectorAll('.booking-option');
+      
+      field.addEventListener('click', function(e) {
+        var option = e.target.closest('.booking-option');
+        if (option) {
+          options.forEach(function(o) { o.classList.remove('selected'); });
+          option.classList.add('selected');
+          display.textContent = option.textContent;
+          dropdown.classList.remove('open');
+          return;
+        }
+        // Toggle dropdown
+        document.querySelectorAll('.booking-dropdown.open').forEach(function(d) {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.booking-field.custom-select')) {
+        document.querySelectorAll('.booking-dropdown.open').forEach(function(d) {
+          d.classList.remove('open');
+        });
       }
     });
 
+    // Booking button
+    var selectedAdults = '2';
+    var selectedChildren = '0';
+
     document.querySelector('.booking-btn').addEventListener('click', function() {
-      const ci = checkin.value;
-      const co = checkout.value;
-      const ad = document.getElementById('adults').value;
-      const ch = document.getElementById('children').value;
+      var ci = checkinInput.value;
+      var co = checkoutInput.value;
+      var ad = document.querySelector('#adultsDropdown .selected').dataset.value;
+      var ch = document.querySelector('#childrenDropdown .selected').dataset.value;
       
       if (!ci || !co) {
         alert('Por favor, selecione as datas de check-in e check-out.');
         return;
       }
       
-      const params = new URLSearchParams({ checkin: ci, checkout: co, adults: ad, children: ch });
+      var params = new URLSearchParams({ checkin: ci, checkout: co, adults: ad, children: ch });
       window.location.href = 'acomodacoes.html?' + params.toString();
     });
   </script>
