@@ -2288,271 +2288,288 @@ main { padding-top: 0; }
 /* ========================================
    ECOSSISTEMA MAPA INTERATIVO
    ======================================== */
-.eco-map-section {
+.eco-map {
   background: var(--navy);
-  padding: 80px 0 0;
+  padding: 0;
   position: relative;
-  overflow: hidden;
 }
-.eco-map-container {
+.eco-map-wrap {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  height: 80vh;
-  min-height: 600px;
-  max-height: 800px;
+  height: 75vh;
+  min-height: 550px;
+  max-height: 700px;
 }
-.eco-map-svg {
+.eco-lines {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-}
-/* Pulse animation on center ring */
-@keyframes ecoPulse {
-  0%, 100% { r: 36; opacity: 0.3; }
-  50% { r: 50; opacity: 0; }
-}
-.eco-pulse {
-  animation: ecoPulse 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* Center label */
-.eco-center-label {
+/* Center hotel */
+.eco-hotel {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
   z-index: 10;
-  pointer-events: none;
+  text-align: center;
 }
-.eco-center-dot {
-  width: 12px;
-  height: 12px;
+.eco-hotel-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(111,143,183,0.3);
+  margin: 0 auto;
+  position: relative;
+}
+.eco-hotel-ring::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(111,143,183,0.12);
+  animation: ecoRingPulse 4s ease-in-out infinite;
+}
+@keyframes ecoRingPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 0; }
+}
+.eco-hotel-dot {
+  width: 14px;
+  height: 14px;
   background: #6f8fb7;
   border-radius: 50%;
-  margin: 0 auto 12px;
-  box-shadow: 0 0 20px rgba(111,143,183,0.5);
-}
-.eco-center-name {
-  font-family: var(--serif);
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 300;
-  color: #fff;
-  letter-spacing: 0.05em;
-}
-.eco-center-sub {
-  font-family: var(--sans);
-  font-size: 11px;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-
-/* Nodes */
-.eco-node {
-  position: absolute;
-  z-index: 20;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-  transition: z-index 0s;
-}
-.eco-node.active {
-  z-index: 30;
-}
-.eco-node-img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  border: 2px solid rgba(111,143,183,0.4);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.eco-node:hover .eco-node-img,
-.eco-node.active .eco-node-img {
-  width: 80px;
-  height: 80px;
-  border-color: #6f8fb7;
-  box-shadow: 0 0 30px rgba(111,143,183,0.4);
-}
-
-/* Info card (hidden by default) */
-.eco-node-info {
   position: absolute;
   top: 50%;
-  left: calc(100% + 16px);
-  transform: translateY(-50%);
-  width: 280px;
-  background: rgba(255,255,255,0.97);
-  border-radius: 4px;
-  padding: 24px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 24px rgba(111,143,183,0.5);
+}
+.eco-hotel-label {
+  margin-top: 16px;
+  white-space: nowrap;
+}
+.eco-hotel-name {
+  display: block;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.eco-hotel-sub {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Pins */
+.eco-pin {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.23,1,0.32,1);
+}
+.eco-pin.revealed {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.eco-pin.active {
+  z-index: 20;
+}
+
+.eco-pin-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.eco-pin:hover .eco-pin-dot,
+.eco-pin.active .eco-pin-dot {
+  background: #6f8fb7;
+  transform: scale(1.3);
+  box-shadow: 0 0 20px rgba(111,143,183,0.6);
+}
+.eco-pin-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(111,143,183,0.4);
+  transform: translate(-50%, -50%);
+  animation: ecoPinPulse 3s ease-in-out infinite;
+}
+@keyframes ecoPinPulse {
+  0%, 100% { width: 12px; height: 12px; opacity: 0.6; }
+  50% { width: 32px; height: 32px; opacity: 0; }
+}
+
+/* Floating card */
+.eco-pin-card {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 20px);
+  transform: translateY(-50%) translateX(6px);
+  width: 300px;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
-  transform: translateY(-50%) translateX(8px);
+  transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.3);
 }
-/* If node is on the right side, show card to the left */
-.eco-node[data-index="1"] .eco-node-info,
-.eco-node[data-index="2"] .eco-node-info {
-  left: auto;
-  right: calc(100% + 16px);
-  transform: translateY(-50%) translateX(-8px);
-}
-.eco-node[data-index="1"]:hover .eco-node-info,
-.eco-node[data-index="2"]:hover .eco-node-info,
-.eco-node[data-index="1"].active .eco-node-info,
-.eco-node[data-index="2"].active .eco-node-info {
-  transform: translateY(-50%) translateX(0);
-}
-/* Bottom nodes: show card above */
-.eco-node[data-index="3"] .eco-node-info {
-  top: auto;
-  bottom: calc(100% + 16px);
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-}
-.eco-node[data-index="3"]:hover .eco-node-info,
-.eco-node[data-index="3"].active .eco-node-info {
-  transform: translateX(-50%) translateY(0);
-}
-
-.eco-node:hover .eco-node-info,
-.eco-node.active .eco-node-info {
+.eco-pin:hover .eco-pin-card,
+.eco-pin.active .eco-pin-card {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(-50%) translateX(0);
 }
-.eco-node[data-index="1"]:hover .eco-node-info,
-.eco-node[data-index="2"]:hover .eco-node-info,
-.eco-node[data-index="1"].active .eco-node-info,
-.eco-node[data-index="2"].active .eco-node-info {
+/* Cards on the right side → show to the left */
+.eco-pin[data-angle="30"] .eco-pin-card,
+.eco-pin[data-angle="330"] .eco-pin-card {
+  left: auto;
+  right: calc(100% + 20px);
+  transform: translateY(-50%) translateX(-6px);
+}
+.eco-pin[data-angle="30"]:hover .eco-pin-card,
+.eco-pin[data-angle="30"].active .eco-pin-card,
+.eco-pin[data-angle="330"]:hover .eco-pin-card,
+.eco-pin[data-angle="330"].active .eco-pin-card {
   transform: translateY(-50%) translateX(0);
 }
-.eco-node[data-index="3"]:hover .eco-node-info,
-.eco-node[data-index="3"].active .eco-node-info {
+/* Bottom pins → show above */
+.eco-pin[data-angle="270"] .eco-pin-card {
+  top: auto;
+  bottom: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+}
+.eco-pin[data-angle="270"]:hover .eco-pin-card,
+.eco-pin[data-angle="270"].active .eco-pin-card {
   transform: translateX(-50%) translateY(0);
 }
 
-.eco-node-name {
+.eco-pin-card-img {
+  width: 100%;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+}
+.eco-pin-card-body {
+  padding: 20px;
+}
+.eco-pin-card-body h3 {
   font-family: var(--serif);
   font-size: 18px;
   font-weight: 300;
   color: var(--navy);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
-.eco-node-dist {
+.eco-pin-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.eco-pin-km {
   font-family: var(--sans);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #6f8fb7;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
 }
-.eco-node-times {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+.eco-pin-sep {
+  color: rgba(27,38,51,0.2);
 }
-.eco-node-times span {
+.eco-pin-meta span {
   font-family: var(--sans);
   font-size: 12px;
-  color: rgba(27,38,51,0.5);
-  white-space: nowrap;
+  color: rgba(27,38,51,0.45);
 }
-.eco-node-desc {
+.eco-pin-card-body p {
   font-family: var(--sans);
   font-size: 13px;
-  color: rgba(27,38,51,0.6);
+  color: rgba(27,38,51,0.55);
   line-height: 1.5;
 }
 
-/* Reveal animation */
-.eco-node {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.8);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.eco-node.revealed {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
 /* Stagger reveal */
-.eco-node[data-index="0"] { transition-delay: 0s; }
-.eco-node[data-index="1"] { transition-delay: 0.1s; }
-.eco-node[data-index="2"] { transition-delay: 0.2s; }
-.eco-node[data-index="3"] { transition-delay: 0.3s; }
-.eco-node[data-index="4"] { transition-delay: 0.4s; }
-.eco-node[data-index="5"] { transition-delay: 0.5s; }
+.eco-pin:nth-child(3) { transition-delay: 0s; }
+.eco-pin:nth-child(4) { transition-delay: 0.08s; }
+.eco-pin:nth-child(5) { transition-delay: 0.16s; }
+.eco-pin:nth-child(6) { transition-delay: 0.24s; }
+.eco-pin:nth-child(7) { transition-delay: 0.32s; }
+.eco-pin:nth-child(8) { transition-delay: 0.4s; }
 
-/* Mobile cards fallback */
-.eco-mobile-cards {
+/* Mobile */
+.eco-mobile {
   display: none;
 }
-
-/* Responsive */
 @media (max-width: 900px) {
-  .eco-map-container { display: none; }
-  .eco-mobile-cards {
+  .eco-map-wrap { display: none; }
+  .eco-mobile {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     padding: 40px 5% 80px;
+    background: var(--navy);
   }
   .eco-mobile-card {
     display: flex;
-    gap: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(111,143,183,0.15);
-    border-radius: 4px;
+    gap: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(111,143,183,0.12);
+    border-radius: 6px;
     overflow: hidden;
   }
   .eco-mobile-img {
-    width: 120px;
-    min-height: 120px;
+    width: 100px;
+    min-height: 100px;
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
   }
-  .eco-mobile-content {
-    padding: 20px 20px 20px 0;
+  .eco-mobile-body {
+    padding: 16px 16px 16px 0;
   }
-  .eco-mobile-content h3 {
+  .eco-mobile-body h3 {
     font-family: var(--serif);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: #fff;
     margin-bottom: 4px;
   }
-  .eco-mobile-dist {
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    color: #6f8fb7;
-    margin-bottom: 8px;
-  }
-  .eco-mobile-times {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-  .eco-mobile-times span {
+  .eco-mobile-meta {
     font-family: var(--sans);
     font-size: 12px;
-    color: rgba(255,255,255,0.5);
+    color: #6f8fb7;
+    margin-bottom: 6px;
   }
-  .eco-mobile-content p:last-child {
+  .eco-mobile-body p {
     font-family: var(--sans);
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
     line-height: 1.5;
   }
 }
