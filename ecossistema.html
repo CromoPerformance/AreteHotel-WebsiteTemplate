@@ -27,7 +27,9 @@
       </div>
     </nav>
   </header>
+
   <main>
+    <!-- Hero -->
     <section class="hero hero-subpage">
       <div class="hero-inner">
         <div class="hero-kicker">Aretê Búzios</div>
@@ -43,38 +45,217 @@
       </div>
     </section>
 
-    <!-- Equipamentos -->
-    <section class="amenities-section">
-      <div class="amenities-grid">
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Clube de Praia</div>
-          <div class="diff-desc">1,5 km — Exclusivo para hóspedes do hotel. Restaurante, piscina infantil, espaço kids com monitores e estacionamento. Sem aglomeração, sem barulho, com estrutura completa.</div>
+    <!-- Mapa Interativo -->
+    <section class="eco-map-section">
+      <div class="eco-map-container">
+        <!-- SVG Map Background -->
+        <svg class="eco-map-svg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+          <!-- Subtle grid lines -->
+          <defs>
+            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(111,143,183,0.06)" stroke-width="0.5"/>
+            </pattern>
+            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(111,143,183,0.15)"/>
+              <stop offset="100%" stop-color="rgba(111,143,183,0)"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect width="1200" height="800" fill="url(#grid)"/>
+          <circle cx="600" cy="400" r="280" fill="url(#centerGlow)"/>
+
+          <!-- Connection lines from center to nodes -->
+          <line x1="600" y1="400" x2="600" y2="120" stroke="rgba(111,143,183,0.15)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="600" y1="400" x2="920" y2="220" stroke="rgba(111,143,183,0.15)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="600" y1="400" x2="960" y2="500" stroke="rgba(111,143,183,0.15)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="600" y1="400" x2="600" y2="680" stroke="rgba(111,143,183,0.15)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="600" y1="400" x2="280" y2="560" stroke="rgba(111,143,183,0.15)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="600" y1="400" x2="240" y2="280" stroke="rgba(111,143,183,0.15)" stroke-width="1" stroke-dasharray="4,6"/>
+
+          <!-- Center: Hotel Aretê -->
+          <circle cx="600" cy="400" r="24" fill="#081525" stroke="#6f8fb7" stroke-width="2" filter="url(#glow)"/>
+          <circle cx="600" cy="400" r="8" fill="#6f8fb7"/>
+          <circle cx="600" cy="400" r="36" fill="none" stroke="rgba(111,143,183,0.3)" stroke-width="1" class="eco-pulse"/>
+        </svg>
+
+        <!-- Hotel Center Label -->
+        <div class="eco-center-label">
+          <div class="eco-center-dot"></div>
+          <div class="eco-center-name">Hotel Aretê</div>
+          <div class="eco-center-sub">Seu ponto de partida</div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Sede Esportiva</div>
-          <div class="diff-desc">2 km — Estrutura completa para atividades esportivas. Consulte valores para day use.</div>
+
+        <!-- Amenity Nodes -->
+        <div class="eco-node" data-index="0" style="top:8%;left:50%;transform:translateX(-50%)">
+          <div class="eco-node-img" style="background-image:url('assets/shared/DSCF4719.avif')"></div>
+          <div class="eco-node-info">
+            <h3 class="eco-node-name">Clube de Praia</h3>
+            <p class="eco-node-dist">1,5 km</p>
+            <div class="eco-node-times">
+              <span>🚶 18 min</span>
+              <span>🚲 6 min</span>
+              <span>🚗 3 min</span>
+            </div>
+            <p class="eco-node-desc">Restaurante, piscina infantil, espaço kids com monitores e estacionamento. Exclusivo para hóspedes.</p>
+          </div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Sede Golf</div>
-          <div class="diff-desc">2 km — Campo de golfe exclusivo do complexo. Consulte valores para day use.</div>
+
+        <div class="eco-node" data-index="1" style="top:22%;left:72%">
+          <div class="eco-node-img" style="background-image:url('assets/shared/DSCF4811.avif')"></div>
+          <div class="eco-node-info">
+            <h3 class="eco-node-name">Sede Esportiva</h3>
+            <p class="eco-node-dist">2 km</p>
+            <div class="eco-node-times">
+              <span>🚶 25 min</span>
+              <span>🚲 8 min</span>
+              <span>🚗 4 min</span>
+            </div>
+            <p class="eco-node-desc">Quadras de tênis, paddle, academia ao ar livre e piscina olímpica.</p>
+          </div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Pista de Bike</div>
-          <div class="diff-desc">2 km — Pista exclusiva para ciclistas dentro do complexo. Consulte valores para day use.</div>
+
+        <div class="eco-node" data-index="2" style="top:58%;left:78%">
+          <div class="eco-node-img" style="background-image:url('assets/shared/DSCF4064.avif')"></div>
+          <div class="eco-node-info">
+            <h3 class="eco-node-name">Sede Golf</h3>
+            <p class="eco-node-dist">2 km</p>
+            <div class="eco-node-times">
+              <span>🚶 25 min</span>
+              <span>🚲 8 min</span>
+              <span>🚗 4 min</span>
+            </div>
+            <p class="eco-node-desc">Campo de 18 buracos projetado por Pete e Perry Dye. Um dos melhores da América Latina.</p>
+          </div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Cervejaria Búzios</div>
-          <div class="diff-desc">4 km — Opção gastronômica nas proximidades do complexo.</div>
+
+        <div class="eco-node" data-index="3" style="top:82%;left:50%;transform:translateX(-50%)">
+          <div class="eco-node-img" style="background-image:url('assets/shared/DSCF4153.avif')"></div>
+          <div class="eco-node-info">
+            <h3 class="eco-node-name">Pista de Bike</h3>
+            <p class="eco-node-dist">2 km</p>
+            <div class="eco-node-times">
+              <span>🚶 25 min</span>
+              <span>🚲 8 min</span>
+              <span>🚗 4 min</span>
+            </div>
+            <p class="eco-node-desc">Trilhas exclusivas para ciclistas de todos os níveis, com paisagens deslumbrantes.</p>
+          </div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Praia Rasa</div>
-          <div class="diff-desc">Uma das praias mais bonitas de Búzios, próxima ao complexo.</div>
+
+        <div class="eco-node" data-index="4" style="top:65%;left:20%">
+          <div class="eco-node-img" style="background-image:url('assets/shared/DSCF4202.avif')"></div>
+          <div class="eco-node-info">
+            <h3 class="eco-node-name">Cervejaria Búzios</h3>
+            <p class="eco-node-dist">4 km</p>
+            <div class="eco-node-times">
+              <span>🚶 50 min</span>
+              <span>🚲 16 min</span>
+              <span>🚗 8 min</span>
+            </div>
+            <p class="eco-node-desc">Cervejas artesanais, petiscos autorais e música ao vivo nos fins de semana.</p>
+          </div>
+        </div>
+
+        <div class="eco-node" data-index="5" style="top:30%;left:18%">
+          <div class="eco-node-img" style="background-image:url('assets/shared/DSCF4283.avif')"></div>
+          <div class="eco-node-info">
+            <h3 class="eco-node-name">Praia Rasa</h3>
+            <p class="eco-node-dist">1,2 km</p>
+            <div class="eco-node-times">
+              <span>🚶 15 min</span>
+              <span>🚲 5 min</span>
+              <span>🚗 3 min</span>
+            </div>
+            <p class="eco-node-desc">Uma das praias mais bonitas de Búzios. Águas calmas, areia dourada e mar calmo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile fallback: cards -->
+      <div class="eco-mobile-cards">
+        <div class="eco-mobile-card">
+          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4719.avif')"></div>
+          <div class="eco-mobile-content">
+            <h3>Clube de Praia</h3>
+            <p class="eco-mobile-dist">1,5 km</p>
+            <div class="eco-mobile-times">
+              <span>🚶 18 min</span>
+              <span>🚲 6 min</span>
+              <span>🚗 3 min</span>
+            </div>
+            <p>Restaurante, piscina infantil, espaço kids com monitores e estacionamento. Exclusivo para hóspedes.</p>
+          </div>
+        </div>
+        <div class="eco-mobile-card">
+          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4811.avif')"></div>
+          <div class="eco-mobile-content">
+            <h3>Sede Esportiva</h3>
+            <p class="eco-mobile-dist">2 km</p>
+            <div class="eco-mobile-times">
+              <span>🚶 25 min</span>
+              <span>🚲 8 min</span>
+              <span>🚗 4 min</span>
+            </div>
+            <p>Quadras de tênis, paddle, academia ao ar livre e piscina olímpica.</p>
+          </div>
+        </div>
+        <div class="eco-mobile-card">
+          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4064.avif')"></div>
+          <div class="eco-mobile-content">
+            <h3>Sede Golf</h3>
+            <p class="eco-mobile-dist">2 km</p>
+            <div class="eco-mobile-times">
+              <span>🚶 25 min</span>
+              <span>🚲 8 min</span>
+              <span>🚗 4 min</span>
+            </div>
+            <p>Campo de 18 buracos projetado por Pete e Perry Dye. Um dos melhores da América Latina.</p>
+          </div>
+        </div>
+        <div class="eco-mobile-card">
+          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4153.avif')"></div>
+          <div class="eco-mobile-content">
+            <h3>Pista de Bike</h3>
+            <p class="eco-mobile-dist">2 km</p>
+            <div class="eco-mobile-times">
+              <span>🚶 25 min</span>
+              <span>🚲 8 min</span>
+              <span>🚗 4 min</span>
+            </div>
+            <p>Trilhas exclusivas para ciclistas de todos os níveis, com paisagens deslumbrantes.</p>
+          </div>
+        </div>
+        <div class="eco-mobile-card">
+          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4202.avif')"></div>
+          <div class="eco-mobile-content">
+            <h3>Cervejaria Búzios</h3>
+            <p class="eco-mobile-dist">4 km</p>
+            <div class="eco-mobile-times">
+              <span>🚶 50 min</span>
+              <span>🚲 16 min</span>
+              <span>🚗 8 min</span>
+            </div>
+            <p>Cervejas artesanais, petiscos autorais e música ao vivo nos fins de semana.</p>
+          </div>
+        </div>
+        <div class="eco-mobile-card">
+          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4283.avif')"></div>
+          <div class="eco-mobile-content">
+            <h3>Praia Rasa</h3>
+            <p class="eco-mobile-dist">1,2 km</p>
+            <div class="eco-mobile-times">
+              <span>🚶 15 min</span>
+              <span>🚲 5 min</span>
+              <span>🚗 3 min</span>
+            </div>
+            <p>Uma das praias mais bonitas de Búzios. Águas calmas, areia dourada e mar calmo.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -148,7 +329,9 @@
       </div>
     </section>
   </main>
+
   <script>
+    // Header scroll
     const header = document.querySelector('.site-header');
     function updateHeader() {
       if (window.scrollY > 80) { header.classList.add('scrolled'); }
@@ -157,16 +340,34 @@
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Scroll animation for differential items
-    const diffItems = document.querySelectorAll('.diff-item');
-    const observer = new IntersectionObserver(function(entries) {
+    // Interactive map: hover on nodes
+    const nodes = document.querySelectorAll('.eco-node');
+    nodes.forEach(function(node) {
+      node.addEventListener('mouseenter', function() {
+        nodes.forEach(function(n) { n.classList.remove('active'); });
+        node.classList.add('active');
+      });
+      node.addEventListener('mouseleave', function() {
+        node.classList.remove('active');
+      });
+      // Touch support
+      node.addEventListener('click', function(e) {
+        e.preventDefault();
+        var isActive = node.classList.contains('active');
+        nodes.forEach(function(n) { n.classList.remove('active'); });
+        if (!isActive) node.classList.add('active');
+      });
+    });
+
+    // Scroll reveal for nodes
+    var ecoObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('revealed');
         }
       });
-    }, { threshold: 0.15 });
-    diffItems.forEach(function(item) { observer.observe(item); });
+    }, { threshold: 0.1 });
+    nodes.forEach(function(n) { ecoObserver.observe(n); });
   </script>
 </body>
 </html>
