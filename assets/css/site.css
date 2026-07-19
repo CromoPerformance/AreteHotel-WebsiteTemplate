@@ -2663,9 +2663,7 @@ main { padding-top: 0; }
   position: sticky;
   top: 0;
   height: 100vh;
-  background: var(--areia);
-  background-image: radial-gradient(circle, rgba(27,38,51,0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background: var(--navy);
   z-index: 1;
 }
 .eco-graph {
@@ -2684,7 +2682,7 @@ main { padding-top: 0; }
 }
 .eco-ring {
   fill: none;
-  stroke: rgba(27,38,51,0.07);
+  stroke: rgba(255,255,255,0.06);
   stroke-width: 1;
 }
 .eco-ring--1 {
@@ -2695,6 +2693,22 @@ main { padding-top: 0; }
 }
 .eco-ring--3 {
   stroke-dasharray: 10 8;
+}
+.eco-line {
+  stroke: rgba(255,255,255,0.12);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 0.6s ease, stroke 0.4s ease;
+}
+.eco-line.eco-visible {
+  opacity: 1;
+}
+.eco-line.active {
+  stroke: rgba(7,127,140,0.6);
+  stroke-width: 1.5;
+}
+.eco-line.dimmed {
+  opacity: 0.2;
 }
 
 /* ── Nós ── */
@@ -2728,31 +2742,31 @@ main { padding-top: 0; }
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #fff;
-  border: 2px solid rgba(27,38,51,0.2);
+  background: var(--navy);
+  border: 2px solid rgba(255,255,255,0.5);
   transition: all 0.3s ease;
 }
 .eco-node-dot--center {
   width: 28px;
   height: 28px;
   background: var(--navy);
-  border: 3px solid rgba(255,255,255,0.9);
-  box-shadow: 0 0 20px rgba(36,56,84,0.2);
+  border: 3px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 24px rgba(7,127,140,0.3);
 }
 .eco-node--item.active .eco-node-dot {
   width: 22px;
   height: 22px;
-  border-color: rgba(27,38,51,0.3);
-  box-shadow: 0 0 14px rgba(7,127,140,0.2);
+  border-color: rgba(255,255,255,0.85);
+  box-shadow: 0 0 16px rgba(7,127,140,0.35);
 }
-.eco-node-dot--water { background: var(--blue); border-color: var(--blue); }
-.eco-node-dot--nature { background: var(--verde-oliva); border-color: var(--verde-oliva); }
-.eco-node-dot--sport { background: var(--azul-oceano); border-color: var(--azul-oceano); }
-.eco-node-dot--gastronomy { background: #8B6914; border-color: #8B6914; }
-.eco-node--item.active .eco-node-dot--water { box-shadow: 0 0 18px rgba(7,127,140,0.35); }
-.eco-node--item.active .eco-node-dot--nature { box-shadow: 0 0 18px rgba(76,92,53,0.35); }
-.eco-node--item.active .eco-node-dot--sport { box-shadow: 0 0 18px rgba(0,68,133,0.35); }
-.eco-node--item.active .eco-node-dot--gastronomy { box-shadow: 0 0 18px rgba(139,105,20,0.35); }
+.eco-node-dot--water { background: rgba(7,127,140,0.9); border-color: rgba(7,127,140,0.9); }
+.eco-node-dot--nature { background: rgba(76,92,53,0.9); border-color: rgba(76,92,53,0.9); }
+.eco-node-dot--sport { background: rgba(0,68,133,0.85); border-color: rgba(0,68,133,0.85); }
+.eco-node-dot--gastronomy { background: rgba(139,105,20,0.85); border-color: rgba(139,105,20,0.85); }
+.eco-node--item.active .eco-node-dot--water { background: rgba(7,127,140,1); box-shadow: 0 0 18px rgba(7,127,140,0.4); }
+.eco-node--item.active .eco-node-dot--nature { background: rgba(76,92,53,1); box-shadow: 0 0 18px rgba(76,92,53,0.4); }
+.eco-node--item.active .eco-node-dot--sport { background: rgba(0,68,133,1); box-shadow: 0 0 18px rgba(0,68,133,0.4); }
+.eco-node--item.active .eco-node-dot--gastronomy { background: rgba(139,105,20,1); box-shadow: 0 0 18px rgba(139,105,20,0.4); }
 
 /* Labels */
 .eco-node-label {
@@ -2764,14 +2778,14 @@ main { padding-top: 0; }
   font-family: var(--sans);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(27,38,51,0.5);
+  color: rgba(255,255,255,0.7);
   text-align: center;
   line-height: 1.3;
   pointer-events: none;
   transition: color 0.3s ease, opacity 0.3s ease;
 }
 .eco-node--item.active .eco-node-label {
-  color: var(--navy);
+  color: #fff;
   font-weight: 600;
 }
 .eco-node--item.dimmed .eco-node-label {
@@ -2781,7 +2795,7 @@ main { padding-top: 0; }
   top: calc(100% + 10px);
   font-size: 15px;
   font-weight: 600;
-  color: var(--navy);
+  color: #fff;
   letter-spacing: 0.04em;
 }
 .eco-node-label--center span {
@@ -2789,7 +2803,54 @@ main { padding-top: 0; }
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+/* ── Legenda ── */
+.eco-legend {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 4;
+}
+.eco-legend-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+.eco-legend-bar {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  position: relative;
+}
+.eco-legend-tick {
+  position: absolute;
+  top: -4px;
+}
+.eco-legend-tick::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 9px;
+  background: rgba(255,255,255,0.25);
+}
+.eco-legend-tick span {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
 }
 
 /* ── CARDS — Scrollable right side ── */
@@ -2915,4 +2976,5 @@ main { padding-top: 0; }
     padding: 14px;
   }
   .eco-card-image { width: 80px; height: 64px; }
+  .eco-legend { bottom: 16px; left: 16px; right: 16px; }
 }
