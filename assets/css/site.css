@@ -2652,25 +2652,20 @@ main { padding-top: 0; }
    ECOSSISTEMA — Interactive Graph
    ======================================== */
 .eco-section {
-  background: #f7f5f2;
-  padding: 100px 6% 120px;
-}
-.eco-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 70% 30%;
-  gap: 0;
-  align-items: start;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
 }
 
-/* ── MAPA ── */
+/* ── MAPA — Fixed on screen ── */
 .eco-map {
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 55%;
+  height: 100vh;
   background: var(--navy);
-  border-radius: 12px 0 0 12px;
-  overflow: hidden;
-  aspect-ratio: 1 / 0.85;
+  z-index: 1;
 }
 .eco-graph {
   position: relative;
@@ -2855,41 +2850,30 @@ main { padding-top: 0; }
   white-space: nowrap;
 }
 
-/* ── PAINEL ── */
-.eco-panel {
-  background: #fff;
-  border-radius: 0 12px 12px 0;
-  max-height: calc(100vh - 160px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.12) transparent;
-}
-.eco-panel::-webkit-scrollbar {
-  width: 5px;
-}
-.eco-panel::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.12);
-  border-radius: 3px;
-}
-.eco-panel-inner {
-  padding: 32px 28px;
+/* ── CARDS — Scrollable right side ── */
+.eco-cards {
+  margin-left: 55%;
+  padding: 100px 5% 80px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background: #f7f5f2;
+  min-height: 100vh;
 }
 
 /* ── CARDS ── */
 .eco-card {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: 16px;
-  padding: 16px;
+  padding: 20px;
   border-radius: 8px;
+  background: #fff;
   border: 1px solid rgba(0,0,0,0.06);
   transition: all 0.3s ease;
   cursor: pointer;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
 }
 .eco-card.eco-visible {
   opacity: 1;
@@ -2898,14 +2882,14 @@ main { padding-top: 0; }
 .eco-card.active {
   border-color: var(--blue);
   background: rgba(7,127,140,0.04);
-  box-shadow: 0 4px 20px rgba(7,127,140,0.1);
+  box-shadow: 0 4px 24px rgba(7,127,140,0.12);
 }
 .eco-card.dimmed {
-  opacity: 0.35;
+  opacity: 0.3;
 }
 .eco-card-image {
-  width: 100px;
-  height: 80px;
+  width: 120px;
+  height: 96px;
   border-radius: 6px;
   background-size: cover;
   background-position: center;
@@ -2967,26 +2951,19 @@ main { padding-top: 0; }
    ECOSSISTEMA — Responsive
    ======================================== */
 @media (max-width: 1024px) {
-  .eco-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
   .eco-map {
-    border-radius: 12px;
-    aspect-ratio: 1 / 0.9;
+    position: relative;
+    width: 100%;
+    height: 60vh;
   }
-  .eco-panel {
-    border-radius: 12px;
-    max-height: none;
-    overflow: visible;
-  }
-  .eco-panel-inner {
-    padding: 24px 20px;
+  .eco-cards {
+    margin-left: 0;
+    padding: 40px 5% 60px;
   }
 }
 @media (max-width: 640px) {
-  .eco-section { padding: 60px 4% 80px; }
-  .eco-map { aspect-ratio: 1 / 1; }
+  .eco-map { height: 50vh; }
+  .eco-cards { padding: 32px 4% 48px; }
   .eco-node-label { font-size: 10px; }
   .eco-node-dot { width: 12px; height: 12px; }
   .eco-node-dot--center { width: 22px; height: 22px; }
@@ -2994,7 +2971,7 @@ main { padding-top: 0; }
   .eco-card {
     grid-template-columns: 80px 1fr;
     gap: 12px;
-    padding: 12px;
+    padding: 14px;
   }
   .eco-card-image { width: 80px; height: 64px; }
   .eco-legend { bottom: 16px; left: 16px; right: 16px; }
