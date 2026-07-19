@@ -350,24 +350,41 @@
         n.addEventListener('click', function() {
           var target = cardMap[n.dataset.id];
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });
 
-      /* Scroll entrance */
+      /* Sequential entrance — like Obsidian graph */
       var entranceObs = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('eco-visible');
+            entranceObs.unobserve(entry.target);
+            /* Nodes appear one by one */
+            var order = ['praia-rasa','mirante','mangue','golfe','sede','cervejaria','bike'];
+            var allNodes = document.querySelectorAll('.eco-node--item');
+            var allLines = document.querySelectorAll('.eco-line');
+            order.forEach(function(id, i) {
+              setTimeout(function() {
+                allNodes.forEach(function(n) {
+                  if (n.dataset.id === id) n.classList.add('eco-visible');
+                });
+                allLines.forEach(function(l) {
+                  if (l.dataset.target === id) l.classList.add('eco-visible');
+                });
+              }, 300 + i * 350);
+            });
+            /* Cards appear after nodes */
+            var allCards = document.querySelectorAll('.eco-card');
+            allCards.forEach(function(c, i) {
+              setTimeout(function() {
+                c.classList.add('eco-visible');
+              }, 300 + order.length * 350 + i * 100);
+            });
           }
         });
       }, { threshold: 0.15 });
-      nodes.forEach(function(n) { entranceObs.observe(n); });
-      cards.forEach(function(c, i) {
-        c.style.transitionDelay = (i * 0.06) + 's';
-        entranceObs.observe(c);
-      });
+      entranceObs.observe(document.querySelector('.eco-section'));
     })();
   </script>
 </body>
