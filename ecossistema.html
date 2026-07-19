@@ -313,6 +313,12 @@
           l.classList.toggle('active', l.dataset.target === id);
           l.classList.toggle('dimmed', l.dataset.target !== id);
         });
+        /* Scroll card into view */
+        var target = cardMap[id];
+        if (target) {
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 40;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
       }
 
       function clearHighlight() {
@@ -329,17 +335,6 @@
       cards.forEach(function(c) {
         c.addEventListener('mouseenter', function() { highlight(c.dataset.target); });
         c.addEventListener('mouseleave', clearHighlight);
-      });
-
-      /* Click node → scroll card into view */
-      nodes.forEach(function(n) {
-        n.addEventListener('click', function() {
-          var target = cardMap[n.dataset.id];
-          if (target) {
-            var y = target.getBoundingClientRect().top + window.pageYOffset - 40;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-          }
-        });
       });
 
       /* Sequential entrance — like Obsidian graph */
