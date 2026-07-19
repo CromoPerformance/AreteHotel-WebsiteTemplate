@@ -2647,3 +2647,355 @@ main { padding-top: 0; }
   color: rgba(27,38,51,0.6);
   line-height: 1.6;
 }
+
+/* ========================================
+   ECOSSISTEMA — Interactive Graph
+   ======================================== */
+.eco-section {
+  background: #f7f5f2;
+  padding: 100px 6% 120px;
+}
+.eco-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── MAPA ── */
+.eco-map {
+  position: relative;
+  background: var(--navy);
+  border-radius: 12px 0 0 12px;
+  overflow: hidden;
+  aspect-ratio: 1 / 0.85;
+}
+.eco-graph {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anéis SVG */
+.eco-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.eco-ring {
+  fill: none;
+  stroke: rgba(255,255,255,0.06);
+  stroke-width: 1;
+}
+.eco-ring--1 {
+  stroke-dasharray: 6 4;
+}
+.eco-ring--2 {
+  stroke-dasharray: 8 6;
+}
+.eco-ring--3 {
+  stroke-dasharray: 10 8;
+}
+.eco-line {
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+  transition: stroke 0.4s ease, opacity 0.4s ease;
+}
+.eco-line.active {
+  stroke: rgba(7,127,140,0.6);
+  stroke-width: 1.5;
+}
+.eco-line.dimmed {
+  opacity: 0.2;
+}
+
+/* ── Nós ── */
+.eco-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.eco-node--center {
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+.eco-node--item {
+  left: var(--nx);
+  top: var(--ny);
+  cursor: pointer;
+}
+.eco-node--item.active {
+  transform: translate(-50%, -50%) scale(1.3);
+  z-index: 5;
+}
+.eco-node--item.dimmed {
+  opacity: 0.25;
+}
+
+/* Dots */
+.eco-node-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,255,255,0.8);
+  transition: all 0.3s ease;
+}
+.eco-node-dot--center {
+  width: 28px;
+  height: 28px;
+  background: var(--blue);
+  border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 0 24px rgba(7,127,140,0.5);
+}
+.eco-node--item.active .eco-node-dot {
+  width: 22px;
+  height: 22px;
+  border-color: #fff;
+  box-shadow: 0 0 16px rgba(7,127,140,0.6);
+}
+.eco-node-dot--water { background: #077F8C; border-color: #077F8C; }
+.eco-node-dot--nature { background: #4C5C35; border-color: #4C5C35; }
+.eco-node-dot--sport { background: #004485; border-color: #004485; }
+.eco-node-dot--gastronomy { background: #8B6914; border-color: #8B6914; }
+.eco-node--item.active .eco-node-dot--water { background: #077F8C; box-shadow: 0 0 20px rgba(7,127,140,0.7); }
+.eco-node--item.active .eco-node-dot--nature { background: #4C5C35; box-shadow: 0 0 20px rgba(76,92,53,0.7); }
+.eco-node--item.active .eco-node-dot--sport { background: #004485; box-shadow: 0 0 20px rgba(0,68,133,0.7); }
+.eco-node--item.active .eco-node-dot--gastronomy { background: #8B6914; box-shadow: 0 0 20px rgba(139,105,20,0.7); }
+
+/* Labels */
+.eco-node-label {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  line-height: 1.3;
+  pointer-events: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+.eco-node--item.active .eco-node-label {
+  color: #fff;
+  font-weight: 600;
+}
+.eco-node--item.dimmed .eco-node-label {
+  opacity: 0.3;
+}
+.eco-node-label--center {
+  top: calc(100% + 10px);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.eco-node-label--center span {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ── Legenda ── */
+.eco-legend {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 4;
+}
+.eco-legend-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+.eco-legend-bar {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  position: relative;
+}
+.eco-legend-tick {
+  position: absolute;
+  top: -4px;
+}
+.eco-legend-tick::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 9px;
+  background: rgba(255,255,255,0.25);
+}
+.eco-legend-tick span {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+}
+
+/* ── PAINEL ── */
+.eco-panel {
+  background: #fff;
+  border-radius: 0 12px 12px 0;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.12) transparent;
+}
+.eco-panel::-webkit-scrollbar {
+  width: 5px;
+}
+.eco-panel::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12);
+  border-radius: 3px;
+}
+.eco-panel-inner {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── CARDS ── */
+.eco-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.eco-card.eco-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.eco-card.active {
+  border-color: var(--blue);
+  background: rgba(7,127,140,0.04);
+  box-shadow: 0 4px 20px rgba(7,127,140,0.1);
+}
+.eco-card.dimmed {
+  opacity: 0.35;
+}
+.eco-card-image {
+  width: 100px;
+  height: 80px;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+.eco-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.eco-card-name {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.eco-card-distances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.eco-dist {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: rgba(27,38,51,0.5);
+  background: rgba(7,127,140,0.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.eco-dist strong {
+  color: var(--blue);
+  font-weight: 600;
+}
+.eco-card-desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(27,38,51,0.55);
+  margin: 0;
+}
+
+/* ── NÓS ENTRADA ── */
+.eco-node--item {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+.eco-node--item.eco-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.eco-node--item.eco-visible.active {
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* ========================================
+   ECOSSISTEMA — Responsive
+   ======================================== */
+@media (max-width: 1024px) {
+  .eco-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .eco-map {
+    border-radius: 12px;
+    aspect-ratio: 1 / 0.9;
+  }
+  .eco-panel {
+    border-radius: 12px;
+    max-height: none;
+    overflow: visible;
+  }
+  .eco-panel-inner {
+    padding: 24px 20px;
+  }
+}
+@media (max-width: 640px) {
+  .eco-section { padding: 60px 4% 80px; }
+  .eco-map { aspect-ratio: 1 / 1; }
+  .eco-node-label { font-size: 10px; }
+  .eco-node-dot { width: 12px; height: 12px; }
+  .eco-node-dot--center { width: 22px; height: 22px; }
+  .eco-node--item.active .eco-node-dot { width: 18px; height: 18px; }
+  .eco-card {
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+  .eco-card-image { width: 80px; height: 64px; }
+  .eco-legend { bottom: 16px; left: 16px; right: 16px; }
+}

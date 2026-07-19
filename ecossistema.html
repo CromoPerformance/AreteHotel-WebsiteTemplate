@@ -47,39 +47,182 @@
       </div>
     </section>
 
-    <!-- Equipamentos -->
-    <section class="amenities-section">
-      <div class="amenities-grid">
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Clube de Praia</div>
-          <div class="diff-desc">1,5 km — Exclusivo para hóspedes do hotel. Restaurante, piscina infantil, espaço kids com monitores e estacionamento. Sem aglomeração, sem barulho, com estrutura completa.</div>
+    <!-- Ecossistema Interativo -->
+    <section class="eco-section">
+      <div class="eco-container">
+
+        <!-- MAPA / GRAFO (70%) -->
+        <div class="eco-map">
+          <div class="eco-graph">
+
+            <!-- Anéis de distância (SVG) -->
+            <svg class="eco-rings" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="350" cy="350" r="90" class="eco-ring eco-ring--1"/>
+              <circle cx="350" cy="350" r="180" class="eco-ring eco-ring--2"/>
+              <circle cx="350" cy="350" r="270" class="eco-ring eco-ring--3"/>
+              <!-- Raios tracejados -->
+              <line x1="350" y1="350" x2="350" y2="140" class="eco-line" data-target="praia-rasa"/>
+              <line x1="350" y1="350" x2="530" y2="200" class="eco-line" data-target="mirante"/>
+              <line x1="350" y1="350" x2="560" y2="420" class="eco-line" data-target="mangue"/>
+              <line x1="350" y1="350" x2="190" y2="200" class="eco-line" data-target="golfe"/>
+              <line x1="350" y1="350" x2="160" y2="430" class="eco-line" data-target="sede"/>
+              <line x1="350" y1="350" x2="520" y2="550" class="eco-line" data-target="cervejaria"/>
+              <line x1="350" y1="350" x2="350" y2="570" class="eco-line" data-target="bike"/>
+            </svg>
+
+            <!-- Hotel (centro) -->
+            <div class="eco-node eco-node--center" data-id="hotel">
+              <div class="eco-node-dot eco-node-dot--center"></div>
+              <div class="eco-node-label eco-node-label--center">Aretê<br><span>Hotel</span></div>
+            </div>
+
+            <!-- Pontos ao redor -->
+            <div class="eco-node eco-node--item" data-id="praia-rasa" style="--nx:50%; --ny:12%;">
+              <div class="eco-node-dot eco-node-dot--water"></div>
+              <div class="eco-node-label">Praia Rasa</div>
+            </div>
+
+            <div class="eco-node eco-node--item" data-id="mirante" style="--nx:76%; --ny:24%;">
+              <div class="eco-node-dot eco-node-dot--nature"></div>
+              <div class="eco-node-label">Mirante</div>
+            </div>
+
+            <div class="eco-node eco-node--item" data-id="mangue" style="--nx:82%; --ny:58%;">
+              <div class="eco-node-dot eco-node-dot--nature"></div>
+              <div class="eco-node-label">Mangue de<br>Pedras</div>
+            </div>
+
+            <div class="eco-node eco-node--item" data-id="golfe" style="--nx:22%; --ny:22%;">
+              <div class="eco-node-dot eco-node-dot--sport"></div>
+              <div class="eco-node-label">Sede<br>Golf</div>
+            </div>
+
+            <div class="eco-node eco-node--item" data-id="sede" style="--nx:18%; --ny:58%;">
+              <div class="eco-node-dot eco-node-dot--sport"></div>
+              <div class="eco-node-label">Sede<br>Esportiva</div>
+            </div>
+
+            <div class="eco-node eco-node--item" data-id="cervejaria" style="--nx:74%; --ny:78%;">
+              <div class="eco-node-dot eco-node-dot--gastronomy"></div>
+              <div class="eco-node-label">Cervejaria<br>Búzios</div>
+            </div>
+
+            <div class="eco-node eco-node--item" data-id="bike" style="--nx:50%; --ny:82%;">
+              <div class="eco-node-dot eco-node-dot--sport"></div>
+              <div class="eco-node-label">Pista de<br>Bike</div>
+            </div>
+
+            <!-- Legenda de distância -->
+            <div class="eco-legend">
+              <div class="eco-legend-label">0 m</div>
+              <div class="eco-legend-bar">
+                <div class="eco-legend-tick" style="left:33%"><span>500m</span></div>
+                <div class="eco-legend-tick" style="left:66%"><span>1 km</span></div>
+                <div class="eco-legend-tick" style="left:100%"><span>2 km</span></div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Sede Esportiva</div>
-          <div class="diff-desc">2 km — Estrutura completa para atividades esportivas. Consulte valores para day use.</div>
+
+        <!-- PAINEL DE INFO (30%) -->
+        <div class="eco-panel">
+          <div class="eco-panel-inner">
+
+            <div class="eco-card" data-target="praia-rasa">
+              <div class="eco-card-image" style="background-image:url('assets/buzios/RBC01503.avif')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Praia Rasa</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>650m</strong> a pé</span>
+                  <span class="eco-dist"><strong>3 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>2 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Uma das praias mais bonitas de Búzios, com águas calmas e rasa ideal para famílias. Areia branca e vegetação cercando a enseada.</p>
+              </div>
+            </div>
+
+            <div class="eco-card" data-target="mirante">
+              <div class="eco-card-image" style="background-image:url('assets/buzios/ARMACAO.jpg')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Mirante do Pai Vitório</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>400m</strong> a pé</span>
+                  <span class="eco-dist"><strong>2 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>1 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Vista panorâmica dos canais navegáveis e da costa de Búzios. Ponto ideal para fotografar o pôr do sol sobre a marina.</p>
+              </div>
+            </div>
+
+            <div class="eco-card" data-target="mangue">
+              <div class="eco-card-image" style="background-image:url('assets/buzios/AZEDA.jpg')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Mangue de Pedras</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>1,2 km</strong> a pé</span>
+                  <span class="eco-dist"><strong>5 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>3 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Enseada de águas cristalinas cercada por rochas e manguezais. Ideal para mergulho e snorkeling em um ambiente preservado.</p>
+              </div>
+            </div>
+
+            <div class="eco-card" data-target="golfe">
+              <div class="eco-card-image" style="background-image:url('assets/shared/DSCF4838.avif')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Sede Golf</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>2 km</strong> a pé</span>
+                  <span class="eco-dist"><strong>8 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>4 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Campo de golfe exclusivo do complexo com 9 holes em meio à mata nativa. Day use disponível para hóspedes.</p>
+              </div>
+            </div>
+
+            <div class="eco-card" data-target="sede">
+              <div class="eco-card-image" style="background-image:url('assets/shared/DSCF4719.avif')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Sede Esportiva</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>2 km</strong> a pé</span>
+                  <span class="eco-dist"><strong>8 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>4 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Estrutura completa com quadra de tênis, academia ao ar livre e piscina olímpica. Day use disponível para hóspedes.</p>
+              </div>
+            </div>
+
+            <div class="eco-card" data-target="cervejaria">
+              <div class="eco-card-image" style="background-image:url('assets/shared/DSCF4064.avif')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Cervejaria Búzios</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>4 km</strong> a pé</span>
+                  <span class="eco-dist"><strong>15 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>8 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Cervejaria artesanal nas proximidades do complexo. Opção gastronômica para experimentar cervejas locais e petiscos.</p>
+              </div>
+            </div>
+
+            <div class="eco-card" data-target="bike">
+              <div class="eco-card-image" style="background-image:url('assets/shared/DSCF4811.avif')"></div>
+              <div class="eco-card-body">
+                <div class="eco-card-name">Pista de Bike</div>
+                <div class="eco-card-distances">
+                  <span class="eco-dist"><strong>2 km</strong> a pé</span>
+                  <span class="eco-dist"><strong>8 min</strong> de bike</span>
+                  <span class="eco-dist"><strong>4 min</strong> de carro</span>
+                </div>
+                <p class="eco-card-desc">Pista exclusiva para ciclistas dentro do complexo, com percursos entre a mata e os canais. Bikes disponíveis para empréstimo.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Sede Golf</div>
-          <div class="diff-desc">2 km — Campo de golfe exclusivo do complexo. Consulte valores para day use.</div>
-        </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Pista de Bike</div>
-          <div class="diff-desc">2 km — Pista exclusiva para ciclistas dentro do complexo. Consulte valores para day use.</div>
-        </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Cervejaria Búzios</div>
-          <div class="diff-desc">4 km — Opção gastronômica nas proximidades do complexo.</div>
-        </div>
-        <div class="diff-item">
-          <div class="diff-icon">◆</div>
-          <div class="diff-name">Praia Rasa</div>
-          <div class="diff-desc">Uma das praias mais bonitas de Búzios, próxima ao complexo.</div>
-        </div>
+
       </div>
     </section>
 
@@ -146,13 +289,14 @@
         <div class="footer-divider"></div>
 
         <div class="footer-bottom">
-          <span>© 2026 Hotel Aretê · Búzios, Rio de Janeiro</span>
-          <span>Política de privacidade · Cookies</span>
+          <span>&copy; 2026 Hotel Aret&ecirc; &middot; B&uacute;zios, Rio de Janeiro</span>
+          <span>Pol&iacute;tica de privacidade &middot; Cookies</span>
         </div>
       </div>
     </section>
   </main>
   <script>
+    /* ── Header scroll ── */
     const header = document.querySelector('.site-header');
     function updateHeader() {
       if (window.scrollY > 80) { header.classList.add('scrolled'); }
@@ -161,16 +305,59 @@
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Scroll animation for differential items
-    const diffItems = document.querySelectorAll('.diff-item');
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    /* ── Eco Interactivity ── */
+    (function() {
+      const nodes = document.querySelectorAll('.eco-node--item');
+      const cards = document.querySelectorAll('.eco-card');
+      const lines = document.querySelectorAll('.eco-line');
+
+      function highlight(id) {
+        nodes.forEach(function(n) {
+          n.classList.toggle('active', n.dataset.id === id);
+          n.classList.toggle('dimmed', n.dataset.id !== id);
+        });
+        cards.forEach(function(c) {
+          c.classList.toggle('active', c.dataset.target === id);
+          c.classList.toggle('dimmed', c.dataset.target !== id);
+        });
+        lines.forEach(function(l) {
+          l.classList.toggle('active', l.dataset.target === id);
+          l.classList.toggle('dimmed', l.dataset.target !== id);
+        });
+      }
+
+      function clearHighlight() {
+        nodes.forEach(function(n) { n.classList.remove('active','dimmed'); });
+        cards.forEach(function(c) { c.classList.remove('active','dimmed'); });
+        lines.forEach(function(l) { l.classList.remove('active','dimmed'); });
+      }
+
+      nodes.forEach(function(n) {
+        n.addEventListener('mouseenter', function() { highlight(n.dataset.id); });
+        n.addEventListener('mouseleave', clearHighlight);
       });
-    }, { threshold: 0.15 });
-    diffItems.forEach(function(item) { observer.observe(item); });
+
+      cards.forEach(function(c) {
+        c.addEventListener('mouseenter', function() { highlight(c.dataset.target); });
+        c.addEventListener('mouseleave', clearHighlight);
+      });
+
+      /* ── Scroll entrance ── */
+      var ecoNodes = document.querySelectorAll('.eco-node--item');
+      var ecoCards = document.querySelectorAll('.eco-card');
+      var entranceObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('eco-visible');
+          }
+        });
+      }, { threshold: 0.2 });
+      ecoNodes.forEach(function(n) { entranceObs.observe(n); });
+      ecoCards.forEach(function(c, i) {
+        c.style.transitionDelay = (i * 0.08) + 's';
+        entranceObs.observe(c);
+      });
+    })();
   </script>
 </body>
 </html>
