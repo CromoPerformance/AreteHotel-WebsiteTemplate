@@ -2764,7 +2764,7 @@ main { padding-top: 0; }
   transform: translateX(-50%);
   white-space: nowrap;
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: rgba(255,255,255,0.7);
   text-align: center;
@@ -2781,13 +2781,13 @@ main { padding-top: 0; }
 }
 .eco-node-label--center {
   top: calc(100% + 10px);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: #fff;
   letter-spacing: 0.04em;
 }
 .eco-node-label--center span {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2907,7 +2907,7 @@ main { padding-top: 0; }
 @media (max-width: 640px) {
   .eco-map { height: 50vh; }
   .eco-cards { padding: 32px 4% 48px; }
-  .eco-node-label { font-size: 10px; }
+  .eco-node-label { font-size: 11px; }
   .eco-node-dot { width: 12px; height: 12px; }
   .eco-node-dot--center { width: 22px; height: 22px; }
   .eco-node--item.active .eco-node-dot { width: 18px; height: 18px; }
