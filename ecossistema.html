@@ -315,9 +315,8 @@
         });
         /* Scroll card into view */
         var target = cardMap[id];
-        if (target) {
-          var y = target.getBoundingClientRect().top + window.pageYOffset - 40;
-          window.scrollTo({ top: y, behavior: 'smooth' });
+        if (target && target.offsetTop) {
+          window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
         }
       }
 
