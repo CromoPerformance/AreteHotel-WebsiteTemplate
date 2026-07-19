@@ -2664,6 +2664,8 @@ main { padding-top: 0; }
   top: 0;
   height: 100vh;
   background: var(--navy);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
   z-index: 1;
 }
 .eco-graph {
