@@ -27,205 +27,58 @@
       </div>
     </nav>
   </header>
-
   <main>
-    <!-- Hero -->
     <section class="hero hero-subpage">
       <div class="hero-inner">
         <div class="hero-kicker">Aretê Búzios</div>
         <h1 class="hero-title">Ecossistema</h1>
         <p class="hero-subtitle">Um complexo completo, pensado para viver</p>
       </div>
+      <div class="hero-scroll">
+        <span class="hero-scroll-text">Descobrir</span>
+        <div class="hero-scroll-line"></div>
+      </div>
     </section>
 
     <!-- Manifesto -->
-    <section class="manifesto">
+    <section class="manifesto manifesto--wide">
       <div class="manifesto-inner">
         <p class="manifesto-text">O Hotel Aretê faz parte de um complexo urbanístico que reúne diferentes experiências em um mesmo destino. Condomínio residencial, clube esportivo, opções gastronômicas e áreas dedicadas ao lazer e ao esporte — tudo ao alcance dos hóspedes.</p>
       </div>
     </section>
 
-    <!-- Mapa Interativo -->
-    <section class="eco-map">
-      <div class="eco-map-wrap">
-        <!-- Center: Hotel -->
-        <div class="eco-hotel">
-          <div class="eco-hotel-ring"></div>
-          <div class="eco-hotel-dot"></div>
-          <div class="eco-hotel-label">
-            <span class="eco-hotel-name">Hotel Aretê</span>
-            <span class="eco-hotel-sub">centro do ecossistema</span>
-          </div>
+    <!-- Equipamentos -->
+    <section class="amenities-section">
+      <div class="amenities-grid">
+        <div class="diff-item">
+          <div class="diff-icon">◆</div>
+          <div class="diff-name">Clube de Praia</div>
+          <div class="diff-desc">1,5 km — Exclusivo para hóspedes do hotel. Restaurante, piscina infantil, espaço kids com monitores e estacionamento. Sem aglomeração, sem barulho, com estrutura completa.</div>
         </div>
-
-        <!-- Connection lines drawn by JS -->
-        <svg class="eco-lines" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet"></svg>
-
-        <!-- Nodes — positions will be set by JS based on real distance -->
-        <div class="eco-pin" data-km="1.2" data-angle="210" data-img="assets/shared/DSCF4283.avif">
-          <div class="eco-pin-dot"></div>
-          <div class="eco-pin-pulse"></div>
-          <div class="eco-pin-card">
-            <div class="eco-pin-card-img" style="background-image:url('assets/shared/DSCF4283.avif')"></div>
-            <div class="eco-pin-card-body">
-              <h3>Praia Rasa</h3>
-              <div class="eco-pin-meta">
-                <span class="eco-pin-km">1,2 km</span>
-                <span class="eco-pin-sep">·</span>
-                <span>15 min</span>
-                <span>5 min 🚲</span>
-                <span>3 min 🚗</span>
-              </div>
-              <p>Uma das praias mais bonitas de Búzios. Águas calmas, areia dourada e mar calmo.</p>
-            </div>
-          </div>
+        <div class="diff-item">
+          <div class="diff-icon">◆</div>
+          <div class="diff-name">Sede Esportiva</div>
+          <div class="diff-desc">2 km — Estrutura completa para atividades esportivas. Consulte valores para day use.</div>
         </div>
-
-        <div class="eco-pin" data-km="1.5" data-angle="130" data-img="assets/shared/DSCF4719.avif">
-          <div class="eco-pin-dot"></div>
-          <div class="eco-pin-pulse"></div>
-          <div class="eco-pin-card">
-            <div class="eco-pin-card-img" style="background-image:url('assets/shared/DSCF4719.avif')"></div>
-            <div class="eco-pin-card-body">
-              <h3>Clube de Praia</h3>
-              <div class="eco-pin-meta">
-                <span class="eco-pin-km">1,5 km</span>
-                <span class="eco-pin-sep">·</span>
-                <span>18 min</span>
-                <span>6 min 🚲</span>
-                <span>3 min 🚗</span>
-              </div>
-              <p>Restaurante, piscina infantil, espaço kids com monitores. Exclusivo para hóspedes.</p>
-            </div>
-          </div>
+        <div class="diff-item">
+          <div class="diff-icon">◆</div>
+          <div class="diff-name">Sede Golf</div>
+          <div class="diff-desc">2 km — Campo de golfe exclusivo do complexo. Consulte valores para day use.</div>
         </div>
-
-        <div class="eco-pin" data-km="2" data-angle="30" data-img="assets/shared/DSCF4811.avif">
-          <div class="eco-pin-dot"></div>
-          <div class="eco-pin-pulse"></div>
-          <div class="eco-pin-card">
-            <div class="eco-pin-card-img" style="background-image:url('assets/shared/DSCF4811.avif')"></div>
-            <div class="eco-pin-card-body">
-              <h3>Sede Esportiva</h3>
-              <div class="eco-pin-meta">
-                <span class="eco-pin-km">2 km</span>
-                <span class="eco-pin-sep">·</span>
-                <span>25 min</span>
-                <span>8 min 🚲</span>
-                <span>4 min 🚗</span>
-              </div>
-              <p>Quadras de tênis, paddle, academia ao ar livre e piscina olímpica.</p>
-            </div>
-          </div>
+        <div class="diff-item">
+          <div class="diff-icon">◆</div>
+          <div class="diff-name">Pista de Bike</div>
+          <div class="diff-desc">2 km — Pista exclusiva para ciclistas dentro do complexo. Consulte valores para day use.</div>
         </div>
-
-        <div class="eco-pin" data-km="2" data-angle="330" data-img="assets/shared/DSCF4064.avif">
-          <div class="eco-pin-dot"></div>
-          <div class="eco-pin-pulse"></div>
-          <div class="eco-pin-card">
-            <div class="eco-pin-card-img" style="background-image:url('assets/shared/DSCF4064.avif')"></div>
-            <div class="eco-pin-card-body">
-              <h3>Sede Golf</h3>
-              <div class="eco-pin-meta">
-                <span class="eco-pin-km">2 km</span>
-                <span class="eco-pin-sep">·</span>
-                <span>25 min</span>
-                <span>8 min 🚲</span>
-                <span>4 min 🚗</span>
-              </div>
-              <p>Campo de 18 buracos por Pete e Perry Dye. Um dos melhores da América Latina.</p>
-            </div>
-          </div>
+        <div class="diff-item">
+          <div class="diff-icon">◆</div>
+          <div class="diff-name">Cervejaria Búzios</div>
+          <div class="diff-desc">4 km — Opção gastronômica nas proximidades do complexo.</div>
         </div>
-
-        <div class="eco-pin" data-km="2" data-angle="270" data-img="assets/shared/DSCF4153.avif">
-          <div class="eco-pin-dot"></div>
-          <div class="eco-pin-pulse"></div>
-          <div class="eco-pin-card">
-            <div class="eco-pin-card-img" style="background-image:url('assets/shared/DSCF4153.avif')"></div>
-            <div class="eco-pin-card-body">
-              <h3>Pista de Bike</h3>
-              <div class="eco-pin-meta">
-                <span class="eco-pin-km">2 km</span>
-                <span class="eco-pin-sep">·</span>
-                <span>25 min</span>
-                <span>8 min 🚲</span>
-                <span>4 min 🚗</span>
-              </div>
-              <p>Trilhas exclusivas para ciclistas de todos os níveis, com paisagens deslumbrantes.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="eco-pin" data-km="4" data-angle="190" data-img="assets/shared/DSCF4202.avif">
-          <div class="eco-pin-dot"></div>
-          <div class="eco-pin-pulse"></div>
-          <div class="eco-pin-card">
-            <div class="eco-pin-card-img" style="background-image:url('assets/shared/DSCF4202.avif')"></div>
-            <div class="eco-pin-card-body">
-              <h3>Cervejaria Búzios</h3>
-              <div class="eco-pin-meta">
-                <span class="eco-pin-km">4 km</span>
-                <span class="eco-pin-sep">·</span>
-                <span>50 min</span>
-                <span>16 min 🚲</span>
-                <span>8 min 🚗</span>
-              </div>
-              <p>Cervejas artesanais, petiscos autorais e música ao vivo nos fins de semana.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile fallback -->
-      <div class="eco-mobile">
-        <div class="eco-mobile-card">
-          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4283.avif')"></div>
-          <div class="eco-mobile-body">
-            <h3>Praia Rasa</h3>
-            <div class="eco-mobile-meta">1,2 km · 🚶 15 min · 🚲 5 min · 🚗 3 min</div>
-            <p>Uma das praias mais bonitas de Búzios. Águas calmas, areia dourada e mar calmo.</p>
-          </div>
-        </div>
-        <div class="eco-mobile-card">
-          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4719.avif')"></div>
-          <div class="eco-mobile-body">
-            <h3>Clube de Praia</h3>
-            <div class="eco-mobile-meta">1,5 km · 🚶 18 min · 🚲 6 min · 🚗 3 min</div>
-            <p>Restaurante, piscina infantil, espaço kids com monitores. Exclusivo para hóspedes.</p>
-          </div>
-        </div>
-        <div class="eco-mobile-card">
-          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4811.avif')"></div>
-          <div class="eco-mobile-body">
-            <h3>Sede Esportiva</h3>
-            <div class="eco-mobile-meta">2 km · 🚶 25 min · 🚲 8 min · 🚗 4 min</div>
-            <p>Quadras de tênis, paddle, academia ao ar livre e piscina olímpica.</p>
-          </div>
-        </div>
-        <div class="eco-mobile-card">
-          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4064.avif')"></div>
-          <div class="eco-mobile-body">
-            <h3>Sede Golf</h3>
-            <div class="eco-mobile-meta">2 km · 🚶 25 min · 🚲 8 min · 🚗 4 min</div>
-            <p>Campo de 18 buracos por Pete e Perry Dye. Um dos melhores da América Latina.</p>
-          </div>
-        </div>
-        <div class="eco-mobile-card">
-          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4153.avif')"></div>
-          <div class="eco-mobile-body">
-            <h3>Pista de Bike</h3>
-            <div class="eco-mobile-meta">2 km · 🚶 25 min · 🚲 8 min · 🚗 4 min</div>
-            <p>Trilhas exclusivas para ciclistas de todos os níveis, com paisagens deslumbrantes.</p>
-          </div>
-        </div>
-        <div class="eco-mobile-card">
-          <div class="eco-mobile-img" style="background-image:url('assets/shared/DSCF4202.avif')"></div>
-          <div class="eco-mobile-body">
-            <h3>Cervejaria Búzios</h3>
-            <div class="eco-mobile-meta">4 km · 🚶 50 min · 🚲 16 min · 🚗 8 min</div>
-            <p>Cervejas artesanais, petiscos autorais e música ao vivo nos fins de semana.</p>
-          </div>
+        <div class="diff-item">
+          <div class="diff-icon">◆</div>
+          <div class="diff-name">Praia Rasa</div>
+          <div class="diff-desc">Uma das praias mais bonitas de Búzios, próxima ao complexo.</div>
         </div>
       </div>
     </section>
@@ -299,92 +152,25 @@
       </div>
     </section>
   </main>
-
   <script>
-    // Header
-    var header = document.querySelector('.site-header');
+    const header = document.querySelector('.site-header');
     function updateHeader() {
-      header.classList.toggle('scrolled', window.scrollY > 80);
+      if (window.scrollY > 80) { header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
     }
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Position pins proportionally to real distance
-    (function() {
-      var wrap = document.querySelector('.eco-map-wrap');
-      if (!wrap) return;
-
-      var pins = wrap.querySelectorAll('.eco-pin');
-      var svg = wrap.querySelector('.eco-lines');
-      var maxKm = 4;
-      var baseRadius = 40;   // px per km minimum
-      var radiusScale;       // computed after layout
-
-      function layout() {
-        var w = wrap.offsetWidth;
-        var h = wrap.offsetHeight;
-        var cx = w / 2;
-        var cy = h / 2;
-        // Scale radius so 4km reaches ~45% of the smaller dimension
-        radiusScale = Math.min(w, h) * 0.38 / maxKm;
-
-        // Clear SVG lines
-        svg.innerHTML = '';
-        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-
-        pins.forEach(function(pin) {
-          var km = parseFloat(pin.dataset.km);
-          var angle = parseFloat(pin.dataset.angle) * (Math.PI / 180);
-          var r = km * radiusScale;
-
-          var x = cx + r * Math.cos(angle);
-          var y = cy + r * Math.sin(angle);
-
-          pin.style.left = x + 'px';
-          pin.style.top = y + 'px';
-          pin.style.transform = 'translate(-50%, -50%)';
-
-          // Draw dashed line from center to pin
-          var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-          line.setAttribute('x1', cx);
-          line.setAttribute('y1', cy);
-          line.setAttribute('x2', x);
-          line.setAttribute('y2', y);
-          line.setAttribute('stroke', 'rgba(111,143,183,0.18)');
-          line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-dasharray', '3,5');
-          svg.appendChild(line);
-        });
-      }
-
-      layout();
-      window.addEventListener('resize', layout);
-
-      // Hover / touch interaction
-      pins.forEach(function(pin) {
-        pin.addEventListener('mouseenter', function() {
-          pins.forEach(function(p) { p.classList.remove('active'); });
-          pin.classList.add('active');
-        });
-        pin.addEventListener('mouseleave', function() {
-          pin.classList.remove('active');
-        });
-        pin.addEventListener('click', function(e) {
-          e.preventDefault();
-          var wasActive = pin.classList.contains('active');
-          pins.forEach(function(p) { p.classList.remove('active'); });
-          if (!wasActive) pin.classList.add('active');
-        });
+    // Scroll animation for differential items
+    const diffItems = document.querySelectorAll('.diff-item');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-
-      // Scroll reveal
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) entry.target.classList.add('revealed');
-        });
-      }, { threshold: 0.1 });
-      pins.forEach(function(p) { obs.observe(p); });
-    })();
+    }, { threshold: 0.15 });
+    diffItems.forEach(function(item) { observer.observe(item); });
   </script>
 </body>
 </html>

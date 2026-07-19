@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Aretê — Ecossistema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Dosis:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:       #08172a;
+      --navy-light: #0d2240;
+      --ink:        #1b2633;
+      --accent:     #6f8fb7;
+      --accent-lt:  #8dabc8;
+      --paper:      #f8f8f4;
+      --cream:      #f2f0eb;
+      --warm:       #e8e5df;
+      --line:       #d6d3cc;
+      --txt:        #4a4d52;
+      --txt-dim:    #8a8d93;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'Dosis', 'Segoe UI', sans-serif;
+    }
+
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SPLIT CONTAINER ─────────────────────────────── */
+    .split {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* ── LEFT: MAP ───────────────────────────────────── */
+    .map-col {
+      flex: 1 1 65%;
+      position: relative;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    /* Subtle dot grid */
+    .map-grid {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, var(--line) 0.8px, transparent 0.8px);
+      background-size: 32px 32px;
+      opacity: 0.45;
+    }
+
+    /* SVG layer for lines + rings */
+    .map-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    /* ── MARKERS ─────────────────────────────────────── */
+    .markers { position: absolute; inset: 0; }
+
+    .mk {
+      position: absolute;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    /* Pin dot */
+    .mk-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: all 0.35s cubic-bezier(.23,1,.32,1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .mk.is-main .mk-dot {
+      width: 22px; height: 22px;
+      background: var(--navy);
+      border-width: 4px;
+      box-shadow: 0 0 0 6px rgba(111,143,183,0.18), 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Pulse ring on hover */
+    .mk::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 36px; height: 36px;
+      transform: translate(-50%,-50%) scale(0.8);
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(.23,1,.32,1);
+    }
+
+    .mk:hover::after,
+    .mk.is-active::after {
+      opacity: 0.5;
+      transform: translate(-50%,-50%) scale(1);
+    }
+
+    /* Active pin */
+    .mk.is-active .mk-dot {
+      background: var(--navy);
+      transform: scale(1.25);
+      box-shadow: 0 0 0 8px rgba(111,143,183,0.2), 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    .mk.is-main.is-active .mk-dot {
+      background: var(--navy);
+      transform: scale(1.15);
+      box-shadow: 0 0 0 10px rgba(111,143,183,0.25), 0 4px 24px rgba(0,0,0,0.25);
+    }
+
+    /* Floating label */
+    .mk-lbl {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      white-space: nowrap;
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 3px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(.23,1,.32,1);
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    .mk:hover .mk-lbl,
+    .mk.is-active .mk-lbl {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Distance chip on the label */
+    .mk-km {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ── RIGHT: CARDS ────────────────────────────────── */
+    .cards-col {
+      flex: 0 0 380px;
+      background: #fff;
+      border-left: 1px solid var(--warm);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .cards-head {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--warm);
+      flex-shrink: 0;
+    }
+
+    .cards-head-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .cards-head h2 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .cards-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px 24px;
+    }
+
+    .cards-list::-webkit-scrollbar { width: 4px; }
+    .cards-list::-webkit-scrollbar-track { background: transparent; }
+    .cards-list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+    /* ── CARD ─────────────────────────────────────────── */
+    .cd {
+      position: relative;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      background: var(--paper);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(.23,1,.32,1);
+      opacity: 0.55;
+      transform: translateY(6px);
+    }
+
+    .cd:hover,
+    .cd.is-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cd.is-active {
+      background: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(111,143,183,0.12);
+    }
+
+    /* Top accent bar */
+    .cd::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 18px; right: 18px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 0 0 2px 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .cd.is-active::before { opacity: 1; }
+
+    /* Hotel card (main) */
+    .cd.is-hotel {
+      background: var(--navy);
+      border-color: transparent;
+    }
+
+    .cd.is-hotel .cd-title { color: #fff; font-size: 18px; }
+    .cd.is-hotel .cd-sub { color: rgba(255,255,255,0.65); }
+    .cd.is-hotel .cd-desc { color: rgba(255,255,255,0.8); }
+    .cd.is-hotel .cd-tag {
+      background: rgba(111,143,183,0.2);
+      color: rgba(255,255,255,0.8);
+      border-color: rgba(111,143,183,0.3);
+    }
+    .cd.is-hotel::before { background: var(--accent-lt); }
+    .cd.is-hotel.is-active { border-color: var(--accent); box-shadow: 0 4px 24px rgba(111,143,183,0.25); }
+
+    /* Card photo (small thumbnail) */
+    .cd-photo {
+      width: 100%;
+      height: 90px;
+      border-radius: 4px;
+      object-fit: cover;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .cd.is-hotel .cd-photo {
+      height: 100px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+
+    .cd-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .cd-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .cd-km {
+      flex-shrink: 0;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .cd.is-hotel .cd-km {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cd-sub {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--txt-dim);
+      margin-bottom: 8px;
+    }
+
+    .cd-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--txt);
+      margin-bottom: 10px;
+    }
+
+    /* Transport tags */
+    .cd-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .cd-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 4px 8px;
+      border-radius: 3px;
+      background: var(--cream);
+      color: var(--txt-dim);
+      border: 1px solid var(--warm);
+      transition: all 0.25s;
+    }
+
+    .cd.is-active .cd-tag {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .cd.is-hotel .cd-tag {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    /* ── MAP CENTER LABEL ────────────────────────────── */
+    .map-center-lbl {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--txt-dim);
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+      padding: 6px 12px;
+      border-radius: 3px;
+      z-index: 20;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .split { flex-direction: column; }
+      .map-col { flex: 0 0 50vh; }
+      .cards-col { flex: 1; border-left: none; border-top: 1px solid var(--warm); }
+    }
+
+    @media (max-width: 640px) {
+      .map-col { flex: 0 0 42vh; }
+      .cards-col { padding: 0; }
+      .cards-head { padding: 18px 18px 14px; }
+      .cards-list { padding: 10px 14px 20px; }
+      .cd { padding: 12px 14px; }
+      .cd-photo { height: 70px; }
+      .cards-head h2 { font-size: 18px; }
+    }
+
+    /* ── ENTRANCE ANIMATION ──────────────────────────── */
+    @keyframes mkFade {
+      from { opacity: 0; transform: translate(-50%,-50%) scale(0.5); }
+      to   { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    }
+    .mk { animation: mkFade 0.5s cubic-bezier(.23,1,.32,1) backwards; }
+    .mk:nth-child(1) { animation-delay: 0.05s; }
+    .mk:nth-child(2) { animation-delay: 0.12s; }
+    .mk:nth-child(3) { animation-delay: 0.19s; }
+    .mk:nth-child(4) { animation-delay: 0.26s; }
+    .mk:nth-child(5) { animation-delay: 0.33s; }
+    .mk:nth-child(6) { animation-delay: 0.40s; }
+    .mk:nth-child(7) { animation-delay: 0.47s; }
+
+    @keyframes cdFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 0.55; transform: translateY(0); }
+    }
+    .cd { animation: cdFade 0.45s cubic-bezier(.23,1,.32,1) backwards; }
+    .cd:nth-child(1) { animation-delay: 0.10s; }
+    .cd:nth-child(2) { animation-delay: 0.16s; }
+    .cd:nth-child(3) { animation-delay: 0.22s; }
+    .cd:nth-child(4) { animation-delay: 0.28s; }
+    .cd:nth-child(5) { animation-delay: 0.34s; }
+    .cd:nth-child(6) { animation-delay: 0.40s; }
+    .cd:nth-child(7) { animation-delay: 0.46s; }
+  </style>
+</head>
+<body>
+  <div class="split">
+
+    <!-- ═══════ MAP ═══════ -->
+    <div class="map-col">
+      <div class="map-grid"></div>
+      <svg class="map-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="markers">
+        <!-- Hotel (center) -->
+        <div class="mk is-main" data-id="hotel" data-x="44" data-y="52">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Hotel Aretê<span class="mk-km">Sede</span></div>
+        </div>
+        <!-- Clube de Praia -->
+        <div class="mk" data-id="clube" data-x="36" data-y="30">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Clube de Praia<span class="mk-km">1,3 km</span></div>
+        </div>
+        <!-- Sede Golf -->
+        <div class="mk" data-id="golf" data-x="56" data-y="35">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Sede Golf<span class="mk-km">2 km</span></div>
+        </div>
+        <!-- Sede Esportiva -->
+        <div class="mk" data-id="esportiva" data-x="52" data-y="62">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Sede Esportiva<span class="mk-km">2 km</span></div>
+        </div>
+        <!-- Pista de Bike -->
+        <div class="mk" data-id="bike" data-x="54" data-y="75">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Pista de Bike<span class="mk-km">2 km</span></div>
+        </div>
+        <!-- Praia Rasa -->
+        <div class="mk" data-id="praia" data-x="28" data-y="42">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Praia Rasa<span class="mk-km">1,2 km</span></div>
+        </div>
+        <!-- Cervejaria -->
+        <div class="mk" data-id="cerveja" data-x="26" data-y="20">
+          <div class="mk-dot"></div>
+          <div class="mk-lbl">Cervejaria<span class="mk-km">4 km</span></div>
+        </div>
+      </div>
+      <div class="map-center-lbl">Búzios · Rio de Janeiro</div>
+    </div>
+
+    <!-- ═══════ CARDS ═══════ -->
+    <div class="cards-col">
+      <div class="cards-head">
+        <div class="cards-head-eyebrow">Ecossistema</div>
+        <h2>Pontos de Interesse</h2>
+      </div>
+      <div class="cards-list">
+
+        <!-- Hotel -->
+        <div class="cd is-hotel is-active" data-id="hotel">
+          <img class="cd-photo" src="assets/shared/DSCF4246.avif" alt="Hotel Aretê">
+          <div class="cd-head">
+            <div class="cd-title">Hotel Aretê</div>
+            <div class="cd-km">Sede</div>
+          </div>
+          <div class="cd-sub">Búzios, Rio de Janeiro</div>
+          <div class="cd-desc">Um refúgio de elegância e excelência onde cada detalhe convida a desacelerar e apreciar a vida com mais intenção.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">Praia Próxima</span>
+            <span class="cd-tag">Restaurante</span>
+            <span class="cd-tag">Spa</span>
+          </div>
+        </div>
+
+        <!-- Praia Rasa -->
+        <div class="cd" data-id="praia">
+          <img class="cd-photo" src="assets/shared/DSCF4283.avif" alt="Praia Rasa">
+          <div class="cd-head">
+            <div class="cd-title">Praia Rasa</div>
+            <div class="cd-km">1,2 km</div>
+          </div>
+          <div class="cd-sub">Praia</div>
+          <div class="cd-desc">Uma das praias mais bonitas de Búzios. Águas calmas, areia dourada e mar tranquilo para famílias.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">15 min a pé</span>
+            <span class="cd-tag">5 min de bike</span>
+            <span class="cd-tag">3 min de carro</span>
+          </div>
+        </div>
+
+        <!-- Clube de Praia -->
+        <div class="cd" data-id="clube">
+          <img class="cd-photo" src="assets/shared/DSCF4719.avif" alt="Clube de Praia">
+          <div class="cd-head">
+            <div class="cd-title">Clube de Praia</div>
+            <div class="cd-km">1,3 km</div>
+          </div>
+          <div class="cd-sub">Restaurante & Lazer</div>
+          <div class="cd-desc">Restaurante à beira-mar, piscina infantil e espaço kids com monitores. Acesso exclusivo para hóspedes.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">18 min a pé</span>
+            <span class="cd-tag">6 min de bike</span>
+            <span class="cd-tag">3 min de carro</span>
+          </div>
+        </div>
+
+        <!-- Sede Golf -->
+        <div class="cd" data-id="golf">
+          <img class="cd-photo" src="assets/shared/DSCF4064.avif" alt="Sede Golf">
+          <div class="cd-head">
+            <div class="cd-title">Sede Golf</div>
+            <div class="cd-km">2 km</div>
+          </div>
+          <div class="cd-sub">Golfe</div>
+          <div class="cd-desc">Campo de 18 buracos projetado por Pete e Perry Dye. Um dos campos de golfe mais premiados da América Latina.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">25 min a pé</span>
+            <span class="cd-tag">8 min de bike</span>
+            <span class="cd-tag">4 min de carro</span>
+          </div>
+        </div>
+
+        <!-- Sede Esportiva -->
+        <div class="cd" data-id="esportiva">
+          <img class="cd-photo" src="assets/shared/DSCF4811.avif" alt="Sede Esportiva">
+          <div class="cd-head">
+            <div class="cd-title">Sede Esportiva</div>
+            <div class="cd-km">2 km</div>
+          </div>
+          <div class="cd-sub">Fitness & Esportes</div>
+          <div class="cd-desc">Quadras de tênis, paddle, academia ao ar livre e piscina olímpica. Tudo para manter a rotina longe de casa.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">25 min a pé</span>
+            <span class="cd-tag">8 min de bike</span>
+            <span class="cd-tag">4 min de carro</span>
+          </div>
+        </div>
+
+        <!-- Pista de Bike -->
+        <div class="cd" data-id="bike">
+          <img class="cd-photo" src="assets/shared/DSCF4153.avif" alt="Pista de Bike">
+          <div class="cd-head">
+            <div class="cd-title">Pista de Bike</div>
+            <div class="cd-km">2 km</div>
+          </div>
+          <div class="cd-sub">Mountain Bike</div>
+          <div class="cd-desc">Trilhas exclusivas para ciclistas de todos os níveis, com paisagens deslumbrantes pelo litoral de Búzios.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">25 min a pé</span>
+            <span class="cd-tag">8 min de bike</span>
+            <span class="cd-tag">4 min de carro</span>
+          </div>
+        </div>
+
+        <!-- Cervejaria -->
+        <div class="cd" data-id="cerveja">
+          <img class="cd-photo" src="assets/shared/DSCF4202.avif" alt="Cervejaria">
+          <div class="cd-head">
+            <div class="cd-title">Cervejaria & Aeroporto</div>
+            <div class="cd-km">4 km</div>
+          </div>
+          <div class="cd-sub">Gastronomia & Transporte</div>
+          <div class="cd-desc">Fácil acesso ao aeroporto de Macaé. Explore também as cervejarias artesanais e o comércio local da região.</div>
+          <div class="cd-tags">
+            <span class="cd-tag">12 min de carro</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var markers = document.querySelectorAll('.mk');
+      var cards   = document.querySelectorAll('.cd');
+
+      /* ── activate helpers ─────────────────────────── */
+      function activate(id) {
+        markers.forEach(function (m) {
+          m.classList.toggle('is-active', m.dataset.id === id);
+        });
+        cards.forEach(function (c) {
+          c.classList.toggle('is-active', c.dataset.id === id);
+        });
+      }
+
+      /* ── marker hover ────────────────────────────── */
+      markers.forEach(function (m) {
+        m.addEventListener('mouseenter', function () { activate(m.dataset.id); });
+      });
+
+      /* ── card hover ──────────────────────────────── */
+      cards.forEach(function (c) {
+        c.addEventListener('mouseenter', function () { activate(c.dataset.id); });
+        c.addEventListener('mouseleave', function () { activate('hotel'); });
+      });
+
+      /* ── draw connecting lines + distance rings ──── */
+      function drawLines() {
+        var svg   = document.querySelector('.map-svg');
+        var col   = document.querySelector('.map-col');
+        var w     = col.offsetWidth;
+        var h     = col.offsetHeight;
+        var cx    = w * 0.44;
+        var cy    = h * 0.52;
+
+        svg.innerHTML = '';
+        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+
+        // Distance rings
+        [1, 2, 3, 4].forEach(function (km) {
+          var r = km * Math.min(w, h) * 0.09;
+          var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          circle.setAttribute('cx', cx);
+          circle.setAttribute('cy', cy);
+          circle.setAttribute('r', r);
+          circle.setAttribute('fill', 'none');
+          circle.setAttribute('stroke', 'rgba(111,143,183,0.08)');
+          circle.setAttribute('stroke-width', '1');
+          circle.setAttribute('stroke-dasharray', '2,6');
+          svg.appendChild(circle);
+
+          // Ring label
+          var txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          txt.setAttribute('x', cx + r + 4);
+          txt.setAttribute('y', cy + 3);
+          txt.setAttribute('fill', 'rgba(111,143,183,0.18)');
+          txt.setAttribute('font-family', 'Dosis, sans-serif');
+          txt.setAttribute('font-size', '9');
+          txt.setAttribute('letter-spacing', '0.08em');
+          txt.textContent = km + ' km';
+          svg.appendChild(txt);
+        });
+
+        // Connecting lines
+        markers.forEach(function (m) {
+          if (m.classList.contains('is-main')) return;
+          var mx = w * parseFloat(m.dataset.x) / 100;
+          var my = h * parseFloat(m.dataset.y) / 100;
+
+          var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', cx);
+          line.setAttribute('y1', cy);
+          line.setAttribute('x2', mx);
+          line.setAttribute('y2', my);
+          line.setAttribute('stroke', 'rgba(111,143,183,0.1)');
+          line.setAttribute('stroke-width', '1');
+          line.setAttribute('stroke-dasharray', '3,6');
+          svg.appendChild(line);
+        });
+      }
+
+      drawLines();
+      window.addEventListener('resize', drawLines);
+    })();
+  </script>
+</body>
+</html>
