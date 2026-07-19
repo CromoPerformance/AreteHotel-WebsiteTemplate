@@ -59,14 +59,6 @@
             <circle cx="350" cy="350" r="90" class="eco-ring eco-ring--1"/>
             <circle cx="350" cy="350" r="180" class="eco-ring eco-ring--2"/>
             <circle cx="350" cy="350" r="270" class="eco-ring eco-ring--3"/>
-            <!-- Raios — end points match node CSS positions -->
-            <line x1="350" y1="350" x2="210" y2="210" class="eco-line" data-target="mirante"/>
-            <line x1="350" y1="350" x2="490" y2="175" class="eco-line" data-target="praia-rasa"/>
-            <line x1="350" y1="350" x2="546" y2="476" class="eco-line" data-target="mangue"/>
-            <line x1="350" y1="350" x2="210" y2="476" class="eco-line" data-target="golfe"/>
-            <line x1="350" y1="350" x2="175" y2="350" class="eco-line" data-target="sede"/>
-            <line x1="350" y1="350" x2="560" y2="560" class="eco-line" data-target="cervejaria"/>
-            <line x1="350" y1="350" x2="210" y2="560" class="eco-line" data-target="bike"/>
           </svg>
 
           <!-- Hotel (centro) -->
@@ -116,16 +108,6 @@
           <div class="eco-node eco-node--item" data-id="bike" style="--nx:30%; --ny:80%;">
             <div class="eco-node-dot eco-node-dot--sport"></div>
             <div class="eco-node-label">Pista de<br>Bike</div>
-          </div>
-
-          <!-- Legenda de distância -->
-          <div class="eco-legend">
-            <div class="eco-legend-label">0 m</div>
-            <div class="eco-legend-bar">
-              <div class="eco-legend-tick" style="left:33%"><span>500m</span></div>
-              <div class="eco-legend-tick" style="left:66%"><span>1 km</span></div>
-              <div class="eco-legend-tick" style="left:100%"><span>2 km</span></div>
-            </div>
           </div>
 
         </div>
@@ -310,7 +292,6 @@
     (function() {
       var nodes = document.querySelectorAll('.eco-node--item');
       var cards = document.querySelectorAll('.eco-card');
-      var lines = document.querySelectorAll('.eco-line');
       var cardMap = {};
       cards.forEach(function(c) { cardMap[c.dataset.target] = c; });
 
@@ -323,16 +304,11 @@
           c.classList.toggle('active', c.dataset.target === id);
           c.classList.toggle('dimmed', c.dataset.target !== id);
         });
-        lines.forEach(function(l) {
-          l.classList.toggle('active', l.dataset.target === id);
-          l.classList.toggle('dimmed', l.dataset.target !== id);
-        });
       }
 
       function clearHighlight() {
         nodes.forEach(function(n) { n.classList.remove('active','dimmed'); });
         cards.forEach(function(c) { c.classList.remove('active','dimmed'); });
-        lines.forEach(function(l) { l.classList.remove('active','dimmed'); });
       }
 
       /* Hover — bidirectional */
@@ -360,21 +336,15 @@
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entranceObs.unobserve(entry.target);
-            /* Nodes appear one by one */
             var order = ['praia-rasa','mirante','mangue','golfe','sede','cervejaria','bike'];
             var allNodes = document.querySelectorAll('.eco-node--item');
-            var allLines = document.querySelectorAll('.eco-line');
             order.forEach(function(id, i) {
               setTimeout(function() {
                 allNodes.forEach(function(n) {
                   if (n.dataset.id === id) n.classList.add('eco-visible');
                 });
-                allLines.forEach(function(l) {
-                  if (l.dataset.target === id) l.classList.add('eco-visible');
-                });
               }, 300 + i * 350);
             });
-            /* Cards appear after nodes */
             var allCards = document.querySelectorAll('.eco-card');
             allCards.forEach(function(c, i) {
               setTimeout(function() {
