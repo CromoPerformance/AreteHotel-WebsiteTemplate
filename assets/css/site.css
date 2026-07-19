@@ -2680,20 +2680,6 @@ main { padding-top: 0; }
   height: 100%;
   display: block;
 }
-.eco-ring {
-  fill: none;
-  stroke: rgba(255,255,255,0.06);
-  stroke-width: 1;
-}
-.eco-ring--1 {
-  stroke-dasharray: 6 4;
-}
-.eco-ring--2 {
-  stroke-dasharray: 8 6;
-}
-.eco-ring--3 {
-  stroke-dasharray: 10 8;
-}
 .eco-line {
   stroke: rgba(255,255,255,0.12);
   stroke-width: 1;
