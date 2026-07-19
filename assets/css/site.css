@@ -211,7 +211,7 @@ main { padding-top: 0; }
 .hero-title.tight { font-size: clamp(60px, 9.5vw, 128px); }
 .hero-title em { font-style: italic; }
 .hero-logo {
-  max-width: clamp(350px, 50vw, 650px);
+  max-width: clamp(180px, 25vw, 300px);
   height: auto;
 }
 .hero-subtitle {
