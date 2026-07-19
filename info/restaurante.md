@@ -1,3 +1,11 @@
+restaurante Arê
+No Restaurante Arê, a experiência vai além de um cenário encantador. O menu diversificado oferece
+sabores frescos e cuidadosamente preparados, enquanto você aprecia uma linda vista para a
+Marina, tornando cada momento à mesa ainda mais especial. Um lugar perfeito para saborear,
+relaxar e celebrar bons momentos no Hotel Aretê.
+
+---
+
 Entradas | Starters
 Trio Árabe: homus de grão de bico, coalhada seca, babaganoush, pão pita artesanal
 

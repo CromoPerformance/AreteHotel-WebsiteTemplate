@@ -539,6 +539,183 @@ main { padding-top: 0; }
   .marina-title { font-size: clamp(52px, 14vw, 80px); }
 }
 
+/* ========================================
+   LOCALIZAÇÃO — Marina Lifestyle
+   ======================================== */
+.marina-lifestyle {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.marina-lifestyle-bg {
+  position: absolute;
+  inset: 0;
+  background: center bottom/cover no-repeat;
+}
+.marina-lifestyle-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,21,37,0.72);
+}
+.marina-lifestyle-content {
+  position: relative;
+  z-index: 1;
+  padding: 100px 8%;
+  width: 100%;
+  text-align: center;
+}
+.marina-lifestyle-title {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #fff;
+}
+.marina-lifestyle-text {
+  margin: 0 auto 48px;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.8);
+  max-width: 600px;
+}
+.marina-activities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.marina-activity {
+  text-align: center;
+}
+.marina-activity-icon {
+  display: none;
+}
+.marina-activity-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.marina-activity-desc {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* ========================================
+   LOCALIZAÇÃO — Estações do Ano
+   ======================================== */
+.seasons-section {
+  padding: 120px 8%;
+}
+.seasons-inner {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+.seasons-copy {
+  position: static;
+}
+.seasons-title {
+  margin: 24px 0 32px;
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--navy);
+}
+.seasons-text {
+  margin: 0 0 20px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(27,38,51,0.7);
+}
+.seasons-tabs {
+  display: flex;
+  flex-direction: column;
+}
+.season-tab {
+  border-bottom: 1px solid rgba(111,143,183,0.2);
+}
+.season-tab:first-child {
+  border-top: 1px solid rgba(111,143,183,0.2);
+}
+.season-tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 300;
+  color: var(--navy);
+  text-align: left;
+  transition: color 0.3s ease;
+}
+.season-tab-btn:hover {
+  color: var(--blue);
+}
+.season-tab-months {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.season-tab-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0;
+}
+.season-tab.active .season-tab-content {
+  max-height: 500px;
+  padding: 0 0 32px;
+}
+.season-tab-image {
+  height: 240px;
+  background: center/cover no-repeat;
+}
+.season-tab-text {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(27,38,51,0.7);
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .seasons-inner { grid-template-columns: 1fr; gap: 48px; }
+  .seasons-copy { position: static; }
+  .season-tab-content { grid-template-columns: 1fr; }
+  .season-tab-image { height: 180px; }
+  .marina-activities { grid-template-columns: 1fr; gap: 32px; }
+  .marina-lifestyle-content { padding: 60px 6%; }
+}
+
 /* Testimonials */
 .testimonials {
   background: #f5f6f8;
@@ -1966,6 +2143,11 @@ main { padding-top: 0; }
   border-radius: 0;
   transition: border-color 0.3s ease, color 0.3s ease;
 }
+.nature-split .btn-outline {
+  padding: 12px 28px;
+  font-size: 11px;
+  width: fit-content;
+}
 .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
 @media (max-width: 640px) {
   .info-buttons { flex-direction: column; }
@@ -1979,8 +2161,10 @@ main { padding-top: 0; }
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 640px;
+  height: 800px;
   overflow: hidden;
+  margin-bottom: 0;
+  border: 60px solid var(--navy);
 }
 .mosaic-item {
   position: relative;
@@ -2300,48 +2484,115 @@ main { padding-top: 0; }
 /* ========================================
    PARTNERS GRID
    ======================================== */
-.experiences-partners {
-  padding: 100px 5%;
-  background: #f8f8f4;
+.experiences-list {
+  padding: 120px 5%;
   text-align: center;
 }
-.experiences-partners-inner {
+.experiences-list-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
-.partners-grid {
+.experiences-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-.partner-card {
-  padding: 32px 24px;
-  background: #fff;
-  border: 1px solid rgba(111,143,183,0.12);
+  grid-template-columns: repeat(6, minmax(160px, 1fr));
+  gap: 24px 96px;
   text-align: left;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  justify-content: center;
 }
-.partner-card:hover {
-  border-color: rgba(111,143,183,0.3);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+.experience-row {
+  padding-bottom: 40px;
+  min-width: 180px;
 }
-.partner-name {
+.experience-num {
+  display: block;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.experience-name {
+  margin: 0 0 12px;
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: clamp(22px, 2vw, 28px);
   font-weight: 300;
   color: var(--navy);
-  margin-bottom: 8px;
 }
-.partner-desc {
+.experience-desc {
+  margin: 0;
   font-family: var(--sans);
-  font-size: 13px;
-  color: rgba(27,38,51,0.6);
+  font-size: 16px;
   line-height: 1.6;
+  color: rgba(27,38,51,0.7);
 }
 @media (max-width: 768px) {
-  .partners-grid {
-    grid-template-columns: 1fr;
-  }
+  .experiences-items { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+/* ========================================
+   EVENTOS
+   ======================================== */
+.events-showcase {
+  padding: 120px 5% 120px;
+}
+.events-showcase-header {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto 64px;
+}
+.events-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.events-showcase-item {
+  position: relative;
+  height: 480px;
+  background: center/cover no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+}
+.events-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,21,37,0.85) 0%, rgba(8,21,37,0.2) 60%, transparent 100%);
+  transition: background 0.4s ease;
+}
+.events-showcase-item:hover .events-showcase-overlay {
+  background: linear-gradient(to top, rgba(8,21,37,0.9) 0%, rgba(8,21,37,0.4) 60%, rgba(8,21,37,0.1) 100%);
+}
+.events-showcase-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 32px;
+}
+.events-showcase-name {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 300;
+  color: #fff;
+}
+.events-showcase-desc {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.events-showcase-item:hover .events-showcase-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .events-showcase-grid { grid-template-columns: 1fr; gap: 16px; }
+  .events-showcase-item { height: 320px; }
+  .events-showcase-desc { opacity: 1; transform: none; }
 }
 
 /* ========================================
