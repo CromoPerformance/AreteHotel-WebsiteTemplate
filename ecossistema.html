@@ -336,7 +336,8 @@
         n.addEventListener('click', function() {
           var target = cardMap[n.dataset.id];
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            var y = target.getBoundingClientRect().top + window.pageYOffset - 40;
+            window.scrollTo({ top: y, behavior: 'smooth' });
           }
         });
       });

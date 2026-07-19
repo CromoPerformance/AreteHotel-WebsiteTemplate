@@ -2796,20 +2796,20 @@ main { padding-top: 0; }
 
 /* ── CARDS — Scrollable right side ── */
 .eco-cards {
-  padding: 80px 5% 80px;
+  padding: 40px 6% 80px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   background: #f7f5f2;
 }
 
 /* ── CARDS ── */
 .eco-card {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  padding: 20px;
-  border-radius: 8px;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 10px;
   background: #fff;
   border: 1px solid rgba(0,0,0,0.06);
   transition: all 0.3s ease;
@@ -2830,9 +2830,9 @@ main { padding-top: 0; }
   opacity: 0.3;
 }
 .eco-card-image {
-  width: 120px;
-  height: 96px;
-  border-radius: 6px;
+  width: 160px;
+  height: 120px;
+  border-radius: 8px;
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
@@ -2845,7 +2845,7 @@ main { padding-top: 0; }
 }
 .eco-card-name {
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.2;
