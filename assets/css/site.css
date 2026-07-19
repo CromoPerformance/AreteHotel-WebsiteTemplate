@@ -2694,15 +2694,13 @@ main { padding-top: 0; }
   stroke-dasharray: 10 8;
 }
 .eco-line {
-  stroke: rgba(255,255,255,0.15);
+  stroke: rgba(255,255,255,0.12);
   stroke-width: 1;
-  transition: stroke 0.4s ease, opacity 0.4s ease;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+  opacity: 0;
+  transition: opacity 0.6s ease, stroke 0.4s ease;
 }
 .eco-line.eco-visible {
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.8s ease, stroke 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
 }
 .eco-line.active {
   stroke: rgba(7,127,140,0.6);
@@ -2743,31 +2741,31 @@ main { padding-top: 0; }
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  border: 2px solid rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.35);
+  border: 2px solid rgba(255,255,255,0.6);
   transition: all 0.3s ease;
 }
 .eco-node-dot--center {
   width: 28px;
   height: 28px;
-  background: var(--blue);
-  border: 3px solid rgba(255,255,255,0.9);
-  box-shadow: 0 0 24px rgba(7,127,140,0.5);
+  background: rgba(7,127,140,0.7);
+  border: 3px solid rgba(255,255,255,0.85);
+  box-shadow: 0 0 24px rgba(7,127,140,0.35);
 }
 .eco-node--item.active .eco-node-dot {
   width: 22px;
   height: 22px;
-  border-color: #fff;
-  box-shadow: 0 0 16px rgba(7,127,140,0.6);
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 0 0 16px rgba(7,127,140,0.4);
 }
-.eco-node-dot--water { background: #077F8C; border-color: #077F8C; }
-.eco-node-dot--nature { background: #4C5C35; border-color: #4C5C35; }
-.eco-node-dot--sport { background: #004485; border-color: #004485; }
-.eco-node-dot--gastronomy { background: #8B6914; border-color: #8B6914; }
-.eco-node--item.active .eco-node-dot--water { background: #077F8C; box-shadow: 0 0 20px rgba(7,127,140,0.7); }
-.eco-node--item.active .eco-node-dot--nature { background: #4C5C35; box-shadow: 0 0 20px rgba(76,92,53,0.7); }
-.eco-node--item.active .eco-node-dot--sport { background: #004485; box-shadow: 0 0 20px rgba(0,68,133,0.7); }
-.eco-node--item.active .eco-node-dot--gastronomy { background: #8B6914; box-shadow: 0 0 20px rgba(139,105,20,0.7); }
+.eco-node-dot--water { background: rgba(7,127,140,0.55); border-color: rgba(7,127,140,0.7); }
+.eco-node-dot--nature { background: rgba(76,92,53,0.55); border-color: rgba(76,92,53,0.7); }
+.eco-node-dot--sport { background: rgba(0,68,133,0.5); border-color: rgba(0,68,133,0.65); }
+.eco-node-dot--gastronomy { background: rgba(139,105,20,0.5); border-color: rgba(139,105,20,0.65); }
+.eco-node--item.active .eco-node-dot--water { background: rgba(7,127,140,0.7); box-shadow: 0 0 18px rgba(7,127,140,0.5); }
+.eco-node--item.active .eco-node-dot--nature { background: rgba(76,92,53,0.7); box-shadow: 0 0 18px rgba(76,92,53,0.5); }
+.eco-node--item.active .eco-node-dot--sport { background: rgba(0,68,133,0.65); box-shadow: 0 0 18px rgba(0,68,133,0.5); }
+.eco-node--item.active .eco-node-dot--gastronomy { background: rgba(139,105,20,0.65); box-shadow: 0 0 18px rgba(139,105,20,0.5); }
 
 /* Labels */
 .eco-node-label {
