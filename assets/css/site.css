@@ -2792,53 +2792,6 @@ main { padding-top: 0; }
   opacity: 0.7;
 }
 
-/* ── Legenda ── */
-.eco-legend {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 4;
-}
-.eco-legend-label {
-  font-family: var(--sans);
-  font-size: 10px;
-  color: rgba(255,255,255,0.4);
-  white-space: nowrap;
-}
-.eco-legend-bar {
-  flex: 1;
-  height: 1px;
-  background: rgba(255,255,255,0.15);
-  position: relative;
-}
-.eco-legend-tick {
-  position: absolute;
-  top: -4px;
-}
-.eco-legend-tick::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1px;
-  height: 9px;
-  background: rgba(255,255,255,0.25);
-}
-.eco-legend-tick span {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--sans);
-  font-size: 9px;
-  color: rgba(255,255,255,0.35);
-  white-space: nowrap;
-}
-
 /* ── CARDS — Scrollable right side ── */
 .eco-cards {
   padding: 80px 5% 80px;
@@ -2962,5 +2915,4 @@ main { padding-top: 0; }
     padding: 14px;
   }
   .eco-card-image { width: 80px; height: 64px; }
-  .eco-legend { bottom: 16px; left: 16px; right: 16px; }
 }
