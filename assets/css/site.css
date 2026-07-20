@@ -2623,7 +2623,7 @@ main { padding-top: 0; }
    FAQ
    ======================================== */
 .faq-section {
-  padding: 100px 5%;
+  padding: 180px 5% 100px;
   background: #f8f8f4;
 }
 .faq-inner {
