@@ -2885,25 +2885,43 @@ main { padding-top: 0; }
 /* ── Nota elegante ── */
 .eco-disclaimer {
   background: #fff;
-  padding: 48px 6%;
+  padding: 56px 6%;
+  border-top: 1px solid rgba(27,38,51,0.06);
 }
 .eco-disclaimer-inner {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.eco-disclaimer-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(7,127,140,0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.eco-disclaimer-icon span {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue);
 }
 .eco-disclaimer-text {
   font-family: var(--sans);
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.7;
-  color: rgba(27,38,51,0.5);
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(27,38,51,0.45);
   margin: 0;
 }
 .eco-disclaimer-text strong {
-  color: var(--blue);
+  color: var(--navy);
   font-weight: 600;
-  font-style: normal;
 }
 
 /* ── NÓS ENTRADA ── */
