@@ -2813,7 +2813,7 @@ main { padding-top: 0; }
   flex-direction: column;
   gap: 8px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 0;
   background: #fff;
   border: 1px solid rgba(0,0,0,0.06);
   transition: all 0.15s ease;
@@ -2839,7 +2839,7 @@ main { padding-top: 0; }
   width: 100%;
   flex: 1;
   min-height: 80px;
-  border-radius: 6px;
+  border-radius: 0;
   background-size: cover;
   background-position: center;
 }
@@ -2882,23 +2882,24 @@ main { padding-top: 0; }
 }
 
 /* ── Nota elegante ── */
-.eco-note {
-  display: flex;
-  align-items: center;
-  padding: 20px 24px;
-  border-radius: 8px;
-  border: 1px solid rgba(7,127,140,0.12);
-  background: rgba(7,127,140,0.03);
+.eco-disclaimer {
+  background: #fff;
+  padding: 48px 6%;
 }
-.eco-note-text {
+.eco-disclaimer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.eco-disclaimer-text {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 15px;
   font-style: italic;
-  line-height: 1.65;
+  line-height: 1.7;
   color: rgba(27,38,51,0.5);
   margin: 0;
 }
-.eco-note-text strong {
+.eco-disclaimer-text strong {
   color: var(--blue);
   font-weight: 600;
   font-style: normal;
