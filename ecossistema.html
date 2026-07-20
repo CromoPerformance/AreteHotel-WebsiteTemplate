@@ -60,6 +60,7 @@
             <line x1="350" y1="350" x2="490" y2="175" class="eco-line" data-target="praia-rasa"/>
             <line x1="350" y1="350" x2="546" y2="476" class="eco-line" data-target="mangue"/>
             <line x1="350" y1="350" x2="210" y2="476" class="eco-line" data-target="golfe"/>
+            <line x1="350" y1="350" x2="350" y2="469" class="eco-line" data-target="sede-praia"/>
             <line x1="350" y1="350" x2="175" y2="350" class="eco-line" data-target="sede"/>
             <line x1="350" y1="350" x2="560" y2="560" class="eco-line" data-target="cervejaria"/>
             <line x1="350" y1="350" x2="210" y2="560" class="eco-line" data-target="bike"/>
@@ -94,6 +95,12 @@
           <div class="eco-node eco-node--item" data-id="golfe" style="--nx:30%; --ny:68%;">
             <div class="eco-node-dot eco-node-dot--sport"></div>
             <div class="eco-node-label">Sede<br>Golf</div>
+          </div>
+
+          <!-- 1.5km — 33% radius -->
+          <div class="eco-node eco-node--item" data-id="sede-praia" style="--nx:50%; --ny:67%;">
+            <div class="eco-node-dot eco-node-dot--water"></div>
+            <div class="eco-node-label">Sede<br>Praia</div>
           </div>
 
           <!-- 2km — 37% radius -->
@@ -155,6 +162,19 @@
               <span class="eco-dist"><strong>3 min</strong> de carro</span>
             </div>
             <p class="eco-card-desc">Enseada de águas cristalinas cercada por rochas e manguezais. Ideal para mergulho e snorkeling em um ambiente preservado.</p>
+          </div>
+        </div>
+
+        <div class="eco-card" data-target="sede-praia">
+          <div class="eco-card-image" style="background-image:url('assets/buzios/RBC01503.jpg')"></div>
+          <div class="eco-card-body">
+            <div class="eco-card-name">Sede Praia</div>
+            <div class="eco-card-distances">
+              <span class="eco-dist"><strong>1,5 km</strong> a pé</span>
+              <span class="eco-dist"><strong>6 min</strong> de bike</span>
+              <span class="eco-dist"><strong>3 min</strong> de carro</span>
+            </div>
+            <p class="eco-card-desc">Beach club exclusivo do complexo com estrutura completa de praia. Day use disponível para hóspedes.</p>
           </div>
         </div>
 
@@ -351,7 +371,7 @@
               }, 200 + i * 100);
             });
             /* Nodes and lines appear after cards */
-            var order = ['praia-rasa','mirante','mangue','golfe','sede','cervejaria','bike'];
+            var order = ['mirante','praia-rasa','mangue','sede-praia','golfe','sede','bike','cervejaria'];
             var allNodes = document.querySelectorAll('.eco-node--item');
             var allLines = document.querySelectorAll('.eco-line');
             order.forEach(function(id, i) {
