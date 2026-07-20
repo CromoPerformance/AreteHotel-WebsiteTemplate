@@ -343,13 +343,17 @@
                 c.classList.add('eco-visible');
               }, 200 + i * 100);
             });
-            /* Nodes appear after cards */
+            /* Nodes and lines appear after cards */
             var order = ['praia-rasa','mirante','mangue','golfe','sede','cervejaria','bike'];
             var allNodes = document.querySelectorAll('.eco-node--item');
+            var allLines = document.querySelectorAll('.eco-line');
             order.forEach(function(id, i) {
               setTimeout(function() {
                 allNodes.forEach(function(n) {
                   if (n.dataset.id === id) n.classList.add('eco-visible');
+                });
+                allLines.forEach(function(l) {
+                  if (l.dataset.target === id) l.classList.add('eco-visible');
                 });
               }, 200 + allCards.length * 100 + 200 + i * 300);
             });
