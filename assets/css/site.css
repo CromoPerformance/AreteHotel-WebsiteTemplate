@@ -179,7 +179,7 @@ main { padding-top: 0; }
 .hero.hero-buzios { background-image: url('../buzios/BUZIOS-HERO.avif'); background-position: center calc(50% - 100px); }
 .hero.hero-experiencias { background-image: url('../experiencias/EXPERIENCIA-HERO.avif'); background-position: center center; }
 .hero.hero-faq { background: var(--navy); }
-.hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-FUNDO-LOGO-ARETE-BRANCO.png') center center / cover no-repeat; opacity: 0.14; }
+.hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-FUNDO-LOGO-ARETE-BRANCO.png') center center / cover no-repeat; opacity: 0.06; }
 .hero-subpage::before {
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.55) 0%, rgba(7, 20, 34, 0.48) 32%, rgba(7, 20, 34, 0.72) 100%);
 }
