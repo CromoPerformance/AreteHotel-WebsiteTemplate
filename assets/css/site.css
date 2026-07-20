@@ -198,7 +198,7 @@ main { padding-top: 0; }
   line-height: 1;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 22px;
 }
 .hero-title {
@@ -299,32 +299,31 @@ main { padding-top: 0; }
 
 /* Hub — 4-panel accordion */
 .hub {
-  display: flex;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   height: 65vh;
+  transition: grid-template-columns 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .hub-panel {
   position: relative;
-  flex: 1 1 25%;
   overflow: hidden;
   cursor: pointer;
   display: block;
   text-decoration: none;
-  transition: flex-basis 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.5s ease;
-  will-change: flex-basis;
+  contain: layout style;
 }
 .hub-panel-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
+  transition: transform 0.5s ease;
   will-change: transform;
 }
 .hub-panel-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.72) 100%);
-  will-change: opacity;
 }
 .hub-panel-content {
   position: absolute;
@@ -373,26 +372,36 @@ main { padding-top: 0; }
 .hub-panel:hover .hub-link svg {
   transform: translateX(4px);
 }
-.hub-panel:hover {
-  flex-basis: 46%;
+.hub-panel:hover .hub-panel-bg {
+  transform: scale(1.05);
 }
-.hub-panel:not(:hover) {
-  flex-basis: 18%;
+
+/* Accordion via :has() — GPU-friendly grid columns */
+.hub:has(.hub-panel:nth-child(1):hover) {
+  grid-template-columns: 4.6fr 1.8fr 1.8fr 1.8fr;
+}
+.hub:has(.hub-panel:nth-child(2):hover) {
+  grid-template-columns: 1.8fr 4.6fr 1.8fr 1.8fr;
+}
+.hub:has(.hub-panel:nth-child(3):hover) {
+  grid-template-columns: 1.8fr 1.8fr 4.6fr 1.8fr;
+}
+.hub:has(.hub-panel:nth-child(4):hover) {
+  grid-template-columns: 1.8fr 1.8fr 1.8fr 4.6fr;
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .hub { flex-wrap: wrap; height: auto; }
-  .hub-panel { flex-basis: 50%; min-height: 45vh; }
-  .hub-panel:hover { flex-basis: 50%; }
-  .hub-panel:not(:hover) { flex-basis: 50%; }
+  .hub { grid-template-columns: 1fr 1fr; height: auto; }
+  .hub-panel { min-height: 45vh; }
+  .hub:has(.hub-panel:hover) { grid-template-columns: 1fr 1fr; }
 }
 
 /* Mobile */
 @media (max-width: 640px) {
-  .hub { height: auto; }
-  .hub-panel { flex-basis: 100%; min-height: 50vh; }
-  .hub-panel:hover .hub-panel-bg { transform: scale(1.02); }
+  .hub { grid-template-columns: 1fr; height: auto; }
+  .hub-panel { min-height: 50vh; }
+  .hub:has(.hub-panel:hover) { grid-template-columns: 1fr; }
 }
 
 /* Stats Section */
@@ -503,7 +512,7 @@ main { padding-top: 0; }
   letter-spacing: 0.01em;
 }
 .marina-subtitle {
-  margin: 28px 0 0;
+  margin: 40px 0 0;
   font-family: var(--sans);
   font-size: 22px;
   font-weight: 300;
@@ -1265,7 +1274,7 @@ main { padding-top: 0; }
   line-height: 1;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8a96a5;
+  color: #5a6577;
   margin-bottom: 8px;
   font-weight: 500;
   pointer-events: none;
