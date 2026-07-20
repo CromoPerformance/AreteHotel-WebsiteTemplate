@@ -2794,28 +2794,32 @@ main { padding-top: 0; }
   opacity: 0.7;
 }
 
-/* ── CARDS — Scrollable right side ── */
+/* ── CARDS — All visible, compact ── */
 .eco-cards {
-  padding: 40px 6% 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  height: 100vh;
+  padding: 100px 5% 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 12px;
+  align-content: center;
   background: #f7f5f2;
+  overflow: hidden;
 }
 
 /* ── CARDS ── */
 .eco-card {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 20px;
-  padding: 24px;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 8px;
   background: #fff;
   border: 1px solid rgba(0,0,0,0.06);
   transition: all 0.3s ease;
   cursor: pointer;
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(12px);
 }
 .eco-card.eco-visible {
   opacity: 1;
@@ -2823,16 +2827,17 @@ main { padding-top: 0; }
 }
 .eco-card.active {
   border-color: var(--blue);
-  background: rgba(7,127,140,0.04);
-  box-shadow: 0 4px 24px rgba(7,127,140,0.12);
+  background: rgba(7,127,140,0.06);
+  box-shadow: 0 2px 16px rgba(7,127,140,0.15);
+  transform: scale(1.02);
 }
 .eco-card.dimmed {
-  opacity: 0.3;
+  opacity: 0.35;
 }
 .eco-card-image {
-  width: 160px;
-  height: 120px;
-  border-radius: 8px;
+  width: 100%;
+  height: 64px;
+  border-radius: 6px;
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
@@ -2845,7 +2850,7 @@ main { padding-top: 0; }
 }
 .eco-card-name {
   font-family: var(--sans);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.2;
@@ -2853,15 +2858,15 @@ main { padding-top: 0; }
 .eco-card-distances {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 .eco-dist {
   font-family: var(--sans);
   font-size: 11px;
   color: rgba(27,38,51,0.5);
   background: rgba(7,127,140,0.06);
-  padding: 2px 8px;
-  border-radius: 4px;
+  padding: 2px 6px;
+  border-radius: 3px;
 }
 .eco-dist strong {
   color: var(--blue);
@@ -2901,20 +2906,26 @@ main { padding-top: 0; }
     height: 60vh;
   }
   .eco-cards {
-    padding: 40px 5% 60px;
+    height: auto;
+    padding: 32px 5% 48px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 }
 @media (max-width: 640px) {
   .eco-map { height: 50vh; }
-  .eco-cards { padding: 32px 4% 48px; }
+  .eco-cards {
+    grid-template-columns: 1fr;
+    padding: 24px 4% 40px;
+  }
   .eco-node-label { font-size: 11px; }
   .eco-node-dot { width: 12px; height: 12px; }
   .eco-node-dot--center { width: 22px; height: 22px; }
   .eco-node--item.active .eco-node-dot { width: 18px; height: 18px; }
   .eco-card {
-    grid-template-columns: 80px 1fr;
+    flex-direction: row;
     gap: 12px;
-    padding: 14px;
+    padding: 10px;
   }
-  .eco-card-image { width: 80px; height: 64px; }
+  .eco-card-image { width: 80px; height: 60px; flex-shrink: 0; }
 }

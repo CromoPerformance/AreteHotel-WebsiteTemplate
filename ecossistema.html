@@ -313,11 +313,6 @@
           l.classList.toggle('active', l.dataset.target === id);
           l.classList.toggle('dimmed', l.dataset.target !== id);
         });
-        /* Scroll card into view */
-        var target = cardMap[id];
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
       }
 
       function clearHighlight() {
