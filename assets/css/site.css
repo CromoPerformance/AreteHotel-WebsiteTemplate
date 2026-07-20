@@ -2730,31 +2730,31 @@ main { padding-top: 0; }
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--navy);
-  border: 2px solid rgba(255,255,255,0.5);
+  background: #fff;
+  border: 2px solid rgba(255,255,255,0.8);
   transition: all 0.15s ease;
 }
 .eco-node-dot--center {
   width: 28px;
   height: 28px;
-  background: var(--navy);
-  border: 3px solid rgba(255,255,255,0.8);
-  box-shadow: 0 0 24px rgba(7,127,140,0.3);
+  background: #fff;
+  border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
 }
 .eco-node--item.active .eco-node-dot {
   width: 22px;
   height: 22px;
-  border-color: rgba(255,255,255,0.85);
-  box-shadow: 0 0 16px rgba(7,127,140,0.35);
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 0 0 16px rgba(255,255,255,0.4);
 }
-.eco-node-dot--water { background: rgba(7,127,140,0.9); border-color: rgba(7,127,140,0.9); }
-.eco-node-dot--nature { background: rgba(76,92,53,0.9); border-color: rgba(76,92,53,0.9); }
-.eco-node-dot--sport { background: rgba(0,68,133,0.85); border-color: rgba(0,68,133,0.85); }
-.eco-node-dot--gastronomy { background: rgba(139,105,20,0.85); border-color: rgba(139,105,20,0.85); }
-.eco-node--item.active .eco-node-dot--water { background: rgba(7,127,140,1); box-shadow: 0 0 18px rgba(7,127,140,0.4); }
-.eco-node--item.active .eco-node-dot--nature { background: rgba(76,92,53,1); box-shadow: 0 0 18px rgba(76,92,53,0.4); }
-.eco-node--item.active .eco-node-dot--sport { background: rgba(0,68,133,1); box-shadow: 0 0 18px rgba(0,68,133,0.4); }
-.eco-node--item.active .eco-node-dot--gastronomy { background: rgba(139,105,20,1); box-shadow: 0 0 18px rgba(139,105,20,0.4); }
+.eco-node-dot--water,
+.eco-node-dot--nature,
+.eco-node-dot--sport,
+.eco-node-dot--gastronomy { background: #fff; border-color: #fff; }
+.eco-node--item.active .eco-node-dot--water,
+.eco-node--item.active .eco-node-dot--nature,
+.eco-node--item.active .eco-node-dot--sport,
+.eco-node--item.active .eco-node-dot--gastronomy { box-shadow: 0 0 18px rgba(255,255,255,0.5); }
 
 /* Labels */
 .eco-node-label {
