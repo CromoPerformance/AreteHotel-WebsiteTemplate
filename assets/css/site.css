@@ -2891,26 +2891,7 @@ main { padding-top: 0; }
 .eco-disclaimer-inner {
   max-width: 680px;
   margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-.eco-disclaimer-icon {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid rgba(7,127,140,0.35);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-}
-.eco-disclaimer-icon span {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--blue);
+  text-align: center;
 }
 .eco-disclaimer-content {
   flex: 1;
