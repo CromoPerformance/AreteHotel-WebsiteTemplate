@@ -331,25 +331,50 @@
       var cardMap = {};
       cards.forEach(function(c) { cardMap[c.dataset.target] = c; });
 
-      function highlight(id) {
+      /* Pre-index all elements by ID for O(1) lookup */
+      var nodeById = {};
+      nodes.forEach(function(n) { nodeById[n.dataset.id] = n; });
+      var lineByTarget = {};
+      lines.forEach(function(l) { lineByTarget[l.dataset.target] = l; });
+
+      var currentId = null;
+      var rafPending = false;
+
+      function flush() {
+        rafPending = false;
+        var id = currentId;
         nodes.forEach(function(n) {
-          n.classList.toggle('active', n.dataset.id === id);
-          n.classList.toggle('dimmed', n.dataset.id !== id);
+          var active = n.dataset.id === id;
+          n.classList.toggle('active', active);
+          n.classList.toggle('dimmed', !active);
         });
         cards.forEach(function(c) {
-          c.classList.toggle('active', c.dataset.target === id);
-          c.classList.toggle('dimmed', c.dataset.target !== id);
+          var active = c.dataset.target === id;
+          c.classList.toggle('active', active);
+          c.classList.toggle('dimmed', !active);
         });
         lines.forEach(function(l) {
-          l.classList.toggle('active', l.dataset.target === id);
-          l.classList.toggle('dimmed', l.dataset.target !== id);
+          var active = l.dataset.target === id;
+          l.classList.toggle('active', active);
+          l.classList.toggle('dimmed', !active);
         });
       }
 
+      function schedule() {
+        if (!rafPending) {
+          rafPending = true;
+          requestAnimationFrame(flush);
+        }
+      }
+
+      function highlight(id) {
+        currentId = id;
+        schedule();
+      }
+
       function clearHighlight() {
-        nodes.forEach(function(n) { n.classList.remove('active','dimmed'); });
-        cards.forEach(function(c) { c.classList.remove('active','dimmed'); });
-        lines.forEach(function(l) { l.classList.remove('active','dimmed'); });
+        currentId = null;
+        schedule();
       }
 
       /* Hover — bidirectional */
@@ -367,26 +392,26 @@
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entranceObs.unobserve(entry.target);
-            /* Cards appear first */
             var allCards = document.querySelectorAll('.eco-card');
-            allCards.forEach(function(c, i) {
-              setTimeout(function() {
-                c.classList.add('eco-visible');
-              }, 200 + i * 100);
-            });
-            /* Nodes and lines appear after cards */
-            var order = ['mirante','praia-rasa','mangue','sede-praia','golfe','sede','bike','cervejaria'];
             var allNodes = document.querySelectorAll('.eco-node--item');
             var allLines = document.querySelectorAll('.eco-line');
+            var order = ['mirante','praia-rasa','mangue','sede-praia','golfe','sede','bike','cervejaria'];
+
+            /* Batch card entrance with rAF */
+            var cardDelay = 200;
+            allCards.forEach(function(c, i) {
+              setTimeout(function() { c.classList.add('eco-visible'); }, cardDelay + i * 100);
+            });
+
+            /* Batch node+line entrance after cards */
+            var nodeStart = cardDelay + allCards.length * 100 + 200;
             order.forEach(function(id, i) {
               setTimeout(function() {
-                allNodes.forEach(function(n) {
-                  if (n.dataset.id === id) n.classList.add('eco-visible');
-                });
-                allLines.forEach(function(l) {
-                  if (l.dataset.target === id) l.classList.add('eco-visible');
-                });
-              }, 200 + allCards.length * 100 + 200 + i * 300);
+                var n = nodeById[id];
+                var l = lineByTarget[id];
+                if (n) n.classList.add('eco-visible');
+                if (l) l.classList.add('eco-visible');
+              }, nodeStart + i * 300);
             });
           }
         });
