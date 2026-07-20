@@ -262,7 +262,7 @@ main { padding-top: 0; }
 }
 
 .manifesto, .editorial, .location-intro, .foot-note { background: var(--white); }
-.manifesto { padding: 180px 24px 170px; }
+.manifesto { position: relative; padding: 180px 24px 170px; }
 .manifesto-inner {
   max-width: 1220px;
   margin: 0 auto;
@@ -3009,4 +3009,16 @@ main { padding-top: 0; }
     padding: 10px;
   }
   .eco-card-image { width: 80px; height: 60px; flex-shrink: 0; }
+}
+
+/* ── Folha azul fantasma manifesto home ── */
+.manifesto-ghost-bg {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  width: 320px;
+  height: 320px;
+  background: url('../grafismos/GRAFISMOS-ICONE-FOLHA.png') no-repeat center/contain;
+  opacity: 0.12;
+  pointer-events: none;
 }
