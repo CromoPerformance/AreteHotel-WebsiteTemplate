@@ -2826,7 +2826,6 @@ main { padding-top: 0; }
   opacity: 0;
   transform: translateY(12px);
   overflow: hidden;
-  contain: layout style paint;
   will-change: opacity, transform;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
