@@ -179,6 +179,9 @@ main { padding-top: 0; }
 .hero.hero-buzios { background-image: url('../buzios/BUZIOS-HERO.avif'); background-position: center calc(50% - 100px); }
 .hero.hero-experiencias { background-image: url('../experiencias/EXPERIENCIA-HERO.avif'); background-position: center center; }
 .hero.hero-faq { background-image: url('../grafismos/GRAFISMOS-FUNDO-LOGO-ARETE-BRANCO.png'); background-position: center center; background-size: cover; }
+.hero.hero-faq::before { background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0.94) 100%); }
+.hero.hero-faq .hero-inner { color: var(--navy); }
+.hero.hero-faq .hero-subtitle { color: rgba(27,38,51,0.5); }
 .hero-subpage::before {
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.55) 0%, rgba(7, 20, 34, 0.48) 32%, rgba(7, 20, 34, 0.72) 100%);
 }
