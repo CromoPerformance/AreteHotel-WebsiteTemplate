@@ -2655,7 +2655,7 @@ main { padding-top: 0; }
   position: relative;
   width: 100vw;
   display: grid;
-  grid-template-columns: 55% 1fr;
+  grid-template-columns: 45% 1fr;
 }
 
 /* ── MAPA — Sticky dentro da section ── */
@@ -2799,8 +2799,8 @@ main { padding-top: 0; }
   height: 100vh;
   padding: 100px 5% 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 12px;
   align-content: center;
   background: #f7f5f2;
