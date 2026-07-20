@@ -2881,6 +2881,29 @@ main { padding-top: 0; }
   margin: 0;
 }
 
+/* ── Nota elegante ── */
+.eco-note {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(7,127,140,0.12);
+  background: rgba(7,127,140,0.03);
+}
+.eco-note-text {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(27,38,51,0.5);
+  margin: 0;
+}
+.eco-note-text strong {
+  color: var(--blue);
+  font-weight: 600;
+  font-style: normal;
+}
+
 /* ── NÓS ENTRADA ── */
 .eco-node--item {
   opacity: 0;
