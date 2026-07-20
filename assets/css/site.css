@@ -181,7 +181,7 @@ main { padding-top: 0; }
 .hero.hero-experiencias { background-image: url('../experiencias/EXPERIENCIA-HERO.avif'); background-position: center center; }
 .hero.hero-faq { background: var(--navy); }
 .hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.png') center center / cover no-repeat; opacity: 0.04; }
-.hero.hero-ecossistema { background-image: url('../shared/DSCF4351.avif'); background-position: center 30%; }
+.hero.hero-ecossistema { background-image: url('../shared/DSCF4957.avif'); background-position: center top; }
 .hero-subpage::before {
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.55) 0%, rgba(7, 20, 34, 0.48) 32%, rgba(7, 20, 34, 0.72) 100%);
 }
