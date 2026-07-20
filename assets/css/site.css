@@ -202,7 +202,8 @@ main { padding-top: 0; }
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 22px;
-  margin-top: -60px;
+  margin-top: -80px;
+  font-weight: 700;
 }
 .hero-title {
   margin: 16px 0 8px;
