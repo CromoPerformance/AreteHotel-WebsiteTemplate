@@ -2638,9 +2638,9 @@ main { padding-top: 0; }
   border-bottom: none;
 }
 .faq-question {
-  font-family: var(--display);
+  font-family: var(--sans);
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 600;
   color: var(--navy);
   margin-bottom: 12px;
 }
