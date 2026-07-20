@@ -56,14 +56,14 @@
 
           <!-- Anéis de distância (SVG) -->
           <svg class="eco-rings" viewBox="0 0 700 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="350" y1="350" x2="210" y2="210" class="eco-line" data-target="mirante"/>
-            <line x1="350" y1="350" x2="490" y2="175" class="eco-line" data-target="praia-rasa"/>
-            <line x1="350" y1="350" x2="546" y2="476" class="eco-line" data-target="mangue"/>
-            <line x1="350" y1="350" x2="210" y2="476" class="eco-line" data-target="golfe"/>
-            <line x1="350" y1="350" x2="350" y2="469" class="eco-line" data-target="sede-praia"/>
-            <line x1="350" y1="350" x2="175" y2="350" class="eco-line" data-target="sede"/>
-            <line x1="350" y1="350" x2="560" y2="560" class="eco-line" data-target="cervejaria"/>
-            <line x1="350" y1="350" x2="210" y2="560" class="eco-line" data-target="bike"/>
+            <line x1="350" y1="350" x2="404" y2="273" class="eco-line" data-target="mirante"/>
+            <line x1="350" y1="350" x2="490" y2="216" class="eco-line" data-target="praia-rasa"/>
+            <line x1="350" y1="350" x2="546" y2="510" class="eco-line" data-target="mangue"/>
+            <line x1="350" y1="350" x2="350" y2="572" class="eco-line" data-target="sede-praia"/>
+            <line x1="350" y1="350" x2="210" y2="572" class="eco-line" data-target="golfe"/>
+            <line x1="350" y1="350" x2="132" y2="481" class="eco-line" data-target="sede"/>
+            <line x1="350" y1="350" x2="125" y2="350" class="eco-line" data-target="bike"/>
+            <line x1="350" y1="350" x2="125" y2="554" class="eco-line" data-target="cervejaria"/>
           </svg>
 
           <!-- Hotel (centro) -->
@@ -73,52 +73,53 @@
           </div>
 
           <!-- Pontos ao redor — positions by distance from center -->
-          <!-- 400m — 20% radius -->
-          <div class="eco-node eco-node--item" data-id="mirante" style="--nx:30%; --ny:30%;">
+          <!-- Pontos — distância proporcional à real -->
+          <!-- 400m — 12.5% -->
+          <div class="eco-node eco-node--item" data-id="mirante" style="--nx:58%; --ny:39%;">
             <div class="eco-node-dot eco-node-dot--nature"></div>
             <div class="eco-node-label">Mirante</div>
           </div>
 
-          <!-- 650m — 25% radius -->
-          <div class="eco-node eco-node--item" data-id="praia-rasa" style="--nx:70%; --ny:25%;">
+          <!-- 650m — 20.3% -->
+          <div class="eco-node eco-node--item" data-id="praia-rasa" style="--nx:70%; --ny:31%;">
             <div class="eco-node-dot eco-node-dot--water"></div>
             <div class="eco-node-label">Praia Rasa</div>
           </div>
 
-          <!-- 1.2km — 30% radius -->
-          <div class="eco-node eco-node--item" data-id="mangue" style="--nx:78%; --ny:68%;">
+          <!-- 1.2km — 37.5% -->
+          <div class="eco-node eco-node--item" data-id="mangue" style="--nx:78%; --ny:73%;">
             <div class="eco-node-dot eco-node-dot--nature"></div>
             <div class="eco-node-label">Mangue de<br>Pedras</div>
           </div>
 
-          <!-- 2km — 37% radius -->
-          <div class="eco-node eco-node--item" data-id="golfe" style="--nx:30%; --ny:68%;">
-            <div class="eco-node-dot eco-node-dot--sport"></div>
-            <div class="eco-node-label">Sede<br>Golf</div>
-          </div>
-
-          <!-- 1.5km — 33% radius -->
-          <div class="eco-node eco-node--item" data-id="sede-praia" style="--nx:50%; --ny:67%;">
+          <!-- 1.5km — 46.9% -->
+          <div class="eco-node eco-node--item" data-id="sede-praia" style="--nx:50%; --ny:82%;">
             <div class="eco-node-dot eco-node-dot--water"></div>
             <div class="eco-node-label">Sede<br>Praia</div>
           </div>
 
-          <!-- 2km — 37% radius -->
-          <div class="eco-node eco-node--item" data-id="sede" style="--nx:25%; --ny:50%;">
+          <!-- 2km — 62.5% -->
+          <div class="eco-node eco-node--item" data-id="golfe" style="--nx:30%; --ny:82%;">
+            <div class="eco-node-dot eco-node-dot--sport"></div>
+            <div class="eco-node-label">Sede<br>Golf</div>
+          </div>
+
+          <!-- 2km — 62.5% -->
+          <div class="eco-node eco-node--item" data-id="sede" style="--nx:19%; --ny:69%;">
             <div class="eco-node-dot eco-node-dot--sport"></div>
             <div class="eco-node-label">Sede<br>Esportiva</div>
           </div>
 
-          <!-- 4km — 48% radius (farthest) -->
-          <div class="eco-node eco-node--item" data-id="cervejaria" style="--nx:80%; --ny:80%;">
-            <div class="eco-node-dot eco-node-dot--gastronomy"></div>
-            <div class="eco-node-label">Cervejaria<br>Búzios</div>
-          </div>
-
-          <!-- 2km — 37% radius -->
-          <div class="eco-node eco-node--item" data-id="bike" style="--nx:30%; --ny:80%;">
+          <!-- 2km — 62.5% -->
+          <div class="eco-node eco-node--item" data-id="bike" style="--nx:18%; --ny:50%;">
             <div class="eco-node-dot eco-node-dot--sport"></div>
             <div class="eco-node-label">Pista de<br>Bike</div>
+          </div>
+
+          <!-- 4km — 100% -->
+          <div class="eco-node eco-node--item" data-id="cervejaria" style="--nx:18%; --ny:79%;">
+            <div class="eco-node-dot eco-node-dot--gastronomy"></div>
+            <div class="eco-node-label">Cervejaria<br>Búzios</div>
           </div>
 
         </div>
