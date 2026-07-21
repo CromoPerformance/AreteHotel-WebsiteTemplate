@@ -2972,6 +2972,124 @@ main { padding-top: 0; }
   font-weight: 600;
 }
 
+/* ========================================
+   GUIA LOCAL — Localização page
+   ======================================== */
+.guia-local-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  background: #fff;
+}
+
+/* Left — image placeholder */
+.guia-local-image {
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* Right — content */
+.guia-local-content {
+  padding: 80px 8% 80px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guia-local-header {
+  margin-bottom: 48px;
+}
+
+.guia-local-header .eyebrow {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.guia-local-title {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* ── Guide list ── */
+.guia-local-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.gl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(7,127,140,0.15);
+}
+.gl-item:last-child {
+  border-bottom: none;
+}
+
+.gl-numeral {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--blue);
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.gl-heading {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.gl-text {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(27,38,51,0.55);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .guia-local-section {
+    display: block;
+  }
+  .guia-local-image {
+    min-height: 50vh;
+  }
+  .guia-local-content {
+    padding: 48px 6%;
+  }
+}
+@media (max-width: 640px) {
+  .guia-local-image {
+    min-height: 40vh;
+  }
+  .guia-local-content {
+    padding: 40px 5%;
+  }
+  .gl-item { gap: 14px; padding: 18px 0; }
+}
+
 /* ── NÓS ENTRADA ── */
 .eco-node--item {
   opacity: 0;
