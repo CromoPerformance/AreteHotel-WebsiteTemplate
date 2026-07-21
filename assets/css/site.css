@@ -2684,6 +2684,105 @@ main { padding-top: 0; }
 .eco-blank {
   background: #fff;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.eco-list-inner {
+  width: 100%;
+  padding: 80px 10% 80px 5%;
+}
+
+/* Eyebrow */
+.eco-list-eyebrow {
+  display: block;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+/* Title — cursive */
+.eco-list-title {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--ink);
+  margin: 0 0 48px;
+  line-height: 1.15;
+}
+
+/* ── Asset list ── */
+.eco-asset-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.eco-asset-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(7,127,140,0.15);
+}
+.eco-asset-item:last-child {
+  border-bottom: none;
+}
+
+/* Number */
+.eco-asset-num {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--blue);
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+/* Name */
+.eco-asset-name {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+/* Distances row */
+.eco-asset-distances {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eco-asset-dist {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(27,38,51,0.55);
+  white-space: nowrap;
+}
+
+/* Icons */
+.eco-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--blue);
+  flex-shrink: 0;
 }
 
 /* ── MAPA — Sticky iframe ── */
@@ -2838,85 +2937,6 @@ main { padding-top: 0; }
   opacity: 0.7;
 }
 
-/* ── CARDS ROW — 6 columns below map ── */
-.eco-cards-row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
-  width: 100%;
-  background: #f7f5f2;
-}
-
-/* ── CARDS ── */
-.eco-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 20px;
-  border-radius: 0;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
-  overflow: hidden;
-}
-.eco-card.active {
-  background: var(--navy);
-  color: #fff;
-  border-color: var(--navy);
-  box-shadow: none;
-  transform: scale(1.02);
-}
-.eco-card.active .eco-card-name { color: #fff; }
-.eco-card.active .eco-card-desc { color: rgba(255,255,255,0.7); }
-.eco-card.active .eco-card-distances { color: rgba(255,255,255,0.5); }
-.eco-card.dimmed {
-  opacity: 0.5;
-  pointer-events: none;
-}
-.eco-card-image {
-  display: none;
-}
-.eco-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
-  padding: 10px 14px 12px;
-  flex-shrink: 0;
-}
-.eco-card-name {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.2;
-}
-.eco-card-distances {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.eco-dist {
-  font-family: var(--sans);
-  font-size: 11px;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 3px;
-  background: var(--pin, #795548);
-}
-.eco-dist strong {
-  color: #fff;
-  font-weight: 700;
-}
-/* Yellow badges need dark text for contrast */
-.eco-card[style*="FFD600"] .eco-dist {
-  color: #333;
-}
-.eco-card[style*="FFD600"] .eco-dist strong {
-  color: #111;
-}
-.eco-card-desc {
-  display: none;
-}
 
 /* ── Nota elegante ── */
 .eco-disclaimer {
@@ -2978,21 +2998,9 @@ main { padding-top: 0; }
     position: relative;
     height: 60vh;
   }
-  .eco-cards-row {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
 }
 @media (max-width: 640px) {
   .eco-map { height: 50vh; }
-  .eco-cards-row {
-    grid-template-columns: 1fr;
-  }
-  .eco-card {
-    flex-direction: row;
-    gap: 12px;
-    padding: 14px;
-  }
 }
 
 /* ── Folha azul fantasma manifesto home ── */
