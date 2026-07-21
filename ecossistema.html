@@ -50,7 +50,10 @@
     <!-- Ecossistema Interativo -->
     <section class="eco-section">
 
-      <!-- MAPA — Fixed -->
+      <!-- LADO ESQUERDO — Espaço em branco -->
+      <div class="eco-blank"></div>
+
+      <!-- MAPA — Direita -->
       <div class="eco-map">
         <div class="mapa-hotel-container">
           <iframe 
@@ -65,113 +68,74 @@
         </div>
       </div>
 
-      <!-- PAINEL DE INFO — Scrolls naturally -->
-      <div class="eco-cards">
-        <div class="eco-card" data-target="mirante" style="--pin:#E65100">
-          <div class="eco-card-image" data-bg="assets/buzios/ARMACAO.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Mirante do Pai Vitório</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>400m</strong> a pé</span>
-              <span class="eco-dist"><strong>2 min</strong> de bike</span>
-              <span class="eco-dist"><strong>1 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Vista panorâmica dos canais navegáveis e da costa de Búzios. Ponto ideal para fotografar o pôr do sol sobre a marina.</p>
-          </div>
-        </div>
+    </section>
 
-        <div class="eco-card" data-target="praia-rasa" style="--pin:#0288D1">
-          <div class="eco-card-image" data-bg="assets/buzios/RBC01503.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Praia Rasa</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>650m</strong> a pé</span>
-              <span class="eco-dist"><strong>3 min</strong> de bike</span>
-              <span class="eco-dist"><strong>2 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Uma das praias de Búzios, com águas calmas e rasa ideal para famílias. Areia branca e vegetação cercando a enseada.</p>
+    <!-- Cards do Ecossistema — 6 colunas -->
+    <section class="eco-cards-row">
+      <div class="eco-card" style="--pin:#000">
+        <div class="eco-card-image" data-bg="assets/buzios/RBC01503.avif"></div>
+        <div class="eco-card-body">
+          <div class="eco-card-name">Sede Praia</div>
+          <div class="eco-card-distances">
+            <span class="eco-dist"><strong>1,3 km</strong> a pé</span>
+            <span class="eco-dist"><strong>5 min</strong> de bike</span>
+            <span class="eco-dist"><strong>3 min</strong> de carro</span>
           </div>
-        </div>
-
-        <div class="eco-card" data-target="mangue" style="--pin:#795548">
-          <div class="eco-card-image" data-bg="assets/buzios/AZEDA.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Mangue de Pedras</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>1,2 km</strong> a pé</span>
-              <span class="eco-dist"><strong>5 min</strong> de bike</span>
-              <span class="eco-dist"><strong>3 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Enseada de águas cristalinas cercada por rochas e manguezais. Ideal para mergulho e snorkeling em um ambiente preservado.</p>
-          </div>
-        </div>
-
-        <div class="eco-card" data-target="sede-praia" style="--pin:#000">
-          <div class="eco-card-image" data-bg="assets/buzios/RBC01503.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Sede Praia</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>1,3 km</strong> a pé</span>
-              <span class="eco-dist"><strong>5 min</strong> de bike</span>
-              <span class="eco-dist"><strong>3 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Beach club do complexo com estrutura completa de praia. Day use disponível para hóspedes.</p>
-          </div>
-        </div>
-
-        <div class="eco-card" data-target="golfe" style="--pin:#7CB342">
-          <div class="eco-card-image" data-bg="assets/shared/DSCF4838.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Sede Golf</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>2 km</strong> a pé</span>
-              <span class="eco-dist"><strong>8 min</strong> de bike</span>
-              <span class="eco-dist"><strong>4 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Campo de golfe do complexo com 9 holes em meio à mata nativa. Day use disponível para hóspedes.</p>
-          </div>
-        </div>
-
-        <div class="eco-card" data-target="sede" style="--pin:#000">
-          <div class="eco-card-image" data-bg="assets/shared/DSCF4719.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Sede Esportiva</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>2 km</strong> a pé</span>
-              <span class="eco-dist"><strong>8 min</strong> de bike</span>
-              <span class="eco-dist"><strong>4 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Estrutura completa com quadra de tênis, academia ao ar livre e piscina olímpica. Day use disponível para hóspedes.</p>
-          </div>
-        </div>
-
-        <div class="eco-card" data-target="bike" style="--pin:#673AB7">
-          <div class="eco-card-image" data-bg="assets/shared/DSCF4811.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Pista de Bike</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>2 km</strong> a pé</span>
-              <span class="eco-dist"><strong>8 min</strong> de bike</span>
-              <span class="eco-dist"><strong>4 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Pista exclusiva para ciclistas dentro do complexo, com percursos entre a mata e os canais. Bikes disponíveis para empréstimo.</p>
-          </div>
-        </div>
-
-        <div class="eco-card" data-target="cervejaria" style="--pin:#FFD600">
-          <div class="eco-card-image" data-bg="assets/shared/DSCF4064.avif"></div>
-          <div class="eco-card-body">
-            <div class="eco-card-name">Cervejaria Búzios</div>
-            <div class="eco-card-distances">
-              <span class="eco-dist"><strong>4 km</strong> a pé</span>
-              <span class="eco-dist"><strong>15 min</strong> de bike</span>
-              <span class="eco-dist"><strong>8 min</strong> de carro</span>
-            </div>
-            <p class="eco-card-desc">Cervejaria artesanal nas proximidades do complexo. Opção gastronômica para experimentar cervejas locais e petiscos.</p>
-          </div>
+          <p class="eco-card-desc">Beach club do complexo com estrutura completa de praia. Day use disponível para hóspedes.</p>
         </div>
       </div>
 
+      <div class="eco-card" style="--pin:#7CB342">
+        <div class="eco-card-image" data-bg="assets/shared/DSCF4838.avif"></div>
+        <div class="eco-card-body">
+          <div class="eco-card-name">Sede Golf</div>
+          <div class="eco-card-distances">
+            <span class="eco-dist"><strong>2 km</strong> a pé</span>
+            <span class="eco-dist"><strong>8 min</strong> de bike</span>
+            <span class="eco-dist"><strong>4 min</strong> de carro</span>
+          </div>
+          <p class="eco-card-desc">Campo de golfe do complexo com 9 holes em meio à mata nativa. Day use disponível para hóspedes.</p>
+        </div>
+      </div>
+
+      <div class="eco-card" style="--pin:#000">
+        <div class="eco-card-image" data-bg="assets/shared/DSCF4719.avif"></div>
+        <div class="eco-card-body">
+          <div class="eco-card-name">Sede Esportiva</div>
+          <div class="eco-card-distances">
+            <span class="eco-dist"><strong>2 km</strong> a pé</span>
+            <span class="eco-dist"><strong>8 min</strong> de bike</span>
+            <span class="eco-dist"><strong>4 min</strong> de carro</span>
+          </div>
+          <p class="eco-card-desc">Estrutura completa com quadra de tênis, academia ao ar livre e piscina olímpica. Day use disponível para hóspedes.</p>
+        </div>
+      </div>
+
+      <div class="eco-card" style="--pin:#673AB7">
+        <div class="eco-card-image" data-bg="assets/shared/DSCF4811.avif"></div>
+        <div class="eco-card-body">
+          <div class="eco-card-name">Pista de Bike</div>
+          <div class="eco-card-distances">
+            <span class="eco-dist"><strong>2 km</strong> a pé</span>
+            <span class="eco-dist"><strong>8 min</strong> de bike</span>
+            <span class="eco-dist"><strong>4 min</strong> de carro</span>
+          </div>
+          <p class="eco-card-desc">Pista exclusiva para ciclistas dentro do complexo, com percursos entre a mata e os canais. Bikes disponíveis para empréstimo.</p>
+        </div>
+      </div>
+
+      <div class="eco-card" style="--pin:#FFD600">
+        <div class="eco-card-image" data-bg="assets/shared/DSCF4064.avif"></div>
+        <div class="eco-card-body">
+          <div class="eco-card-name">Cervejaria Búzios</div>
+          <div class="eco-card-distances">
+            <span class="eco-dist"><strong>4 km</strong> a pé</span>
+            <span class="eco-dist"><strong>15 min</strong> de bike</span>
+            <span class="eco-dist"><strong>8 min</strong> de carro</span>
+          </div>
+          <p class="eco-card-desc">Cervejaria artesanal nas proximidades do complexo. Opção gastronômica para experimentar cervejas locais e petiscos.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Nota sobre inclusão -->
