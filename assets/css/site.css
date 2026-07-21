@@ -2682,7 +2682,7 @@ main { padding-top: 0; }
 
 /* ── Blank left side ── */
 .eco-blank {
-  background: #f7f5f2;
+  background: #fff;
   min-height: 100vh;
 }
 
@@ -2843,7 +2843,7 @@ main { padding-top: 0; }
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
-  padding: 48px 5%;
+  width: 100%;
   background: #f7f5f2;
 }
 
@@ -2852,7 +2852,7 @@ main { padding-top: 0; }
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding: 0;
+  padding: 20px;
   border-radius: 0;
   background: #fff;
   border: 1px solid rgba(0,0,0,0.06);
@@ -2873,11 +2873,7 @@ main { padding-top: 0; }
   pointer-events: none;
 }
 .eco-card-image {
-  width: 100%;
-  min-height: 140px;
-  border-radius: 0;
-  background-size: cover;
-  background-position: center;
+  display: none;
 }
 .eco-card-body {
   display: flex;
@@ -2919,11 +2915,7 @@ main { padding-top: 0; }
   color: #111;
 }
 .eco-card-desc {
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.55;
-  color: rgba(27,38,51,0.55);
-  margin: 0;
+  display: none;
 }
 
 /* ── Nota elegante ── */
@@ -2988,7 +2980,6 @@ main { padding-top: 0; }
   }
   .eco-cards-row {
     grid-template-columns: repeat(3, 1fr);
-    padding: 32px 5% 48px;
     gap: 10px;
   }
 }
@@ -2996,14 +2987,12 @@ main { padding-top: 0; }
   .eco-map { height: 50vh; }
   .eco-cards-row {
     grid-template-columns: 1fr;
-    padding: 24px 4% 40px;
   }
   .eco-card {
     flex-direction: row;
     gap: 12px;
-    padding: 10px;
+    padding: 14px;
   }
-  .eco-card-image { width: 80px; height: 60px; flex-shrink: 0; }
 }
 
 /* ── Folha azul fantasma manifesto home ── */
