@@ -173,16 +173,16 @@ main { padding-top: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
-.hero.hero-home { background-image: url('../home/HERO-HOTEL.avif'); background-position: center calc(50% + 200px); }
-.hero.hero-hotel { background-image: url('../hotel/HOTEL-HERO.avif'); background-position: center 70%; }
-.hero.hero-rooms { background-image: url('../acomodacoes/DSCF4611.avif'); background-position: center center; }
-.hero.hero-restaurant { background-image: url('../shared/DSCF3924.avif'); background-position: center top; }
-.hero.hero-buzios { background-image: url('../buzios/BUZIOS-HERO.avif'); background-position: center calc(50% - 100px); }
-.hero.hero-experiencias { background-image: url('../experiencias/EXPERIENCIA-HERO.avif'); background-position: center center; }
-.hero.hero-events { background-image: url('../shared/DSCF4964.avif'); background-position: center center; }
+.hero.hero-home { background-position: center calc(50% + 200px); }
+.hero.hero-hotel { background-position: center 70%; }
+.hero.hero-rooms { background-position: center center; }
+.hero.hero-restaurant { background-position: center top; }
+.hero.hero-buzios { background-position: center calc(50% - 100px); }
+.hero.hero-experiencias { background-position: center center; }
+.hero.hero-events { background-position: center center; }
 .hero.hero-faq { background: var(--navy); }
 .hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.png') center center / cover no-repeat; opacity: 0.04; }
-.hero.hero-ecossistema { background-image: url('../shared/DSCF4957.avif'); background-position: center top; }
+.hero.hero-ecossistema { background-position: center top; }
 .hero-subpage::before {
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.55) 0%, rgba(7, 20, 34, 0.48) 32%, rgba(7, 20, 34, 0.72) 100%);
 }
@@ -878,10 +878,6 @@ main { padding-top: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.1));
 }
-.split-media.image-1 { background-image: url('../shared/DSCF4289.avif'); }
-.split-media.image-2 { background-image: url('../shared/DSCF4185.avif'); }
-.split-media.image-4 { background-image: url('../restaurante/DSCF4405.avif'); }
-.split-media.image-6 { background-image: url('../shared/DSCF4195.avif'); }
 
 .detail-list { display: grid; margin-top: 44px; border-top: 1px solid rgba(21, 32, 45, 0.08); }
 .detail-item {
@@ -988,8 +984,6 @@ main { padding-top: 0; }
   box-shadow: var(--shadow);
 }
 .hero-panel-media { background: center/cover no-repeat; min-height: 600px; }
-.hero-panel-media.room { background-image: url('../acomodacoes/DSCF4045.avif'); }
-.hero-panel-media.food { background-image: url('../restaurante/DSCF4405.avif'); }
 .hero-panel-copy {
   background: var(--mist);
   padding: 68px clamp(24px, 3.2vw, 58px);
