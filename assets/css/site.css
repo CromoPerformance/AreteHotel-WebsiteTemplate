@@ -1299,7 +1299,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   padding-right: 80px;
 }
 .footer-brand .brand { align-items: center; padding: 0; min-width: 0; }
-.footer-brand .brand-logo { height: 65px; }
+.footer-brand .brand-logo { height: 90px; }
 .footer-brand .brand-logo-white { display: block !important; }
 .footer-brand .brand-logo-blue { display: none !important; }
 .footer-tagline {
