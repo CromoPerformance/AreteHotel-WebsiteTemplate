@@ -1109,8 +1109,16 @@ main { padding-top: 0; }
   border-bottom-color: #0a1e3d;
 }
 .form-textarea {
+  resize: none;
+  min-height: 48px;
+  max-height: 48px;
+  overflow: hidden;
+  transition: max-height 0.4s ease, min-height 0.4s ease;
+}
+.form-textarea:focus {
+  min-height: 120px;
+  max-height: 200px;
   resize: vertical;
-  min-height: 100px;
 }
 .form-input-wrap {
   position: relative;
