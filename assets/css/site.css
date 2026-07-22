@@ -1235,6 +1235,18 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .reservations-success {
   text-align: center;
   padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.success-anchor {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.12;
+  transform: rotate(12deg);
+  pointer-events: none;
 }
 .success-title {
   font-family: var(--display);
