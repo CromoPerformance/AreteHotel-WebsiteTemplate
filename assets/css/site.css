@@ -827,6 +827,12 @@ main { padding-top: 0; }
   height: 16px;
   vertical-align: middle;
 }
+.platform-logo {
+  height: 16px;
+  width: auto;
+  vertical-align: middle;
+  opacity: 0.35;
+}
 .testimonials-dots {
   display: flex;
   gap: 12px;
