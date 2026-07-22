@@ -445,7 +445,7 @@ main { padding-top: 0; }
   line-height: 1;
   color: #fff;
   letter-spacing: 0.02em;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 .stat-label {
   font-family: var(--sans);
@@ -458,8 +458,9 @@ main { padding-top: 0; }
 }
 .stat-desc {
   margin: 0;
+  padding-top: 14px;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 300;
   font-style: italic;
   color: rgba(255, 255, 255, 0.40);
