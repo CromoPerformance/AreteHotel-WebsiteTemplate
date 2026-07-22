@@ -1033,13 +1033,13 @@ main { padding-top: 0; }
 .reservations::after {
   content: '';
   position: absolute;
-  bottom: -30px;
-  right: -20px;
-  width: clamp(180px, 18vw, 260px);
-  height: clamp(180px, 18vw, 260px);
+  bottom: -50px;
+  right: -40px;
+  width: clamp(300px, 30vw, 420px);
+  height: clamp(300px, 30vw, 420px);
   background: url('../grafismos/icone-ancora-azul.png') no-repeat center center;
   background-size: contain;
-  opacity: 0.06;
+  opacity: 0.08;
   transform: rotate(12deg);
   pointer-events: none;
   z-index: 0;
