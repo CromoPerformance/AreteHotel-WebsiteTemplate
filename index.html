@@ -245,17 +245,39 @@
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">Check-in <span class="required">*</span></label>
-                <div class="form-input-wrap">
-                  <input type="date" class="form-input" id="resCheckin" name="checkin" required>
+                <div class="form-calendar-field" id="resCheckinField">
+                  <div class="form-calendar-display placeholder" id="resCheckinDisplay">Selecionar data</div>
                   <svg class="form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <div class="booking-dropdown booking-calendar" id="resCheckinDropdown">
+                    <div class="cal-header">
+                      <button class="cal-nav cal-prev" type="button">&lsaquo;</button>
+                      <span class="cal-month-label"></span>
+                      <button class="cal-nav cal-next" type="button">&rsaquo;</button>
+                    </div>
+                    <div class="cal-grid">
+                      <span class="cal-dow">dom</span><span class="cal-dow">seg</span><span class="cal-dow">ter</span><span class="cal-dow">qua</span><span class="cal-dow">qui</span><span class="cal-dow">sex</span><span class="cal-dow">sáb</span>
+                    </div>
+                    <div class="cal-days"></div>
+                  </div>
                 </div>
                 <span class="form-error">Selecione uma data de check-in.</span>
               </div>
               <div class="form-group">
                 <label class="form-label">Check-out <span class="required">*</span></label>
-                <div class="form-input-wrap">
-                  <input type="date" class="form-input" id="resCheckout" name="checkout" required>
+                <div class="form-calendar-field" id="resCheckoutField">
+                  <div class="form-calendar-display placeholder" id="resCheckoutDisplay">Selecionar data</div>
                   <svg class="form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <div class="booking-dropdown booking-calendar" id="resCheckoutDropdown">
+                    <div class="cal-header">
+                      <button class="cal-nav cal-prev" type="button">&lsaquo;</button>
+                      <span class="cal-month-label"></span>
+                      <button class="cal-nav cal-next" type="button">&rsaquo;</button>
+                    </div>
+                    <div class="cal-grid">
+                      <span class="cal-dow">dom</span><span class="cal-dow">seg</span><span class="cal-dow">ter</span><span class="cal-dow">qua</span><span class="cal-dow">qui</span><span class="cal-dow">sex</span><span class="cal-dow">sáb</span>
+                    </div>
+                    <div class="cal-days"></div>
+                  </div>
                 </div>
                 <span class="form-error">Selecione uma data de check-out.</span>
               </div>
@@ -610,29 +632,134 @@
       startTimer();
     })();
 
-    // Reservations form - validation + date pickers
+    // Reservations form - custom calendar + validation
     (function() {
-      var resCheckin = document.getElementById('resCheckin');
-      var resCheckout = document.getElementById('resCheckout');
       var form = document.getElementById('resForm');
       var successMsg = document.getElementById('resSuccess');
-      if (!resCheckin || !form) return;
+      if (!form) return;
 
-      var today = new Date().toISOString().split('T')[0];
-      resCheckin.min = today;
-      resCheckout.min = today;
+      // Custom calendar for form
+      var resCheckinValue = null;
+      var resCheckoutValue = null;
+      var resCal = null;
+      var months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+      var fullMonths = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 
-      document.querySelector('.form-input-wrap').addEventListener('click', function() {
-        resCheckin.showPicker();
+      function formatResDate(d) {
+        if (!d) return '';
+        return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+      }
+
+      function renderResCalendar(container, type) {
+        var now = new Date();
+        now.setHours(0,0,0,0);
+        if (!resCal || resCal.type !== type) {
+          resCal = { type: type, month: now.getMonth(), year: now.getFullYear() };
+        }
+        var m = resCal.month;
+        var y = resCal.year;
+        container.querySelector('.cal-month-label').textContent = fullMonths[m] + ' ' + y;
+        var daysContainer = container.querySelector('.cal-days');
+        daysContainer.innerHTML = '';
+        var firstDay = new Date(y, m, 1).getDay();
+        var daysInMonth = new Date(y, m + 1, 0).getDate();
+        var minDate = now;
+        if (type === 'checkout' && resCheckinValue) {
+          minDate = new Date(resCheckinValue);
+          minDate.setDate(minDate.getDate() + 1);
+        }
+        for (var i = 0; i < firstDay; i++) {
+          var empty = document.createElement('div');
+          empty.className = 'cal-day empty';
+          daysContainer.appendChild(empty);
+        }
+        for (var d = 1; d <= daysInMonth; d++) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'cal-day';
+          btn.textContent = d;
+          var thisDate = new Date(y, m, d);
+          if (thisDate < minDate) btn.classList.add('disabled');
+          if (thisDate.getTime() === now.getTime()) btn.classList.add('today');
+          var selected = type === 'checkin' ? resCheckinValue : resCheckoutValue;
+          if (selected && thisDate.getTime() === selected.getTime()) btn.classList.add('selected');
+          if (resCheckinValue && resCheckoutValue) {
+            if (thisDate > resCheckinValue && thisDate < resCheckoutValue) btn.classList.add('in-range');
+            if (resCheckinValue.getTime() === thisDate.getTime()) btn.classList.add('range-start');
+            if (resCheckoutValue.getTime() === thisDate.getTime()) btn.classList.add('range-end');
+          }
+          (function(date, t) {
+            btn.addEventListener('click', function() {
+              if (t === 'checkin') {
+                resCheckinValue = date;
+                document.getElementById('resCheckinDisplay').textContent = formatResDate(date);
+                document.getElementById('resCheckinDisplay').classList.remove('placeholder');
+                resCheckoutValue = null;
+                document.getElementById('resCheckoutDisplay').textContent = 'Selecionar data';
+                document.getElementById('resCheckoutDisplay').classList.add('placeholder');
+              } else {
+                resCheckoutValue = date;
+                document.getElementById('resCheckoutDisplay').textContent = formatResDate(date);
+                document.getElementById('resCheckoutDisplay').classList.remove('placeholder');
+              }
+              document.getElementById('resCheckinDropdown').classList.remove('open');
+              document.getElementById('resCheckoutDropdown').classList.remove('open');
+              form.querySelectorAll('.form-group').forEach(function(g) {
+                if (g.querySelector('.form-calendar-field')) g.classList.remove('invalid');
+              });
+            });
+          })(thisDate, type);
+          daysContainer.appendChild(btn);
+        }
+      }
+
+      var resCheckinField = document.getElementById('resCheckinField');
+      var resCheckoutField = document.getElementById('resCheckoutField');
+      var resCheckinDropdown = document.getElementById('resCheckinDropdown');
+      var resCheckoutDropdown = document.getElementById('resCheckoutDropdown');
+
+      resCheckinField.addEventListener('click', function(e) {
+        if (e.target.closest('.booking-calendar')) return;
+        document.querySelectorAll('.booking-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+        renderResCalendar(resCheckinDropdown, 'checkin');
+        resCheckinDropdown.classList.add('open');
       });
-      document.querySelectorAll('.form-input-wrap')[1].addEventListener('click', function() {
-        resCheckout.showPicker();
+      resCheckoutField.addEventListener('click', function(e) {
+        if (e.target.closest('.booking-calendar')) return;
+        document.querySelectorAll('.booking-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+        renderResCalendar(resCheckoutDropdown, 'checkout');
+        resCheckoutDropdown.classList.add('open');
       });
 
-      resCheckin.addEventListener('change', function() {
-        var next = new Date(this.value);
-        next.setDate(next.getDate() + 1);
-        resCheckout.min = next.toISOString().split('T')[0];
+      resCheckinDropdown.querySelector('.cal-prev').addEventListener('click', function(e) {
+        e.stopPropagation();
+        resCal.month--;
+        if (resCal.month < 0) { resCal.month = 11; resCal.year--; }
+        renderResCalendar(resCheckinDropdown, 'checkin');
+      });
+      resCheckinDropdown.querySelector('.cal-next').addEventListener('click', function(e) {
+        e.stopPropagation();
+        resCal.month++;
+        if (resCal.month > 11) { resCal.month = 0; resCal.year++; }
+        renderResCalendar(resCheckinDropdown, 'checkin');
+      });
+      resCheckoutDropdown.querySelector('.cal-prev').addEventListener('click', function(e) {
+        e.stopPropagation();
+        resCal.month--;
+        if (resCal.month < 0) { resCal.month = 11; resCal.year--; }
+        renderResCalendar(resCheckoutDropdown, 'checkout');
+      });
+      resCheckoutDropdown.querySelector('.cal-next').addEventListener('click', function(e) {
+        e.stopPropagation();
+        resCal.month++;
+        if (resCal.month > 11) { resCal.month = 0; resCal.year++; }
+        renderResCalendar(resCheckoutDropdown, 'checkout');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.form-calendar-field')) {
+          document.querySelectorAll('.booking-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+        }
       });
 
       // Phone formatter
@@ -658,20 +785,6 @@
         });
       }
 
-      // Format date display
-      var months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-      function formatDate(val) {
-        if (!val) return '';
-        var parts = val.split('-');
-        return parseInt(parts[2]) + ' ' + months[parseInt(parts[1]) - 1] + ' ' + parts[0];
-      }
-      [resCheckin, resCheckout].forEach(function(input) {
-        if (!input) return;
-        input.addEventListener('change', function() {
-          this.style.color = '#0F274A';
-        });
-      });
-
       // Clear error on input
       form.querySelectorAll('.form-input').forEach(function(input) {
         input.addEventListener('input', function() {
@@ -690,20 +803,25 @@
 
         groups.forEach(function(g) {
           var input = g.querySelector('.form-input');
-          if (!input) return;
-          var val = input.value.trim();
+          var calField = g.querySelector('.form-calendar-field');
           var ok = true;
 
-          if (input.required && !val) {
-            ok = false;
-          } else if (input.type === 'email' && val) {
-            ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-          } else if (input.name === 'telefone' && val) {
-            ok = /[\d\s\+\-\(\)]{10,}/.test(val);
-          } else if (input.name === 'nome' && val) {
-            ok = val.length >= 3;
-          } else if (input.type === 'date' && input.required && !val) {
-            ok = false;
+          if (input) {
+            var val = input.value.trim();
+            if (input.required && !val) {
+              ok = false;
+            } else if (input.type === 'email' && val) {
+              ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+            } else if (input.name === 'telefone' && val) {
+              ok = /[\d\s\+\-\(\)]{10,}/.test(val);
+            } else if (input.name === 'nome' && val) {
+              ok = val.length >= 3;
+            }
+          }
+
+          if (calField) {
+            if (calField.id === 'resCheckinField' && !resCheckinValue) ok = false;
+            if (calField.id === 'resCheckoutField' && !resCheckoutValue) ok = false;
           }
 
           if (!ok) {

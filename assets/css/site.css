@@ -1146,6 +1146,40 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   color: #8a96a5;
   pointer-events: none;
 }
+.form-calendar-field {
+  position: relative;
+  border-bottom: 1px solid #d8dce2;
+  padding: 10px 32px 10px 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.form-calendar-field:hover {
+  border-bottom-color: #0a1e3d;
+}
+.form-calendar-display {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  color: #0F274A;
+  line-height: 1.3;
+  min-height: 20px;
+}
+.form-calendar-display.placeholder {
+  color: #b0b8c4;
+}
+.form-calendar-field .form-icon {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+}
+.form-calendar-field .booking-dropdown {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  right: auto;
+  min-width: 280px;
+  z-index: 20;
+}
 .form-btn {
   margin-top: 12px;
   padding: 18px 40px;
