@@ -1037,7 +1037,7 @@ main { padding-top: 0; }
   right: -80px;
   width: clamp(400px, 40vw, 600px);
   height: clamp(400px, 40vw, 600px);
-  background: url('assets/grafismos/icone-ancora-azul.png') no-repeat center center;
+  background: url('../grafismos/icone-ancora-azul.png') no-repeat center center;
   background-size: contain;
   opacity: 0.12;
   transform: rotate(12deg);
