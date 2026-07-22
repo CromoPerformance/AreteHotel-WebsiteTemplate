@@ -1032,18 +1032,15 @@ main { padding-top: 0; }
 .reservations::after {
   content: '';
   position: absolute;
-  bottom: 60px;
-  right: 80px;
-  top: auto;
-  transform: rotate(12deg);
-  width: clamp(220px, 20vw, 300px);
-  height: clamp(220px, 20vw, 300px);
+  bottom: 40px;
+  right: 10%;
+  width: 200px;
+  height: 200px;
   background: url('../grafismos/icone-ancora-azul.png') no-repeat center center;
   background-size: contain;
-  opacity: 0.08;
-  transform: rotate(12deg);
+  opacity: 0.04;
+  transform: rotate(10deg);
   pointer-events: none;
-  z-index: 0;
 }
 .reservations-inner {
   max-width: 1200px;
