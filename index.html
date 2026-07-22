@@ -658,6 +658,20 @@
         });
       }
 
+      // Format date display
+      var months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+      function formatDate(val) {
+        if (!val) return '';
+        var parts = val.split('-');
+        return parseInt(parts[2]) + ' ' + months[parseInt(parts[1]) - 1] + ' ' + parts[0];
+      }
+      [resCheckin, resCheckout].forEach(function(input) {
+        if (!input) return;
+        input.addEventListener('change', function() {
+          this.style.color = '#0F274A';
+        });
+      });
+
       // Clear error on input
       form.querySelectorAll('.form-input').forEach(function(input) {
         input.addEventListener('input', function() {
