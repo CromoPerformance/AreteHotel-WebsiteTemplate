@@ -1152,6 +1152,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   padding: 10px 32px 10px 0;
   cursor: pointer;
   transition: border-color 0.3s ease;
+  overflow: visible;
 }
 .form-calendar-field:hover {
   border-bottom-color: #0a1e3d;
@@ -1171,14 +1172,25 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   position: absolute;
   right: 0;
   bottom: 12px;
+  pointer-events: none;
 }
 .form-calendar-field .booking-dropdown {
+  display: none;
   position: absolute;
   bottom: calc(100% + 4px);
   left: 0;
   right: auto;
   min-width: 280px;
-  z-index: 20;
+  z-index: 100;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(27, 38, 51, 0.08);
+  overflow: hidden;
+  padding: 6px 0;
+}
+.form-calendar-field .booking-dropdown.open {
+  display: block;
 }
 .form-btn {
   margin-top: 12px;
