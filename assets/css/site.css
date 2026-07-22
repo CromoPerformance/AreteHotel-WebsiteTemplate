@@ -308,6 +308,10 @@ main { padding-top: 0; }
   max-width: 1060px;
   font-size: clamp(24px, 3vw, 44px);
 }
+.manifesto--no-lines .manifesto-text::before,
+.manifesto--no-lines .manifesto-text::after {
+  display: none;
+}
 
 /* Hub — 4-panel accordion */
 .hub {
