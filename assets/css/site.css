@@ -1243,7 +1243,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .success-anchor {
   position: absolute;
   top: 50%;
-  right: -80px;
+  right: -20px;
   transform: translateY(-50%) rotate(12deg);
   width: 180px;
   height: 180px;
@@ -1252,7 +1252,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 @media (max-width: 768px) {
   .success-anchor {
-    right: -40px;
+    right: -10px;
     width: 120px;
     height: 120px;
   }
