@@ -1286,7 +1286,7 @@ main { padding-top: 0; }
   line-height: 1.3;
   min-height: 20px;
 }
-.booking-display.placeholder { color: #8a96a5; }
+.booking-display.placeholder { color: #5a6577; }
 .booking-input-hidden {
   position: absolute;
   opacity: 0;

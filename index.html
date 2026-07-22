@@ -478,8 +478,9 @@
       checkoutDropdown.classList.add('open');
     });
 
-    // Custom select dropdowns
+    // Custom select dropdowns (adults/children only)
     document.querySelectorAll('.booking-field.custom-select').forEach(function(field) {
+      if (field.id === 'checkinField' || field.id === 'checkoutField') return;
       var display = field.querySelector('.booking-display');
       var dropdown = field.querySelector('.booking-dropdown');
       var options = dropdown.querySelectorAll('.booking-option');
