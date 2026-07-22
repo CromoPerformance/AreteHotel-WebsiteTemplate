@@ -575,6 +575,28 @@
       slider.addEventListener('mouseenter', stopTimer);
       slider.addEventListener('mouseleave', startTimer);
 
+      var touchStartX = 0;
+      var touchEndX = 0;
+      var swipeThreshold = 50;
+
+      slider.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        stopTimer();
+      }, { passive: true });
+
+      slider.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            goTo((current + 1) % testimonials.length);
+          } else {
+            goTo((current - 1 + testimonials.length) % testimonials.length);
+          }
+        }
+        startTimer();
+      }, { passive: true });
+
       startTimer();
     })();
 
