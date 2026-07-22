@@ -540,11 +540,15 @@
       var delay = 5000;
 
       function goTo(index) {
+        if (index === current) return;
         testimonials[current].classList.remove('active');
         dots[current].classList.remove('active');
+        var prev = current;
         current = index;
-        testimonials[current].classList.add('active');
-        dots[current].classList.add('active');
+        setTimeout(function() {
+          testimonials[current].classList.add('active');
+          dots[current].classList.add('active');
+        }, 600);
       }
 
       function next() {
