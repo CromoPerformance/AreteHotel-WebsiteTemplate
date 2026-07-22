@@ -1126,6 +1126,17 @@ main { padding-top: 0; }
 .form-input-wrap .form-input {
   padding-right: 32px;
 }
+.form-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 32px;
+  height: 100%;
+  cursor: pointer;
+}
+.form-input::-webkit-inner-spin-button {
+  display: none;
+}
 .form-icon {
   position: absolute;
   right: 0;
