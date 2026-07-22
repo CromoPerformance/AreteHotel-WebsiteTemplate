@@ -427,7 +427,7 @@ main { padding-top: 0; }
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding: 48px 80px 0;
+  padding: 48px 80px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -469,14 +469,6 @@ main { padding-top: 0; }
   height: 80px;
   background: rgba(255, 255, 255, 0.10);
   flex-shrink: 0;
-}
-.stats-footer {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.50);
-  padding: 32px 0 40px;
-  text-align: center;
 }
 
 @media (max-width: 640px) {
@@ -2112,11 +2104,11 @@ main { padding-top: 0; }
 /* ========================================
    BUZIOS — Stats
    ======================================== */
-.stats-section {
+.stats-section--buzios {
   background: var(--navy);
   padding: 48px 10%;
 }
-.stats-inner {
+.stats-section--buzios .stats-inner {
   max-width: 960px;
   margin: 0 auto;
   display: flex;
@@ -2128,7 +2120,7 @@ main { padding-top: 0; }
   text-align: center;
   padding: 0 80px;
 }
-.stat-number {
+.stats-section--buzios .stat-number {
   font-family: var(--display);
   font-size: clamp(42px, 5.2vw, 60px);
   font-weight: 300;
@@ -2136,7 +2128,7 @@ main { padding-top: 0; }
   line-height: 1;
   margin-bottom: 24px;
 }
-.stat-label {
+.stats-section--buzios .stat-label {
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 400;
@@ -2153,7 +2145,7 @@ main { padding-top: 0; }
   color: rgba(111, 143, 183, 0.5);
   margin-top: 16px;
 }
-.stat-divider {
+.stats-section--buzios .stat-divider {
   width: 1px;
   height: 90px;
   background: rgba(111, 143, 183, 0.25);
