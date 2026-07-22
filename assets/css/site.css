@@ -489,7 +489,7 @@ main { padding-top: 0; }
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
 }
 .marina-hero-overlay {
   position: absolute;
