@@ -1027,20 +1027,6 @@ main { padding-top: 0; }
 .reservations {
   background: #fff;
   padding: 100px 24px 120px;
-  position: relative;
-}
-.reservations::after {
-  content: '';
-  position: absolute;
-  bottom: 40px;
-  right: 10%;
-  width: 200px;
-  height: 200px;
-  background: url('../grafismos/icone-ancora-azul.png') no-repeat center center;
-  background-size: contain;
-  opacity: 0.04;
-  transform: rotate(10deg);
-  pointer-events: none;
 }
 .reservations-inner {
   max-width: 1200px;
@@ -1251,6 +1237,18 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .reservations-success {
   text-align: center;
   padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.success-anchor {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.12;
+  transform: rotate(12deg);
+  pointer-events: none;
 }
 .success-title {
   font-family: var(--display);
