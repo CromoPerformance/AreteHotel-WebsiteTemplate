@@ -765,7 +765,7 @@ main { padding-top: 0; }
   position: relative;
   width: 100%;
   max-width: 900px;
-  min-height: 200px;
+  min-height: 280px;
   overflow: visible;
 }
 .testimonial {
@@ -783,7 +783,6 @@ main { padding-top: 0; }
 .testimonial.active {
   opacity: 1;
   pointer-events: auto;
-  position: relative;
 }
 .quote-icon {
   width: 52px;
