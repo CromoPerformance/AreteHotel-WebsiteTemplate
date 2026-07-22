@@ -40,15 +40,35 @@
 
       <div class="booking-bar">
         <div class="booking-bar-inner">
-          <div class="booking-field" id="checkinField">
+          <div class="booking-field custom-select" id="checkinField">
             <label class="booking-label">Check-in</label>
-            <div class="booking-display" id="checkinDisplay">Selecionar data</div>
-            <input type="date" class="booking-input-hidden" id="checkin">
+            <div class="booking-display placeholder" id="checkinDisplay">Selecionar data</div>
+            <div class="booking-dropdown booking-calendar" id="checkinDropdown">
+              <div class="cal-header">
+                <button class="cal-nav cal-prev" type="button">&lsaquo;</button>
+                <span class="cal-month-label"></span>
+                <button class="cal-nav cal-next" type="button">&rsaquo;</button>
+              </div>
+              <div class="cal-grid">
+                <span class="cal-dow">dom</span><span class="cal-dow">seg</span><span class="cal-dow">ter</span><span class="cal-dow">qua</span><span class="cal-dow">qui</span><span class="cal-dow">sex</span><span class="cal-dow">sáb</span>
+              </div>
+              <div class="cal-days"></div>
+            </div>
           </div>
-          <div class="booking-field" id="checkoutField">
+          <div class="booking-field custom-select" id="checkoutField">
             <label class="booking-label">Check-out</label>
-            <div class="booking-display" id="checkoutDisplay">Selecionar data</div>
-            <input type="date" class="booking-input-hidden" id="checkout">
+            <div class="booking-display placeholder" id="checkoutDisplay">Selecionar data</div>
+            <div class="booking-dropdown booking-calendar" id="checkoutDropdown">
+              <div class="cal-header">
+                <button class="cal-nav cal-prev" type="button">&lsaquo;</button>
+                <span class="cal-month-label"></span>
+                <button class="cal-nav cal-next" type="button">&rsaquo;</button>
+              </div>
+              <div class="cal-grid">
+                <span class="cal-dow">dom</span><span class="cal-dow">seg</span><span class="cal-dow">ter</span><span class="cal-dow">qua</span><span class="cal-dow">qui</span><span class="cal-dow">sex</span><span class="cal-dow">sáb</span>
+              </div>
+              <div class="cal-days"></div>
+            </div>
           </div>
           <div class="booking-field custom-select" id="adultsField">
             <label class="booking-label">Adultos</label>
@@ -318,45 +338,144 @@
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
 
-    // Custom date picker: click display → open native date picker
-    const checkinInput = document.getElementById('checkin');
-    const checkoutInput = document.getElementById('checkout');
+    // Custom calendar date picker
     const checkinDisplay = document.getElementById('checkinDisplay');
     const checkoutDisplay = document.getElementById('checkoutDisplay');
-    const today = new Date().toISOString().split('T')[0];
-    
-    checkinInput.min = today;
-    checkoutInput.min = today;
+    const checkinDropdown = document.getElementById('checkinDropdown');
+    const checkoutDropdown = document.getElementById('checkoutDropdown');
+    let checkinValue = null;
+    let checkoutValue = null;
+    let activeCal = null; // { type: 'checkin'|'checkout', month, year }
 
-    function formatDate(dateStr) {
-      if (!dateStr) return '';
-      const [y, m, d] = dateStr.split('-');
-      return d + '/' + m + '/' + y;
+    function formatDate(d) {
+      if (!d) return '';
+      const dd = String(d.getDate()).padStart(2, '0');
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      return dd + '/' + mm + '/' + d.getFullYear();
     }
 
-    document.getElementById('checkinField').addEventListener('click', function(e) {
-      if (e.target.closest('.booking-dropdown')) return;
-      checkinInput.showPicker();
+    function today() {
+      const n = new Date();
+      n.setHours(0, 0, 0, 0);
+      return n;
+    }
+
+    function renderCalendar(container, type) {
+      const now = today();
+      if (!activeCal || activeCal.type !== type) {
+        activeCal = { type: type, month: now.getMonth(), year: now.getFullYear() };
+      }
+      const m = activeCal.month;
+      const y = activeCal.year;
+      const monthNames = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+
+      container.querySelector('.cal-month-label').textContent = monthNames[m] + ' ' + y;
+
+      const daysContainer = container.querySelector('.cal-days');
+      daysContainer.innerHTML = '';
+
+      const firstDay = new Date(y, m, 1).getDay();
+      const daysInMonth = new Date(y, m + 1, 0).getDate();
+
+      // Min date: today for checkin, checkin+1 for checkout
+      let minDate = now;
+      if (type === 'checkout' && checkinValue) {
+        minDate = new Date(checkinValue);
+        minDate.setDate(minDate.getDate() + 1);
+      }
+
+      // Empty cells before first day
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'cal-day empty';
+        daysContainer.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cal-day';
+        btn.textContent = d;
+        const thisDate = new Date(y, m, d);
+
+        if (thisDate < minDate) {
+          btn.classList.add('disabled');
+        }
+        if (thisDate.getTime() === now.getTime()) {
+          btn.classList.add('today');
+        }
+        // Selected
+        const selected = type === 'checkin' ? checkinValue : checkoutValue;
+        if (selected && thisDate.getTime() === selected.getTime()) {
+          btn.classList.add('selected');
+        }
+        // Range highlight
+        if (checkinValue && checkoutValue) {
+          if (thisDate > checkinValue && thisDate < checkoutValue) {
+            btn.classList.add('in-range');
+          }
+          if (checkinValue.getTime() === thisDate.getTime()) btn.classList.add('range-start');
+          if (checkoutValue.getTime() === thisDate.getTime()) btn.classList.add('range-end');
+        }
+
+        btn.addEventListener('click', function() {
+          if (type === 'checkin') {
+            checkinValue = thisDate;
+            checkinDisplay.textContent = formatDate(checkinValue);
+            checkinDisplay.classList.remove('placeholder');
+            checkoutValue = null;
+            checkoutDisplay.textContent = 'Selecionar data';
+            checkoutDisplay.classList.add('placeholder');
+          } else {
+            checkoutValue = thisDate;
+            checkoutDisplay.textContent = formatDate(checkoutValue);
+            checkoutDisplay.classList.remove('placeholder');
+          }
+          checkinDropdown.classList.remove('open');
+          checkoutDropdown.classList.remove('open');
+        });
+
+        daysContainer.appendChild(btn);
+      }
+    }
+
+    // Nav buttons
+    checkinDropdown.querySelector('.cal-prev').addEventListener('click', function(e) {
+      e.stopPropagation();
+      activeCal.month--;
+      if (activeCal.month < 0) { activeCal.month = 11; activeCal.year--; }
+      renderCalendar(checkinDropdown, 'checkin');
     });
-    document.getElementById('checkoutField').addEventListener('click', function(e) {
-      if (e.target.closest('.booking-dropdown')) return;
-      checkoutInput.showPicker();
+    checkinDropdown.querySelector('.cal-next').addEventListener('click', function(e) {
+      e.stopPropagation();
+      activeCal.month++;
+      if (activeCal.month > 11) { activeCal.month = 0; activeCal.year++; }
+      renderCalendar(checkinDropdown, 'checkin');
+    });
+    checkoutDropdown.querySelector('.cal-prev').addEventListener('click', function(e) {
+      e.stopPropagation();
+      activeCal.month--;
+      if (activeCal.month < 0) { activeCal.month = 11; activeCal.year--; }
+      renderCalendar(checkoutDropdown, 'checkout');
+    });
+    checkoutDropdown.querySelector('.cal-next').addEventListener('click', function(e) {
+      e.stopPropagation();
+      activeCal.month++;
+      if (activeCal.month > 11) { activeCal.month = 0; activeCal.year++; }
+      renderCalendar(checkoutDropdown, 'checkout');
     });
 
-    checkinInput.addEventListener('change', function() {
-      checkinDisplay.textContent = formatDate(this.value);
-      checkinDisplay.classList.remove('placeholder');
-      const nextDay = new Date(this.value);
-      nextDay.setDate(nextDay.getDate() + 1);
-      checkoutInput.min = nextDay.toISOString().split('T')[0];
-      if (checkoutInput.value && checkoutInput.value <= this.value) {
-        checkoutInput.value = nextDay.toISOString().split('T')[0];
-        checkoutDisplay.textContent = formatDate(checkoutInput.value);
-      }
+    document.getElementById('checkinField').addEventListener('click', function(e) {
+      if (e.target.closest('.booking-calendar')) return;
+      document.querySelectorAll('.booking-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+      renderCalendar(checkinDropdown, 'checkin');
+      checkinDropdown.classList.add('open');
     });
-    checkoutInput.addEventListener('change', function() {
-      checkoutDisplay.textContent = formatDate(this.value);
-      checkoutDisplay.classList.remove('placeholder');
+    document.getElementById('checkoutField').addEventListener('click', function(e) {
+      if (e.target.closest('.booking-calendar')) return;
+      document.querySelectorAll('.booking-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+      renderCalendar(checkoutDropdown, 'checkout');
+      checkoutDropdown.classList.add('open');
     });
 
     // Custom select dropdowns
@@ -396,8 +515,8 @@
     var selectedChildren = '0';
 
     document.querySelector('.booking-btn').addEventListener('click', function() {
-      var ci = checkinInput.value;
-      var co = checkoutInput.value;
+      var ci = checkinValue ? checkinValue.toISOString().split('T')[0] : '';
+      var co = checkoutValue ? checkoutValue.toISOString().split('T')[0] : '';
       var ad = document.querySelector('#adultsDropdown .selected').dataset.value;
       var ch = document.querySelector('#childrenDropdown .selected').dataset.value;
       

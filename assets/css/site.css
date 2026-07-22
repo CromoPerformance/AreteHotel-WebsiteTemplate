@@ -1309,6 +1309,97 @@ main { padding-top: 0; }
   padding: 6px 0;
 }
 .booking-dropdown.open { display: block; }
+
+/* ── Calendar dropdown ── */
+.booking-calendar {
+  padding: 12px;
+  min-width: 280px;
+}
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.cal-month-label {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  text-transform: capitalize;
+}
+.cal-nav {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.cal-nav:hover { background: rgba(7,127,140,0.08); }
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  margin-bottom: 4px;
+}
+.cal-dow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(27,38,51,0.4);
+  text-align: center;
+  padding: 4px 0;
+  text-transform: lowercase;
+}
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+}
+.cal-day {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  line-height: 1;
+}
+.cal-day:hover { background: rgba(7,127,140,0.08); }
+.cal-day.disabled {
+  color: rgba(27,38,51,0.2);
+  cursor: default;
+  pointer-events: none;
+}
+.cal-day.today {
+  font-weight: 700;
+  color: var(--blue);
+}
+.cal-day.selected {
+  background: var(--blue);
+  color: #fff;
+  font-weight: 600;
+}
+.cal-day.in-range {
+  background: rgba(7,127,140,0.08);
+  border-radius: 0;
+}
+.cal-day.range-start {
+  border-radius: 4px 0 0 4px;
+}
+.cal-day.range-end {
+  border-radius: 0 4px 4px 0;
+}
+.cal-day.empty {
+  cursor: default;
+  pointer-events: none;
+}
 .booking-option {
   padding: 12px 20px;
   font-family: var(--sans);
