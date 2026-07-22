@@ -635,6 +635,20 @@
         resCheckout.min = next.toISOString().split('T')[0];
       });
 
+      // Phone formatter
+      var phoneInput = form.querySelector('input[name="telefone"]');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+          var val = this.value.replace(/\D/g, '');
+          var formatted = '';
+          if (val.length > 0) formatted = '+' + val.substring(0, 2);
+          if (val.length > 2) formatted += ' (' + val.substring(2, 4);
+          if (val.length > 4) formatted += ') ' + val.substring(4, 10);
+          if (val.length > 10) formatted += '-' + val.substring(10, 15);
+          this.value = formatted;
+        });
+      }
+
       // Clear error on input
       form.querySelectorAll('.form-input').forEach(function(input) {
         input.addEventListener('input', function() {
