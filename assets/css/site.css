@@ -1034,10 +1034,10 @@ main { padding-top: 0; }
   display: grid;
   grid-template-columns: 0.35fr 0.65fr;
   gap: 80px;
-  align-items: start;
+  align-items: center;
 }
 .reservations-content {
-  padding-top: 20px;
+  padding-top: 0;
 }
 .reservations-eyebrow {
   font-family: var(--sans);
