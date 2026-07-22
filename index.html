@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-  <img class="body-anchor" id="bodyAnchor" src="assets/grafismos/icone-ancora-azul.png" alt="" style="display:none;">
   <header class="site-header">
     <nav class="site-nav" aria-label="Principal">
       <div class="nav-group left">
@@ -290,6 +289,7 @@
             <button type="submit" class="form-btn">Enviar Mensagem</button>
           </form>
           <div class="reservations-success" id="resSuccess" style="display:none;">
+            <img class="success-anchor" src="assets/grafismos/icone-ancora-azul.png" alt="">
             <h3 class="success-title">Mensagem enviada!</h3>
             <p class="success-text">Obrigado pelo contato. Nossa equipe entrará em breve para conversarmos sobre sua experiência no Hotel Aretê.</p>
           </div>
@@ -835,7 +835,6 @@
         if (valid) {
           form.style.display = 'none';
           successMsg.style.display = 'block';
-          document.getElementById('bodyAnchor').style.display = 'block';
         }
       });
     })();

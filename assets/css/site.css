@@ -1237,17 +1237,25 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .reservations-success {
   text-align: center;
   padding: 40px 20px;
+  position: relative;
+  overflow: visible;
 }
-.body-anchor {
-  position: fixed;
-  bottom: 300px;
-  right: calc(12% - 100px);
-  width: 200px;
-  height: 200px;
-  opacity: 0.06;
-  transform: rotate(12deg);
+.success-anchor {
+  position: absolute;
+  top: 50%;
+  right: -80px;
+  transform: translateY(-50%) rotate(12deg);
+  width: 180px;
+  height: 180px;
+  opacity: 0.10;
   pointer-events: none;
-  z-index: 0;
+}
+@media (max-width: 768px) {
+  .success-anchor {
+    right: -40px;
+    width: 120px;
+    height: 120px;
+  }
 }
 .success-title {
   font-family: var(--display);
