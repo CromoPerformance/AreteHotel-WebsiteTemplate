@@ -792,6 +792,7 @@ main { padding-top: 0; }
   height: 36px;
   margin-bottom: 28px;
   display: block;
+  object-fit: contain;
 }
 .testimonial-text {
   margin: 0;
