@@ -649,6 +649,15 @@
         });
       }
 
+      // Auto-grow textarea
+      var textarea = form.querySelector('.form-textarea');
+      if (textarea) {
+        textarea.addEventListener('input', function() {
+          this.style.height = 'auto';
+          this.style.height = this.scrollHeight + 'px';
+        });
+      }
+
       // Clear error on input
       form.querySelectorAll('.form-input').forEach(function(input) {
         input.addEventListener('input', function() {
