@@ -224,43 +224,53 @@
           <p class="reservations-desc">Nossa equipe está disponível para criar uma experiência personalizada ao seu ritmo, desde a escolha da suíte ideal até a curadoria das experiências em Búzios.</p>
         </div>
         <div class="reservations-form-wrap">
-          <form class="reservations-form" onsubmit="return false;">
+          <form class="reservations-form" id="resForm" novalidate>
             <div class="form-group">
-              <label class="form-label">Nome</label>
-              <input type="text" class="form-input" placeholder="Seu nome completo">
+              <label class="form-label">Nome <span class="required">*</span></label>
+              <input type="text" class="form-input" name="nome" placeholder="Seu nome completo" required minlength="3">
+              <span class="form-error">Por favor, informe seu nome (mínimo 3 caracteres).</span>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Telefone</label>
-                <input type="tel" class="form-input" placeholder="+55 (00) 00000-0000">
+                <label class="form-label">Telefone <span class="required">*</span></label>
+                <input type="tel" class="form-input" name="telefone" placeholder="+55 (00) 00000-0000" required pattern="[\d\s\+\-\(\)]{10,}">
+                <span class="form-error">Informe um telefone válido.</span>
               </div>
               <div class="form-group">
-                <label class="form-label">E-mail</label>
-                <input type="email" class="form-input" placeholder="seu@email.com">
+                <label class="form-label">E-mail <span class="required">*</span></label>
+                <input type="email" class="form-input" name="email" placeholder="seu@email.com" required>
+                <span class="form-error">Informe um e-mail válido.</span>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Check-in</label>
+                <label class="form-label">Check-in <span class="required">*</span></label>
                 <div class="form-input-wrap">
-                  <input type="date" class="form-input" id="resCheckin">
+                  <input type="date" class="form-input" id="resCheckin" name="checkin" required>
                   <svg class="form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
+                <span class="form-error">Selecione uma data de check-in.</span>
               </div>
               <div class="form-group">
-                <label class="form-label">Check-out</label>
+                <label class="form-label">Check-out <span class="required">*</span></label>
                 <div class="form-input-wrap">
-                  <input type="date" class="form-input" id="resCheckout">
+                  <input type="date" class="form-input" id="resCheckout" name="checkout" required>
                   <svg class="form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
+                <span class="form-error">Selecione uma data de check-out.</span>
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Mensagem</label>
-              <textarea class="form-input form-textarea" placeholder="Como podemos ajudar?" rows="4"></textarea>
+              <textarea class="form-input form-textarea" name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
             </div>
             <button type="submit" class="form-btn">Enviar Mensagem</button>
           </form>
+          <div class="reservations-success" id="resSuccess" style="display:none;">
+            <img class="quote-icon" src="assets/grafismos/icone-folha-azul.png" alt="" width="52" height="52">
+            <h3 class="success-title">Mensagem enviada!</h3>
+            <p class="success-text">Obrigado pelo contato. Nossa equipe entrará em breve para conversarmos sobre sua experiência no Hotel Aretê.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -600,11 +610,14 @@
       startTimer();
     })();
 
-    // Reservations form - date pickers
+    // Reservations form - validation + date pickers
     (function() {
       var resCheckin = document.getElementById('resCheckin');
       var resCheckout = document.getElementById('resCheckout');
-      if (!resCheckin) return;
+      var form = document.getElementById('resForm');
+      var successMsg = document.getElementById('resSuccess');
+      if (!resCheckin || !form) return;
+
       var today = new Date().toISOString().split('T')[0];
       resCheckin.min = today;
       resCheckout.min = today;
@@ -620,6 +633,54 @@
         var next = new Date(this.value);
         next.setDate(next.getDate() + 1);
         resCheckout.min = next.toISOString().split('T')[0];
+      });
+
+      // Clear error on input
+      form.querySelectorAll('.form-input').forEach(function(input) {
+        input.addEventListener('input', function() {
+          this.closest('.form-group').classList.remove('invalid');
+        });
+        input.addEventListener('change', function() {
+          this.closest('.form-group').classList.remove('invalid');
+        });
+      });
+
+      // Validate + submit
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var valid = true;
+        var groups = form.querySelectorAll('.form-group');
+
+        groups.forEach(function(g) {
+          var input = g.querySelector('.form-input');
+          if (!input) return;
+          var val = input.value.trim();
+          var ok = true;
+
+          if (input.required && !val) {
+            ok = false;
+          } else if (input.type === 'email' && val) {
+            ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+          } else if (input.name === 'telefone' && val) {
+            ok = /[\d\s\+\-\(\)]{10,}/.test(val);
+          } else if (input.name === 'nome' && val) {
+            ok = val.length >= 3;
+          } else if (input.type === 'date' && input.required && !val) {
+            ok = false;
+          }
+
+          if (!ok) {
+            g.classList.add('invalid');
+            valid = false;
+          } else {
+            g.classList.remove('invalid');
+          }
+        });
+
+        if (valid) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        }
       });
     })();
   </script>
