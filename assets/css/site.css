@@ -444,7 +444,7 @@ main { padding-top: 0; }
   line-height: 1;
   color: #fff;
   letter-spacing: 0.02em;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .stat-label {
   font-family: var(--sans);
@@ -453,7 +453,7 @@ main { padding-top: 0; }
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 .stat-desc {
   margin: 0;
