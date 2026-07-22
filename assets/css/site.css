@@ -750,13 +750,16 @@ main { padding-top: 0; }
   position: relative;
 }
 .testimonials-title {
-  font-family: var(--display);
+  font-family: var(--sans);
   font-weight: 400;
-  font-style: italic;
   font-size: clamp(18px, 2vw, 28px);
   color: #243854;
   text-align: center;
   margin-bottom: 48px;
+}
+.testimonials-title-brand {
+  font-family: var(--display);
+  font-style: italic;
 }
 .testimonials-slider {
   position: relative;
