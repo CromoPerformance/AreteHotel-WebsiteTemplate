@@ -1242,12 +1242,12 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .success-anchor {
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: -20px;
   transform: translateY(-50%) rotate(12deg);
   width: 180px;
   height: 180px;
-  opacity: 0.10;
+  opacity: 0.06;
   pointer-events: none;
 }
 @media (max-width: 768px) {
