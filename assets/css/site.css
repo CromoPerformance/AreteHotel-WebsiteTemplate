@@ -765,7 +765,7 @@ main { padding-top: 0; }
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: 200px;
+  min-height: 200px;
   overflow: visible;
 }
 .testimonial {
@@ -814,7 +814,7 @@ main { padding-top: 0; }
 .testimonials-dots {
   display: flex;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 48px;
 }
 .dot {
   width: 8px;
@@ -836,7 +836,7 @@ main { padding-top: 0; }
 
 @media (max-width: 640px) {
   .testimonials { padding: 80px 24px; }
-  .testimonials-slider { height: 360px; }
+  .testimonials-slider { min-height: 300px; }
   .testimonial-text { font-size: clamp(20px, 5.5vw, 30px); }
 }
 
