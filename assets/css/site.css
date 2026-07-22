@@ -262,7 +262,7 @@ main { padding-top: 0; }
 }
 
 .manifesto, .editorial, .location-intro, .foot-note { background: var(--white); }
-.manifesto { position: relative; padding: 120px 24px 110px; }
+.manifesto { position: relative; padding: 110px 24px; }
 .manifesto-inner {
   max-width: 1220px;
   margin: 0 auto;
