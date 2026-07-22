@@ -747,6 +747,7 @@ main { padding-top: 0; }
   align-items: center;
   justify-content: center;
   padding: 0 40px 80px;
+  margin-top: 80px;
   position: relative;
 }
 .testimonials-title {
