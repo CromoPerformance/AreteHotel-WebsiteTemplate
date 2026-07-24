@@ -754,7 +754,7 @@
       });
 
       document.addEventListener('click', function(e) {
-        if (!e.target.closest('.form-calendar-field')) {
+        if (!e.target.closest('.form-calendar-field') && !e.target.closest('.booking-field.custom-select')) {
           document.querySelectorAll('.booking-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
         }
       });
