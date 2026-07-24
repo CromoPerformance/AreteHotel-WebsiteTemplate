@@ -500,8 +500,8 @@ main { padding-top: 0; }
 }
 
 @media (max-width: 640px) {
-  .stats-inner { flex-direction: column; gap: 0; padding: 60px 24px; }
-  .stat-block { padding: 32px 0; }
+  .stats-inner { flex-direction: column; gap: 0; padding: 28px 24px; align-items: center; }
+  .stat-block { padding: 16px 0; width: 100%; text-align: center !important; }
   .stat-divider { width: 60px; height: 1px; }
 }
 
@@ -700,7 +700,6 @@ main { padding-top: 0; }
 /* Slider */
 .seasons-slider {
   position: relative;
-  overflow: visible;
 }
 .seasons-track {
   position: relative;
@@ -708,17 +707,19 @@ main { padding-top: 0; }
 }
 .season-slide {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  width: 100%;
   opacity: 0;
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
 .season-slide.active {
+  position: relative;
   opacity: 1;
   pointer-events: auto;
 }
@@ -796,10 +797,13 @@ main { padding-top: 0; }
   color: var(--navy);
 }
 @media (max-width: 768px) {
-  .season-slide { grid-template-columns: 1fr; }
+  .seasons-section { padding: 60px 20px; }
+  .seasons-header { margin-bottom: 36px; }
+  .season-slide { grid-template-columns: 1fr; gap: 20px; }
   .season-slide-img { height: 240px; }
-  .seasons-track { min-height: 240px; }
-  .seasons-nav { gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .season-slide-info { padding: 10px 0; }
+  .seasons-track { min-height: 480px; }
+  .seasons-nav { gap: 16px; flex-wrap: wrap; justify-content: center; width: 100%; margin-top: 24px; }
 }
 
 /* Testimonials */
@@ -1737,15 +1741,15 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
    SUBPAGE HERO — shared left-aligned pattern
    ======================================== */
 .hero-subpage {
-  min-height: calc(80vh + 100px);
-  height: calc(80vh + 100px);
+  min-height: 80vh;
+  height: auto;
 }
 .hero-subpage .hero-inner {
-  min-height: calc(80vh + 100px);
+  min-height: 80vh;
   align-items: flex-start;
   justify-content: flex-end;
   text-align: left;
-  padding-bottom: calc(10vh + 100px);
+  padding-bottom: 60px;
   padding-left: 10%;
 }
 .hero-subpage .hero-kicker {
@@ -1773,21 +1777,9 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 1px 8px rgba(0,0,0,0.3);
 }
-/* Scroll indicator */
+/* Scroll indicator - hidden to remove white line separator below hero */
 .hero-scroll {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 56px;
-  gap: 12px;
-  z-index: 2;
+  display: none !important;
 }
 .hero-scroll-text {
   font-family: var(--sans);
@@ -1893,10 +1885,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .philosophy-content { padding: 60px 48px; }
 }
 @media (max-width: 640px) {
-  .hero-subpage { min-height: calc(70vh + 100px); height: calc(70vh + 100px); }
-  .hero-subpage .hero-inner { min-height: calc(70vh + 100px); }
+  .hero-subpage { min-height: 75vh; height: auto; }
   .hero-subpage .hero-inner {
-    padding-bottom: calc(8vh + 60px);
+    min-height: 75vh;
+    padding-bottom: 48px;
     padding-left: 6%;
   }
   .hero-subpage .hero-title { font-size: clamp(38px, 10vw, 56px); }
@@ -2505,7 +2497,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .amenities-list span { padding: 0 8px; }
   .stats-inner { flex-direction: column; gap: 0; }
   .stat-divider { width: 60px; height: 1px; }
-  .stat-col { padding: 32px 0; }
+  .stat-col { padding: 16px 0; text-align: center !important; }
 }
 
 /* ========================================
@@ -3858,15 +3850,19 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .hub-panel { min-height: 55vw; }
 
   /* ── Stats section (home) ── */
-  .stats-section { padding: 48px 0; }
+  .stats-section { padding: 32px 0; }
   .stats-inner {
     flex-direction: column;
     gap: 0;
-    padding: 32px 24px;
+    padding: 20px 24px;
+    align-items: center;
   }
-  .stat-block { padding: 28px 0; width: 100%; }
+  .stat-block { padding: 16px 0; width: 100%; text-align: center !important; }
   .stat-divider { width: 60px; height: 1px; }
-  .stat-desc { font-size: 16px; }
+  .stat-desc { font-size: 15px; }
+  .stats-section--buzios { padding: 24px 20px; }
+  .stats-section--buzios .stats-inner { flex-direction: column; align-items: center; }
+  .stat-col { padding: 16px 0; text-align: center !important; }
 
   /* ── Marina Hero ── */
   .marina-hero { height: 85vw; min-height: 360px; }
@@ -3923,14 +3919,14 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
   /* ── Subpage hero ── */
   .hero-subpage {
-    min-height: calc(75vh + 64px);
-    height: calc(75vh + 64px);
+    min-height: 75vh;
+    height: auto;
   }
   .hero-subpage .hero-inner {
-    min-height: calc(75vh + 64px);
+    min-height: 75vh;
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: calc(10vh + 80px);
+    padding-bottom: 48px;
   }
   .hero-subpage .hero-title {
     font-size: clamp(40px, 11vw, 64px);
@@ -4169,8 +4165,8 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .eco-map { height: 72vw; }
 
   /* ── Stats buzios ── */
-  .stats-section--buzios .stats-inner { flex-direction: column; }
-  .stat-col { padding: 28px 0; }
+  .stats-section--buzios .stats-inner { flex-direction: column; align-items: center; }
+  .stat-col { padding: 16px 0; text-align: center !important; }
   .stats-section--buzios .stat-divider { width: 60px; height: 1px; }
 
   /* ── Hero subtitle ── */
