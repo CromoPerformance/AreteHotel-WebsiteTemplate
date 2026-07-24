@@ -174,7 +174,7 @@ main { padding-top: 0; }
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
 .hero.hero-home { background-position: center calc(50% + 200px); }
-.hero.hero-hotel { background-position: center 70%; }
+.hero.hero-hotel { background-position: center bottom; }
 .hero.hero-rooms { background-position: center center; }
 .hero.hero-restaurant { background-position: center top; }
 .hero.hero-buzios { background-position: center calc(50% - 100px); }
@@ -183,8 +183,10 @@ main { padding-top: 0; }
 .hero.hero-faq { background: var(--navy); }
 .hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.png') center center / cover no-repeat; opacity: 0.04; }
 .hero.hero-ecossistema { background-position: center top; }
+.hero.hero-ecossistema .hero-title,
+.hero.hero-events .hero-title { margin-left: 5px; }
 .hero-subpage::before {
-  background: linear-gradient(180deg, rgba(7, 20, 34, 0.55) 0%, rgba(7, 20, 34, 0.48) 32%, rgba(7, 20, 34, 0.72) 100%);
+  background: linear-gradient(0deg, rgba(7, 20, 34, 0.88) 0%, rgba(7, 20, 34, 0.45) 40%, rgba(7, 20, 34, 0.30) 100%);
 }
 .hero-inner {
   position: relative;
@@ -221,6 +223,12 @@ main { padding-top: 0; }
 .hero-logo {
   max-width: clamp(260px, 35vw, 440px);
   height: auto;
+}
+.hero-logo + .hero-subtitle {
+  margin-top: 20px;
+}
+.hero-kicker + .hero-logo {
+  margin-top: -15px;
 }
 .hero-subtitle {
   margin: 8px 0 0;
@@ -262,7 +270,7 @@ main { padding-top: 0; }
 }
 
 .manifesto, .editorial, .location-intro, .foot-note { background: var(--white); }
-.manifesto { position: relative; padding: 110px 24px; }
+.manifesto { position: relative; padding: 110px 10%; }
 .manifesto-inner {
   max-width: 1220px;
   margin: 0 auto;
@@ -326,7 +334,7 @@ main { padding-top: 0; }
   cursor: pointer;
   display: block;
   text-decoration: none;
-  transition: flex-basis 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: flex-basis 1.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s;
   contain: layout style;
 }
 .hub-panel-bg {
@@ -334,7 +342,7 @@ main { padding-top: 0; }
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform 1s ease;
+  transition: transform 1.6s ease 0.15s;
   will-change: transform;
 }
 .hub-panel-overlay {
@@ -357,7 +365,7 @@ main { padding-top: 0; }
   margin: 8px 0 4px;
   font-family: var(--display);
   font-weight: 300;
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(15px, 1.5vw, 22px);
   line-height: 1.05;
   color: #fff;
   letter-spacing: 0.01em;
@@ -390,13 +398,13 @@ main { padding-top: 0; }
   transform: translateX(4px);
 }
 .hub-panel:hover {
-  flex-basis: 46%;
+  flex-basis: 34%;
 }
 .hub-panel:not(:hover) {
-  flex-basis: 18%;
+  flex-basis: 22%;
 }
 .hub-panel:hover .hub-panel-bg {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* Tablet */
@@ -421,7 +429,7 @@ main { padding-top: 0; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 110px 0;
+  padding: 56px 0;
 }
 .stats-inner {
   display: flex;
@@ -555,6 +563,13 @@ main { padding-top: 0; }
   color: #0a1e3d;
   border-color: #fff;
 }
+.marina-hero--right .marina-hero-content {
+  align-items: flex-end;
+  text-align: right;
+}
+.marina-hero--right .marina-subtitle {
+  text-align: right;
+}
 
 @media (max-width: 640px) {
   .marina-hero-content { padding: 0 32px; }
@@ -584,7 +599,7 @@ main { padding-top: 0; }
 .marina-lifestyle-content {
   position: relative;
   z-index: 1;
-  padding: 100px 8%;
+  padding: 100px 10%;
   width: 100%;
   text-align: center;
 }
@@ -638,105 +653,135 @@ main { padding-top: 0; }
    LOCALIZAÇÃO — Estações do Ano
    ======================================== */
 .seasons-section {
-  padding: 120px 8%;
+  padding: 80px 10%;
+  background: #fff;
 }
-.seasons-inner {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  gap: 80px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: start;
+.seasons-header {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  text-align: center;
 }
-.seasons-copy {
-  position: static;
+.seasons-header .eyebrow {
+  color: #077F8C;
 }
 .seasons-title {
-  margin: 32px 0 40px;
+  margin: 32px 0 20px;
   font-family: var(--display);
-  font-size: clamp(24px, 2.6vw, 36px);
+  font-size: clamp(28px, 3.2vw, 42px);
   font-weight: 300;
   line-height: 1.1;
   color: var(--navy);
 }
 .seasons-text {
-  margin: 0 0 20px;
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(27,38,51,0.7);
-}
-.seasons-tabs {
-  display: flex;
-  flex-direction: column;
-}
-.season-tab {
-  border-bottom: 1px solid rgba(111,143,183,0.2);
-}
-.season-tab:first-child {
-  border-top: 1px solid rgba(111,143,183,0.2);
-}
-.season-tab-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 28px 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--sans);
-  font-size: clamp(20px, 2vw, 26px);
-  font-weight: 300;
-  color: var(--navy);
-  text-align: left;
-  transition: color 0.3s ease;
-  margin: 4px 0;
-}
-.season-tab-btn:hover {
-  color: var(--blue);
-}
-.season-tab-months {
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-.season-tab-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.5s ease;
-  padding: 0;
-}
-.season-tab.active .season-tab-content {
-  max-height: 500px;
-  padding: 0 0 32px;
-}
-.season-tab-image {
-  height: 240px;
-  background: center/cover no-repeat;
-}
-.season-tab-text {
   margin: 0;
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.7;
   color: rgba(27,38,51,0.7);
-  display: flex;
+}
+/* Slider */
+.seasons-slider {
+  position: relative;
+  overflow: visible;
+}
+.seasons-track {
+  position: relative;
+  min-height: 340px;
+}
+.season-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
   align-items: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.season-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.season-slide-img {
+  width: 100%;
+  height: 340px;
+  background: center/cover no-repeat;
+}
+.season-slide-info {
+  padding: 20px 40px 20px 20px;
+}
+.season-slide-name {
+  font-family: var(--sans);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 300;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.season-slide-months {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+.season-slide-text {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(27,38,51,0.7);
+  max-width: 420px;
+}
+/* Navegação */
+.seasons-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 32px;
+  margin-top: 32px;
+  width: 50%;
+}
+.seasons-nav-btn {
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(27,38,51,0.4);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.seasons-nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--navy);
+  transition: width 0.3s ease;
+}
+.seasons-nav-btn.active {
+  color: var(--navy);
+}
+.seasons-nav-btn.active::after {
+  width: 100%;
+}
+.seasons-nav-btn:hover {
+  color: var(--navy);
 }
 @media (max-width: 768px) {
-  .seasons-inner { grid-template-columns: 1fr; gap: 48px; }
-  .seasons-copy { position: static; }
-  .season-tab-content { grid-template-columns: 1fr; }
-  .season-tab-image { height: 180px; }
-  .marina-activities { grid-template-columns: 1fr; gap: 32px; }
-  .marina-lifestyle-content { padding: 60px 6%; }
+  .season-slide { grid-template-columns: 1fr; }
+  .season-slide-img { height: 240px; }
+  .seasons-track { min-height: 240px; }
+  .seasons-nav { gap: 16px; flex-wrap: wrap; justify-content: center; }
 }
 
 /* Testimonials */
@@ -867,10 +912,10 @@ main { padding-top: 0; }
 
 .split {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-  min-height: 760px;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
 }
-.split.reverse { grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr); }
+.split.reverse { grid-template-columns: 1fr 1fr; }
 .split-copy {
   padding: 82px clamp(24px, 4vw, 82px);
   display: flex;
@@ -884,7 +929,7 @@ main { padding-top: 0; }
   line-height: 1;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: #9fb0c3;
+  color: #077F8C;
   margin-bottom: 24px;
 }
 .section-heading {
@@ -908,7 +953,7 @@ main { padding-top: 0; }
 .copy-text.tight { max-width: 520px; }
 .split-media {
   position: relative;
-  min-height: 760px;
+  min-height: 520px;
   background: center/cover no-repeat;
 }
 .split-media::before {
@@ -945,7 +990,7 @@ main { padding-top: 0; }
 }
 .dark-band { background: linear-gradient(180deg, #0a1730 0%, #0b1627 100%); color: rgba(255, 255, 255, 0.9); }
 .dark-band .section-heading, .dark-band .detail-title, .dark-band .hero-subtitle, .dark-band .copy-text, .dark-band .detail-copy, .dark-band .eyebrow, .dark-band .footer a, .dark-band .footer-text { color: rgba(255, 255, 255, 0.74); }
-.dark-quote { padding: 92px 24px 108px; text-align: center; background: var(--navy); }
+.dark-quote { padding: 92px 10% 108px; text-align: center; background: var(--navy); }
 .dark-quote-inner { max-width: 1280px; margin: 0 auto; }
 .dark-quote .manifesto-text { color: rgba(255, 255, 255, 0.95); }
 .dark-quote .line-accent { background: rgba(92, 134, 184, 0.82); }
@@ -1686,6 +1731,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   padding-left: 10%;
 }
 .hero-subpage .hero-kicker {
+  margin-top: 0;
   margin-bottom: 32px;
   text-shadow: 0 1px 8px rgba(0,0,0,0.3);
   font-size: 16px;
@@ -1698,12 +1744,13 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   font-size: clamp(52px, 8vw, 110px);
   line-height: 0.92;
   margin-bottom: 14px;
+  margin-left: 15px;
   text-shadow: 0 2px 16px rgba(0,0,0,0.25);
 }
 .hero-subpage .hero-subtitle {
   max-width: 520px;
   text-align: left;
-  font-size: 17px;
+  font-size: 21px;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 1px 8px rgba(0,0,0,0.3);
@@ -1858,9 +1905,23 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   height: 70vh;
   background: center/cover no-repeat;
 }
+
+/* Quad gallery — 2x2 grid, horizontal */
+.quad-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.quad-gallery-img {
+  height: calc(28vh + 100px);
+  background: center/cover no-repeat;
+}
+
 @media (max-width: 640px) {
   .dual-gallery { grid-template-columns: 1fr; }
   .dual-gallery-img { height: 50vh; }
+  .quad-gallery { grid-template-columns: 1fr 1fr; }
+  .quad-gallery-img { height: 35vw; }
 }
 
 /* ========================================
@@ -1910,6 +1971,14 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .pillar-text { max-width: 100%; }
 }
 
+/* Hotel pilares — reuse stats layout */
+.hotel-pillars { padding: 80px 0; }
+.hotel-pillars .stats-inner { max-width: 1100px; padding: 0 40px; gap: 72px; align-items: flex-start; }
+.hotel-pillars .stat-block { text-align: left; }
+.hotel-pillars .stat-number { font-family: var(--display); }
+.hotel-pillars .stat-label { font-style: italic; letter-spacing: 0.06em; text-transform: none; font-size: clamp(20px, 2.5vw, 30px); font-weight: 400; color: rgba(255,255,255,0.75); font-family: var(--display); min-height: 1.2em; }
+.hotel-pillars .stat-desc { max-width: 360px; font-size: 17px; text-align: left; font-style: normal; color: #fff; }
+
 /* ========================================
    HOTEL PAGE — Natureza & Localização
    ======================================== */
@@ -1921,12 +1990,21 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 100px 72px 100px 10%;
+  padding: 100px 10%;
   background: #fff;
 }
 .nature-split--img-bottom .nature-split-image {
   background-position: center bottom;
 }
+.nature-split-reverse .nature-split-image { order: -1; }
+.nature-split-reverse .nature-split-content { padding: 56px 10%; }
+.nature-split-reverse .nature-split-image { min-height: 400px; }
+.nature-split--compact .nature-split-content { padding: 48px 10%; }
+.nature-split--compact .nature-split-image { min-height: 400px; }
+.nature-split--small .nature-split-content { padding: 56px 10%; }
+.nature-split--small .nature-split-image { min-height: 320px; }
+.nature-split-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-height: 400px; }
+.nature-split-dual-item { background-size: cover; background-position: center; }
 .nature-split-content .eyebrow {
   font-family: var(--sans);
   font-size: 13px;
@@ -1948,7 +2026,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   margin: 0 0 28px;
   max-width: 480px;
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.75;
   color: var(--ink-soft);
@@ -1982,6 +2060,69 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 
 /* ========================================
+   ECO ASSET SECTIONS
+   ======================================== */
+.eco-asset-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 50vh;
+}
+.eco-asset-section:nth-child(even) .eco-asset-image { order: -1; }
+.eco-asset-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 72px 56px 10%;
+  background: #fff;
+  border-left: 3px solid var(--verde-oliva);
+}
+.eco-asset-subtitle {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.eco-asset-title {
+  margin: 0 0 20px;
+  font-family: var(--display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 300;
+  color: #1a2230;
+  line-height: 1.2;
+}
+.eco-asset-text {
+  margin: 0;
+  max-width: 440px;
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.eco-asset-note {
+  margin: 12px 0 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--verde-oliva);
+  letter-spacing: 0.02em;
+}
+.eco-asset-image {
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 860px) {
+  .eco-asset-section { grid-template-columns: 1fr; }
+  .eco-asset-section:nth-child(even) .eco-asset-image { order: 0; }
+  .eco-asset-content { padding: 40px 24px; border-left: none; border-top: 3px solid var(--verde-oliva); }
+  .eco-asset-image { min-height: 40vh; }
+}
+
+/* ========================================
    HOTEL PAGE — Diferenciais
    ======================================== */
 .differentials {
@@ -1990,7 +2131,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .differentials-header {
   text-align: center;
-  margin-bottom: 72px;
+  margin-bottom: 32px;
 }
 .differentials-header .eyebrow {
   font-family: var(--sans);
@@ -2020,7 +2161,8 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   padding: 32px 0;
   border-top: 1px solid var(--line);
 }
-.diff-item:last-child { border-bottom: 1px solid var(--line); }
+.diff-item:first-child { border-top: none; }
+.diff-item:last-child { border-bottom: none; }
 .diff-numeral {
   font-family: var(--display);
   font-size: 54px;
@@ -2070,8 +2212,29 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 /* CTA Section */
 .cta-section {
   background: #004485;
-  padding: 140px 10%;
+  padding: 60px 10%;
   text-align: center;
+}
+.eco-cta { padding: 60px 10%; }
+.cta-compact { padding: 72px 10%; }
+
+/* Image strip grid */
+.image-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.image-strip-item {
+  background-size: cover;
+  background-position: center;
+  min-height: 280px;
+}
+@media (max-width: 860px) {
+  .image-strip { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .image-strip { grid-template-columns: 1fr; }
+  .image-strip-item { min-height: 220px; }
 }
 .cta-inner {
   max-width: 720px;
@@ -2103,16 +2266,16 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   font-size: 17px;
   font-weight: 300;
   font-style: italic;
-  color: rgba(111, 143, 183, 0.8);
+  color: #fff;
   line-height: 1.6;
 }
 .cta-btn {
   display: inline-block;
-  padding: 20px 64px;
+  padding: 14px 40px;
   background: #fff;
   color: var(--navy);
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -2147,14 +2310,14 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .suite-block-reverse .suite-content { grid-area: content; }
 .suite-image {
   background: center/cover no-repeat;
-  min-height: 640px;
+  min-height: 480px;
   grid-area: image;
 }
 .suite-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 72px 80px 80px;
+  padding: 56px 64px 56px 72px;
   background: #fff;
   grid-area: content;
 }
@@ -2233,8 +2396,8 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .amenities-title {
   margin: 8px 0 52px;
-  font-family: var(--display);
-  font-size: clamp(20px, 2.2vw, 24px);
+  font-family: var(--sans);
+  font-size: clamp(28px, 3vw, 38px);
   font-weight: 300;
   font-style: italic;
   color: #1a2230;
@@ -2267,7 +2430,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
    ======================================== */
 .stats-section--buzios {
   background: var(--navy);
-  padding: 48px 10%;
+  padding: 32px 10%;
 }
 .stats-section--buzios .stats-inner {
   max-width: 960px;
@@ -2285,25 +2448,25 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   font-family: var(--display);
   font-size: clamp(42px, 5.2vw, 60px);
   font-weight: 300;
-  color: var(--blue);
+  color: #fff;
   line-height: 1;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .stats-section--buzios .stat-label {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(111, 143, 183, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 14px;
 }
 .stat-sub {
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   font-style: italic;
-  color: rgba(111, 143, 183, 0.5);
+  color: rgba(255, 255, 255, 0.45);
   margin-top: 16px;
 }
 .stats-section--buzios .stat-divider {
@@ -2346,6 +2509,32 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   transition: color 0.3s ease;
 }
 .split-link:hover { color: var(--navy); }
+
+/* ── Marina 3 columns ── */
+.marina-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.marina-column-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.marina-column-desc {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
 
 /* ========================================
    BUZIOS — Dark Quote (Quando ir)
@@ -2448,10 +2637,11 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 800px;
+  height: 560px;
   overflow: hidden;
   margin-bottom: 0;
-  border: 60px solid var(--navy);
+  border: 24px solid var(--white);
+  background: var(--white);
 }
 .mosaic-item {
   position: relative;
@@ -2490,10 +2680,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .mosaic-overline {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 3px 8px;
   background: #fff;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -2528,7 +2718,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   color: #fff;
 }
 .nature-split-dark .nature-split-text {
-  color: rgba(111, 143, 183, 0.7);
+  color: #fff;
 }
 
 /* ========================================
@@ -2785,7 +2975,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
    PARTNERS GRID
    ======================================== */
 .experiences-list {
-  padding: 120px 5%;
+  padding: 80px 5%;
   text-align: center;
 }
 .experiences-list-inner {
@@ -2794,14 +2984,18 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .experiences-items {
   display: grid;
-  grid-template-columns: repeat(6, minmax(160px, 1fr));
-  gap: 24px 96px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 96px;
   text-align: left;
   justify-content: center;
 }
 .experience-row {
-  padding-bottom: 40px;
+  padding: 28px 0;
   min-width: 180px;
+  border-bottom: 1px solid var(--mist);
+}
+.experiences-list .experience-row:nth-child(n+4) {
+  border-bottom: none;
 }
 .experience-num {
   display: block;
@@ -2830,19 +3024,50 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 
 /* ========================================
+   CITY EVENTS (Programação da Cidade)
+   ======================================== */
+.city-events { text-align: center; background: #fff; }
+.city-events-inner { max-width: 1100px; margin: 0 auto; }
+.city-events .experiences-items { grid-template-columns: 1fr; gap: 0; }
+.city-events .experience-row:last-child { border-bottom: none; }
+.city-events .experience-num { font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; }
+.city-events-note {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: rgba(27,38,51,0.45);
+  text-align: center;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--mist);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.experience-month {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-top: 8px;
+}
+
+/* ========================================
    EVENTOS
    ======================================== */
 .events-showcase {
-  padding: 120px 5% 120px;
+  background: #fff;
+  padding: 80px 5% 80px;
 }
 .events-showcase-header {
   text-align: center;
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0 auto 64px;
 }
 .events-showcase-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 .events-showcase-item {
@@ -2870,9 +3095,9 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .events-showcase-name {
   margin: 4px 0 16px;
-  font-family: var(--display);
+  font-family: var(--sans);
   font-size: clamp(18px, 1.9vw, 24px);
-  font-weight: 300;
+  font-weight: 600;
   color: #fff;
 }
 .events-showcase-desc {
@@ -2931,8 +3156,6 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
    ECOSSISTEMA — Interactive Graph
    ======================================== */
 .eco-section {
-  position: relative;
-  width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -2940,25 +3163,23 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 /* ── Blank left side ── */
 .eco-blank {
   background: #fff;
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .eco-list-inner {
   width: 100%;
-  padding: 80px 10% 80px 5%;
+  padding: 32px 10%;
 }
 
 /* Eyebrow */
 .eco-list-eyebrow {
   display: block;
   font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--verde-oliva);
   margin-bottom: 12px;
 }
 
@@ -2980,10 +3201,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
 .eco-asset-item {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(7,127,140,0.15);
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(36,56,84,0.12);
 }
 .eco-asset-item:last-child {
   border-bottom: none;
@@ -2991,19 +3212,14 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
 /* Number */
 .eco-asset-num {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--blue);
+  font-family: var(--display);
+  font-size: 40px;
+  font-weight: 300;
+  color: rgba(36,56,84,0.18);
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--blue);
-  border-radius: 50%;
-  margin-top: 2px;
+  min-width: 48px;
+  line-height: 1;
+  padding-top: 0;
 }
 
 /* Name */
@@ -3012,57 +3228,59 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   font-size: 17px;
   font-weight: 600;
   color: var(--ink);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 /* Distances row */
 .eco-asset-distances {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .eco-asset-dist {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  color: rgba(27,38,51,0.55);
+  color: rgba(36,56,84,0.55);
   white-space: nowrap;
+}
+.eco-asset-distance {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: #077F8C;
+  margin-left: 8px;
 }
 
 /* Icons */
 .eco-icon {
-  width: 16px;
-  height: 16px;
-  color: var(--blue);
+  width: 22px;
+  height: 22px;
+  color: rgba(255,255,255,0.45);
   flex-shrink: 0;
 }
-
-/* ── MAPA — Sticky iframe ── */
-.eco-map {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  background: #e8e4de;
-  z-index: 1;
+.eco-icon-png {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  filter: opacity(0.45);
 }
-.mapa-hotel-container {
+
+/* ── MAPA — Image ── */
+.eco-map {
+  background: #e8e4de;
+  overflow: hidden;
+}
+.eco-map img {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-.mapa-hotel-container iframe {
-  position: absolute;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  height: calc(100% + 140px);
-  border: none;
+  object-fit: cover;
+  display: block;
 }
 .eco-graph {
   position: relative;
@@ -3247,7 +3465,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
 /* Right — content */
 .guia-local-content {
-  padding: 80px 8% 80px 5%;
+  padding: 80px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3367,10 +3585,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 @media (max-width: 1024px) {
   .eco-section {
     display: block;
+    height: auto;
   }
   .eco-blank { display: none; }
   .eco-map {
-    position: relative;
     height: 60vh;
   }
 }

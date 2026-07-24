@@ -28,7 +28,7 @@
     </nav>
   </header>
   <main>
-    <section class="hero hero-events hero-subpage" style="background-image:url('assets/shared/DSCF4964.avif')">
+    <section class="hero hero-events hero-subpage">
       <div class="hero-inner">
         <div class="hero-kicker">Hotel Aretê</div>
         <h1 class="hero-title">Eventos</h1>
@@ -40,18 +40,12 @@
       </div>
     </section>
 
-    <!-- Manifesto -->
-    <section class="manifesto manifesto--wide manifesto--spaced">
-      <div class="manifesto-inner">
-        <p class="manifesto-text">No Hotel Aretê, oferecemos pacotes flexíveis e atendimento personalizado para garantir que seu evento tenha a atenção que merece. Nossa equipe está pronta para ajudar em cada detalhe.</p>
-      </div>
-    </section>
-
     <!-- Tipos de evento -->
     <section class="events-showcase">
       <div class="events-showcase-header">
         <div class="eyebrow">Espaços</div>
-        <h2 class="section-heading">Tipos de<br><em>evento</em></h2>
+        <h2 class="section-heading">Tipos de <em>evento</em></h2>
+        <p class="copy-text" style="max-width:640px;margin:20px auto 0;text-align:center;">Cada evento merece um espaço à altura. Com vista para a marina e ambientes versáteis, o Hotel Aretê oferece cenários exclusivos para casamentos, celebrações íntimas e momentos inesquecíveis.</p>
       </div>
       <div class="events-showcase-grid">
         <div class="events-showcase-item" style="background-image:url('assets/shared/DSCF4844.avif')">
@@ -75,12 +69,30 @@
             <p class="events-showcase-desc">Festas memoráveis em ambientes versáteis, do íntimo ao amplo.</p>
           </div>
         </div>
-        <div class="events-showcase-item" style="background-image:url('assets/shared/DSCF4847.avif')">
-          <div class="events-showcase-overlay"></div>
-          <div class="events-showcase-content">
-            <h3 class="events-showcase-name">Sunset Marina</h3>
-            <p class="events-showcase-desc">Nosso formato de destaque, eventos ao pôr do sol com vista privilegiada para a marina.</p>
-          </div>
+      </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto manifesto--spaced manifesto--no-lines" style="padding-top: 40px;">
+      <div class="manifesto-inner">
+        <p class="manifesto-text">No Hotel Aretê, oferecemos pacotes flexíveis e atendimento personalizado para garantir que seu evento tenha a atenção que merece. Nossa equipe está pronta para ajudar em cada detalhe.</p>
+      </div>
+    </section>
+
+    <!-- Citação -->
+    <section class="stats-section" style="background: #077F8C;">
+      <div class="stats-inner" style="gap: 72px; align-items: flex-start;">
+        <div class="stat-block" style="text-align: left;">
+          <div class="stat-label" style="font-style: italic; letter-spacing: 0.06em; text-transform: none; font-size: clamp(20px, 2.5vw, 30px); font-weight: 400; color: rgba(255,255,255,0.75); font-family: var(--display); min-height: 1.2em;">Exclusividade</div>
+          <div class="stat-desc" style="max-width: 360px; font-size: 17px; text-align: left; font-style: normal; color: #fff;">Espaços reservados, atenção dedicada. Cada detalhe pensado para que seu evento seja tão único quanto a ocasião que o inspirou.</div>
+        </div>
+        <div class="stat-block" style="text-align: left;">
+          <div class="stat-label" style="font-style: italic; letter-spacing: 0.06em; text-transform: none; font-size: clamp(20px, 2.5vw, 30px); font-weight: 400; color: rgba(255,255,255,0.75); font-family: var(--display); min-height: 1.2em;">Calma</div>
+          <div class="stat-desc" style="max-width: 360px; font-size: 17px; text-align: left; font-style: normal; color: #fff;">Longe do agito, perto do que importa. Uma atmosfera náutica e silenciosa que transforma cada celebração em um momento genuíno.</div>
+        </div>
+        <div class="stat-block" style="text-align: left;">
+          <div class="stat-label" style="font-style: italic; letter-spacing: 0.06em; text-transform: none; font-size: clamp(20px, 2.5vw, 30px); font-weight: 400; color: rgba(255,255,255,0.75); font-family: var(--display); min-height: 1.2em;">Personalização</div>
+          <div class="stat-desc" style="max-width: 360px; font-size: 17px; text-align: left; font-style: normal; color: #fff;">Do layout à iluminação, cada escolha é sua. Nossa equipe traduz a sua visão em uma experiência sob medida.</div>
         </div>
       </div>
     </section>
@@ -105,14 +117,13 @@
     </section>
 
     <!-- Footer -->
-    <section class="footer">
+    <section class="footer foot-note">
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
             <a class="brand" href="index.html" aria-label="Hotel Aretê Búzios">
               <img class="brand-logo" src="assets/logos/191010_Marca_Hotel_Arete_Buzios_Vert_Mono.png" alt="Hotel Aretê Búzios">
             </a>
-            <p class="footer-tagline">Um santuário entre o mar e a mata</p>
             <p class="footer-text">Localizado às margens dos canais navegáveis de Búzios, o Hotel Aretê é um testemunho da arte de viver bem. A 20 minutos do centro, em contato permanente com a natureza costeira do Rio de Janeiro.</p>
             <div class="socials" aria-label="Redes sociais">
               <a class="social" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg></a>
@@ -138,8 +149,8 @@
           <div>
             <div class="footer-title">Contato</div>
             <div class="footer-links">
-              <span class="footer-text">+55 (22) 2008-0155</span>
-              <span class="footer-text">reservas@hotelarete.com.br</span>
+              <a class="footer-link" href="tel:+552220080155">+55 (22) 2008-0155</a>
+              <a class="footer-link" href="mailto:reservas@hotelarete.com.br">reservas@hotelarete.com.br</a>
               <span class="footer-text">Fazer reserva</span>
             </div>
           </div>
@@ -147,10 +158,9 @@
           <div>
             <div class="footer-title">Como chegar</div>
             <div class="footer-links">
-              <span class="footer-text">Google Maps</span>
-              <span class="footer-text">Waze</span>
-              <span class="footer-text">Apoio náutico</span>
-              <span class="footer-text">Aeroporto</span>
+              <a class="footer-link" href="https://www.google.com/maps?q=Hotel+Aret%C3%AA,+B%C3%BAzios" target="_blank" rel="noopener">Google Maps</a>
+              <a class="footer-link" href="https://waze.com/ul?q=Hotel+Aret%C3%AA+B%C3%BAzios" target="_blank" rel="noopener">Waze</a>
+              <a class="footer-link" href="https://www.google.com/maps/place/Aeroporto+Internacional+de+Campos+dos+Goytacazes/@-21.7068,-41.3319,13z" target="_blank" rel="noopener">Aeroporto</a>
             </div>
           </div>
         </div>
@@ -159,7 +169,6 @@
 
         <div class="footer-bottom">
           <span>© 2026 Hotel Aretê · Búzios, Rio de Janeiro</span>
-          <span>Política de privacidade · Cookies</span>
         </div>
       </div>
     </section>
