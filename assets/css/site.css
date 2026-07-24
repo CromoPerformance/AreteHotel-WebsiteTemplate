@@ -51,8 +51,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
+html, body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -289,7 +288,7 @@ main { padding-top: 0; }
 }
 
 .manifesto, .editorial, .location-intro, .foot-note { background: var(--white); }
-.manifesto { position: relative; padding: 110px 10%; }
+.manifesto { position: relative; padding: 110px 10%; overflow: hidden; }
 .manifesto-inner {
   max-width: 1220px;
   margin: 0 auto;
@@ -534,7 +533,7 @@ main { padding-top: 0; }
 }
 .marina-eyebrow {
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -566,7 +565,7 @@ main { padding-top: 0; }
   margin-top: 40px;
   padding: 14px 36px;
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1132,7 +1131,7 @@ main { padding-top: 0; }
 }
 .reservations-eyebrow {
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -1290,7 +1289,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   color: #fff;
   border: none;
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1327,7 +1326,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   text-align: center;
   padding: 40px 20px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 .success-anchor {
   position: absolute;
@@ -1668,7 +1667,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   border: none;
   border-radius: 0 4px 4px 0;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1753,7 +1752,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   margin-top: 0;
   margin-bottom: 32px;
   text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: 0.42em;
   color: #fff;
   font-weight: 500;
@@ -1799,10 +1798,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   color: var(--ink-soft);
 }
 .hero-scroll-line {
-  width: 1px;
-  height: 0;
-  background: var(--blue);
-  animation: scrollLineGrow 2s ease-in-out infinite;
+  display: none;
 }
 @keyframes scrollLineGrow {
   0%   { height: 0;   opacity: 0.3; }
@@ -2026,7 +2022,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .nature-split-dual-item { background-size: cover; background-position: center; }
 .nature-split-content .eyebrow {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -2154,7 +2150,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .differentials-header .eyebrow {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -2264,7 +2260,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .cta-eyebrow {
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -2389,7 +2385,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   background: var(--navy);
   color: #fff;
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -3194,7 +3190,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .eco-list-eyebrow {
   display: block;
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -3472,7 +3468,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .guia-local-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 100vw;
+  width: 100%;
   background: #fff;
 }
 
@@ -3496,7 +3492,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
 .guia-local-header .eyebrow {
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -3626,3 +3622,570 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   opacity: 0.12;
   pointer-events: none;
 }
+
+/* ========================================
+   MOBILE NAVIGATION — Hamburger
+   ======================================== */
+
+/* Button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 1100;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ham-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease, background 0.3s ease;
+  transform-origin: center;
+}
+.site-header.scrolled .ham-line {
+  background: var(--navy);
+}
+/* Animated X when active */
+.nav-hamburger.is-active .ham-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-hamburger.is-active .ham-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-hamburger.is-active .ham-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Fullscreen overlay */
+.mobile-nav-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: var(--navy);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.mobile-nav-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-nav-logo {
+  margin-bottom: 48px;
+}
+.mobile-nav-logo img {
+  height: 60px;
+  width: auto;
+  opacity: 0.9;
+}
+.mobile-nav-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+.mobile-nav-close:hover { color: #fff; }
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0 24px;
+}
+.mobile-nav-link {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 16px 0;
+  display: block;
+  text-align: center;
+}
+.mobile-nav-link:hover,
+.mobile-nav-link[aria-current='page'] {
+  color: #fff;
+}
+
+/* ========================================
+   MOBILE — Main breakpoint ≤ 768px
+   ======================================== */
+@media (max-width: 768px) {
+
+  /* ── Header / Nav ── */
+  .site-header {
+    height: 64px;
+  }
+  .site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    height: 100%;
+    position: relative;
+  }
+  .nav-group {
+    display: none; /* Hidden — replaced by hamburger overlay */
+  }
+  .brand {
+    min-width: 0;
+    padding: 6px 0;
+  }
+  .brand-logo {
+    height: 38px;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+
+  /* ── Hero home ── */
+  .hero.hero-home {
+    background-position: center center;
+  }
+  .hero-inner {
+    padding: 80px 24px 240px;
+  }
+  .hero-kicker {
+    margin-top: 0;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(52px, 16vw, 80px);
+    line-height: 0.92;
+  }
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* ── Booking bar ── */
+  .booking-bar {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    padding: 0;
+    max-width: 100%;
+    position: relative;
+  }
+  .hero.hero-home {
+    padding-bottom: 0;
+    overflow: visible;
+  }
+  .booking-bar-inner {
+    border-radius: 0;
+    flex-wrap: wrap;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+  .booking-field {
+    flex: 0 0 50%;
+    min-width: 0;
+    padding: 14px 16px;
+  }
+  .booking-field:nth-child(1),
+  .booking-field:nth-child(2) {
+    border-bottom: 1px solid rgba(27,38,51,0.06);
+  }
+  .booking-field:nth-child(2) { border-right: none; }
+  .booking-field:nth-child(4) { border-right: none; }
+  .booking-btn {
+    flex: 0 0 100%;
+    min-width: 0;
+    padding: 18px;
+    border-radius: 0;
+    min-height: 54px;
+  }
+  /* Calendar popup: ensure it doesn't clip out of viewport */
+  .booking-dropdown.booking-calendar {
+    left: 0;
+    right: auto;
+    min-width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+  }
+  .form-calendar-field .booking-dropdown {
+    left: 0;
+    min-width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+  }
+
+  /* ── Manifesto ── */
+  .manifesto {
+    padding: 64px 24px;
+  }
+  .manifesto-text {
+    font-size: clamp(20px, 5.5vw, 30px);
+  }
+
+  /* ── Hub panels ── */
+  /* Already handled at 1024px and 640px — adding mid-touch fix */
+  .hub-panel { min-height: 55vw; }
+
+  /* ── Stats section (home) ── */
+  .stats-section { padding: 48px 0; }
+  .stats-inner {
+    flex-direction: column;
+    gap: 0;
+    padding: 32px 24px;
+  }
+  .stat-block { padding: 28px 0; width: 100%; }
+  .stat-divider { width: 60px; height: 1px; }
+  .stat-desc { font-size: 16px; }
+
+  /* ── Marina Hero ── */
+  .marina-hero { height: 85vw; min-height: 360px; }
+  .marina-hero-content { padding: 0 24px; }
+  .marina-title { font-size: clamp(34px, 10vw, 52px); }
+  .marina-subtitle { font-size: 17px; margin-top: 20px; max-width: 100%; }
+  .marina-btn { margin-top: 28px; }
+
+  /* ── Marina lifestyle activities ── */
+  .marina-activities {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+
+  /* ── Testimonials ── */
+  .testimonials { padding: 60px 20px; }
+  .testimonials-slider { min-height: 360px; }
+  .testimonial-text { font-size: clamp(17px, 4.5vw, 22px); line-height: 1.5; }
+  .testimonials-title { font-size: clamp(22px, 5.5vw, 30px); margin-bottom: 36px; }
+
+  /* ── Reservations form ── */
+  .reservations { padding: 64px 20px 80px; }
+  .reservations-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .reservations-title { font-size: clamp(40px, 12vw, 60px); }
+  .reservations-desc { font-size: 17px; }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .form-btn {
+    align-self: stretch;
+    padding: 18px 24px;
+    text-align: center;
+  }
+
+  /* ── Footer ── */
+  .footer { padding: 60px 20px 36px; }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-brand {
+    padding-right: 0;
+    align-items: center;
+  }
+  .footer-brand .brand-logo { height: 70px; }
+  .footer-brand .footer-text { text-align: center; max-width: 100%; }
+  .footer-brand .socials { justify-content: center; }
+  .footer-links { gap: 14px; }
+  .footer-links a, .footer-text { font-size: 15px; }
+
+  /* ── Subpage hero ── */
+  .hero-subpage {
+    min-height: calc(75vh + 64px);
+    height: calc(75vh + 64px);
+  }
+  .hero-subpage .hero-inner {
+    min-height: calc(75vh + 64px);
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: calc(10vh + 80px);
+  }
+  .hero-subpage .hero-title {
+    font-size: clamp(40px, 11vw, 64px);
+  }
+  .hero-subpage .hero-subtitle {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  /* ── Split sections (generic) ── */
+  .split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .split-media { min-height: 52vw; }
+  .split-copy { padding: 56px 24px; }
+
+  /* ── Hero panel ── */
+  .hero-panel-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-panel-media { min-height: 52vw; }
+  .hero-panel-copy { padding: 48px 24px; }
+
+  /* ── Philosophy ── */
+  .philosophy { grid-template-columns: 1fr; min-height: auto; }
+  .philosophy-image { min-height: 52vw; }
+  .philosophy-content { padding: 52px 24px; }
+
+  /* ── Nature Split ── */
+  .nature-split { grid-template-columns: 1fr; }
+  .nature-split-content { padding: 56px 24px; }
+  .nature-split-image { min-height: 52vw; }
+  .nature-split-gallery { min-height: 52vw; }
+
+  /* ── Eco Asset sections ── */
+  .eco-asset-section { grid-template-columns: 1fr; }
+  .eco-asset-section:nth-child(even) .eco-asset-image { order: 0; }
+  .eco-asset-content {
+    padding: 40px 24px;
+    border-left: none;
+    border-top: 3px solid var(--verde-oliva);
+  }
+  .eco-asset-image { min-height: 52vw; }
+  .eco-asset-text { font-size: 16px; max-width: 100%; }
+
+  /* ── Eco section (Proximidades) ── */
+  .eco-section {
+    display: block;
+  }
+  .eco-blank {
+    display: block;
+    background: #fff;
+    padding: 0;
+  }
+  .eco-list-inner {
+    padding: 48px 24px;
+  }
+  .eco-map {
+    height: 56vw;
+    min-height: 280px;
+  }
+
+  /* ── Suite blocks ── */
+  .suite-block,
+  .suite-block-reverse {
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "content";
+  }
+  .suite-image { min-height: 52vw; }
+  .suite-content { padding: 48px 24px; }
+  .suite-btn {
+    width: 100%;
+    text-align: center;
+    padding: 18px 24px;
+  }
+
+  /* ── Differentials ── */
+  .differentials { padding: 64px 24px; }
+  .diff-item {
+    grid-template-columns: 52px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+  }
+  .diff-numeral { font-size: 38px; }
+  .diff-heading { font-size: 21px; }
+  .diff-text { font-size: 16px; }
+
+  /* ── Pillars ── */
+  .pillars { padding: 72px 24px; }
+  .pillars-inner { grid-template-columns: 1fr; gap: 48px; }
+
+  /* ── CTA sections ── */
+  .cta-section { padding: 64px 24px; }
+  .cta-title { font-size: clamp(24px, 7vw, 36px); }
+
+  /* ── Stats strip (dark) ── */
+  .stats-strip { padding: 64px 24px; }
+  .stats-strip-inner { grid-template-columns: 1fr; }
+  .stats-item:not(:first-child)::before {
+    inset: 0 auto auto;
+    left: 15%;
+    right: 15%;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  /* ── Mosaic ── */
+  .mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    border: 12px solid var(--white);
+  }
+  .mosaic-large { grid-row: 1; grid-column: 1 / 3; }
+  .mosaic-item { height: 36vw; }
+
+  /* ── Experiences list ── */
+  .experiences-items {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .experiences-list .experience-row:nth-child(n+4) {
+    border-bottom: 1px solid var(--mist);
+  }
+  .experiences-list .experience-row:last-child {
+    border-bottom: none;
+  }
+
+  /* ── Events showcase ── */
+  .events-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .events-showcase-item { height: 300px; }
+  .events-showcase-desc { opacity: 1; transform: none; }
+
+  /* ── Hours grid ── */
+  .hours-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* ── Menu layout ── */
+  .menu-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .menu-gallery {
+    flex: none;
+    width: 100%;
+    position: static;
+    height: 240px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+  }
+  .gallery-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .gallery-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .gallery-item:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .gallery-item:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .gallery-item:nth-child(5),
+  .gallery-item:nth-child(6) { display: none; }
+
+  /* ── Guia Local ── */
+  .guia-local-section { display: block; }
+  .guia-local-image { min-height: 52vw; }
+  .guia-local-content { padding: 48px 24px; }
+
+  /* ── Image strip ── */
+  .image-strip { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Dual / Quad gallery ── */
+  .dual-gallery { grid-template-columns: 1fr; }
+  .dual-gallery-img { height: 52vw; }
+  .quad-gallery-img { height: 38vw; }
+
+  /* ── Season slider ── */
+  .season-slide { grid-template-columns: 1fr; }
+  .season-slide-img { height: 52vw; }
+  .seasons-track { min-height: 52vw; }
+  .seasons-nav { gap: 16px; flex-wrap: wrap; justify-content: center; width: 100%; }
+
+  /* ── Amenities pills ── */
+  .pill { padding: 12px 14px; font-size: 11px; }
+
+  /* ── Dark quote ── */
+  .dark-quote { padding: 72px 24px 88px; }
+
+  /* ── Manifesto center ── */
+  .manifesto-center { padding: 80px 24px; }
+  .manifesto-text-center { font-size: clamp(22px, 6vw, 34px); }
+
+  /* ── Marina columns ── */
+  .marina-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+}
+
+/* ========================================
+   MOBILE — Small phones ≤ 480px
+   ======================================== */
+@media (max-width: 480px) {
+
+  /* ── Hub ── */
+  .hub-panel { flex-basis: 100%; min-height: 65vw; }
+
+  /* ── Booking fields: stack vertically ── */
+  .booking-field { flex: 0 0 100%; border-right: none; }
+  .booking-field { border-bottom: 1px solid rgba(27,38,51,0.06); }
+  .booking-field:last-of-type { border-bottom: none; }
+
+  /* ── Image strip: 1 column ── */
+  .image-strip { grid-template-columns: 1fr; }
+  .image-strip-item { min-height: 200px; }
+
+  /* ── Mosaic: stack ── */
+  .mosaic { grid-template-columns: 1fr; border: 8px solid var(--white); }
+  .mosaic-large { grid-column: 1; }
+  .mosaic-item { height: 52vw; }
+
+  /* ── Events showcase ── */
+  .events-showcase-item { height: 72vw; }
+
+  /* ── Marina columns ── */
+  .marina-columns { grid-template-columns: 1fr; }
+  .marina-activities { grid-template-columns: 1fr; }
+
+  /* ── Eco map ── */
+  .eco-map { height: 72vw; }
+
+  /* ── Stats buzios ── */
+  .stats-section--buzios .stats-inner { flex-direction: column; }
+  .stat-col { padding: 28px 0; }
+  .stats-section--buzios .stat-divider { width: 60px; height: 1px; }
+
+  /* ── Hero subtitle ── */
+  .hero-subtitle { font-size: 16px; }
+
+  /* ── Reservations ── */
+  .reservations { padding: 52px 16px 64px; }
+
+  /* ── Footer ── */
+  .footer { padding: 48px 16px 28px; }
+  .footer-top { gap: 32px; }
+
+  /* ── Suite btn ── */
+  .suite-btn { padding: 16px 20px; }
+
+  /* ── Nature split dual ── */
+  .nature-split-dual { grid-template-columns: 1fr; }
+}
