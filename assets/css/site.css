@@ -51,7 +51,10 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html, body {
+html {
+  margin: 0;
+}
+body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -2756,20 +2759,19 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
    MENU & HOURS
    ======================================== */
 .menu-section {
-  padding: 100px 5%;
   background: #f8f8f4;
+  padding: 82px 5% 60px;
 }
 .menu-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40% 1fr;
   gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
 }
 .menu-gallery {
-  flex: 0 0 40%;
   position: sticky;
   top: 82px;
-  align-self: flex-start;
   height: calc(100vh - 82px);
   overflow: hidden;
 }
@@ -2956,11 +2958,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     gap: 40px;
   }
   .menu-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 48px;
   }
   .menu-gallery {
-    flex: none;
     width: 100%;
     position: static;
     height: 280px;
@@ -4075,11 +4076,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
   /* ── Menu layout ── */
   .menu-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 40px;
   }
   .menu-gallery {
-    flex: none;
     width: 100%;
     position: static;
     height: 240px;
@@ -4184,4 +4184,37 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
   /* ── Nature split dual ── */
   .nature-split-dual { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   WHATSAPP FLOATING BUTTON
+   ======================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.40);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.55);
+}
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+@media (max-width: 640px) {
+  .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
 }
