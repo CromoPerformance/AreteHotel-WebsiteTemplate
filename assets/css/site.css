@@ -4029,6 +4029,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .nature-split-image { min-height: 52vw; }
   .nature-split-gallery { min-height: 52vw; }
   .nature-split-reverse .nature-split-image { order: 0; }
+  .nature-split-img-first .nature-split-image { order: -1; }
 
   /* ── Eco Asset sections ── */
   .eco-asset-section { grid-template-columns: 1fr; }
