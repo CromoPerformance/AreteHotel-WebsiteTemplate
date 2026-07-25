@@ -182,51 +182,43 @@
         <h2 class="seasons-title">Não é só verão</h2>
         <p class="seasons-text">Cada estação em Búzios carrega uma personalidade própria. Um destino que se reinventa, e que o Hotel Aretê conhece em cada detalhe.</p>
       </div>
-      <div class="seasons-slider">
-        <div class="seasons-track">
-          <!-- Verão -->
-          <div class="season-slide active" data-season="verao">
-            <div class="season-slide-img" style="background-image:url('assets/buzios/BUZIOS-ARMACAO.avif')" aria-hidden="true"></div>
-            <div class="season-slide-info">
-              <div class="season-slide-name">Verão</div>
-              <div class="season-slide-months">Dez a Mar</div>
-              <p class="season-slide-text">Alta temporada com sol garantido, mar agitado e a vida noturna de Búzios em seu auge. Festivais, eventos e as praias mais movimentadas do ano. Perfeito para quem busca energia e diversão.</p>
-            </div>
-          </div>
-          <!-- Outono -->
-          <div class="season-slide" data-season="outono">
-            <div class="season-slide-img" style="background-image:url('assets/new/barco atracado cais.avif')" aria-hidden="true"></div>
-            <div class="season-slide-info">
-              <div class="season-slide-name">Outono</div>
-              <div class="season-slide-months">Mar a Mai</div>
-              <p class="season-slide-text">O mar se acalma e o céu ganha tons dourados. Fins de semana mais tranquilos, preços mais acessíveis e uma Búzios que respira em seu próprio ritmo. O momento favorito de quem conhece bem o destino.</p>
-            </div>
-          </div>
-          <!-- Inverno -->
-          <div class="season-slide" data-season="inverno">
-            <div class="season-slide-img" style="background-image:url('assets/new/buzios inverno.avif')" aria-hidden="true"></div>
-            <div class="season-slide-info">
-              <div class="season-slide-name">Inverno</div>
-              <div class="season-slide-months">Jun a Ago</div>
-              <p class="season-slide-text">Os dias mais frescos revelam a natureza em sua forma mais pura. Praias desertas, trilhas tranquilas e uma Búzios intimista, ideal para quem busca contemplação e conexão com o lugar.</p>
-            </div>
-          </div>
-          <!-- Primavera -->
-          <div class="season-slide" data-season="primavera">
-            <div class="season-slide-img" style="background-image:url('assets/new/marina vista do restaurante.avif')" aria-hidden="true"></div>
-            <div class="season-slide-info">
-              <div class="season-slide-name">Primavera</div>
-              <div class="season-slide-months">Set a Nov</div>
-              <p class="season-slide-text">A natureza desperta com flores e cores vibrantes. Temperaturas agradáveis, bom vento para a vela e uma antecipação energizante do verão que se aproxima.</p>
-            </div>
+        <div class="seasons-slider">
+        <!-- Título + texto + nav (fora do track, fixo) -->
+        <div class="seasons-text-area">
+          <div class="seasons-name" data-season="verao">Verão</div>
+          <div class="seasons-name" data-season="outono" style="display:none">Outono</div>
+          <div class="seasons-name" data-season="inverno" style="display:none">Inverno</div>
+          <div class="seasons-name" data-season="primavera" style="display:none">Primavera</div>
+          <div class="seasons-months" data-season="verao">Dez a Mar</div>
+          <div class="seasons-months" data-season="outono" style="display:none">Mar a Mai</div>
+          <div class="seasons-months" data-season="inverno" style="display:none">Jun a Ago</div>
+          <div class="seasons-months" data-season="primavera" style="display:none">Set a Nov</div>
+          <div class="seasons-desc" data-season="verao">Alta temporada com sol garantido, mar agitado e a vida noturna de Búzios em seu auge. Festivais, eventos e as praias mais movimentadas do ano.</div>
+          <div class="seasons-desc" data-season="outono" style="display:none">O mar se acalma e o céu ganha tons dourados. Fins de semana mais tranquilos, preços mais acessíveis e uma Búzios que respira em seu próprio ritmo.</div>
+          <div class="seasons-desc" data-season="inverno" style="display:none">Os dias mais frescos revelam a natureza em sua forma mais pura. Praias desertas, trilhas tranquilas e uma Búzios intimista.</div>
+          <div class="seasons-desc" data-season="primavera" style="display:none">A natureza desperta com flores e cores vibrantes. Temperaturas agradáveis, bom vento para a vela e uma antecipação energizante do verão que se aproxima.</div>
+          <!-- Navegação -->
+          <div class="seasons-nav">
+            <button class="seasons-nav-btn active" data-target="verao">Verão</button>
+            <button class="seasons-nav-btn" data-target="outono">Outono</button>
+            <button class="seasons-nav-btn" data-target="inverno">Inverno</button>
+            <button class="seasons-nav-btn" data-target="primavera">Primavera</button>
           </div>
         </div>
-        <!-- Navegação -->
-        <div class="seasons-nav">
-          <button class="seasons-nav-btn active" data-target="verao">Verão</button>
-          <button class="seasons-nav-btn" data-target="outono">Outono</button>
-          <button class="seasons-nav-btn" data-target="inverno">Inverno</button>
-          <button class="seasons-nav-btn" data-target="primavera">Primavera</button>
+        <!-- Imagens (só imagem, sem texto) -->
+        <div class="seasons-track">
+          <div class="season-slide active" data-season="verao">
+            <div class="season-slide-img" style="background-image:url('assets/buzios/BUZIOS-ARMACAO.avif')" aria-hidden="true"></div>
+          </div>
+          <div class="season-slide" data-season="outono">
+            <div class="season-slide-img" style="background-image:url('assets/new/barco atracado cais.avif')" aria-hidden="true"></div>
+          </div>
+          <div class="season-slide" data-season="inverno">
+            <div class="season-slide-img" style="background-image:url('assets/new/buzios inverno.avif')" aria-hidden="true"></div>
+          </div>
+          <div class="season-slide" data-season="primavera">
+            <div class="season-slide-img" style="background-image:url('assets/new/marina vista do restaurante.avif')" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -248,8 +240,8 @@
           </div>
         </div>
         <div class="info-buttons">
-          <a class="btn-primary" href="#">Google Maps</a>
-          <a class="btn-outline" href="#">Waze</a>
+          <a class="btn-primary" href="https://www.google.com/maps?q=Hotel+Aret%C3%AA,+B%C3%BAzios" target="_blank" rel="noopener">Google Maps</a>
+          <a class="btn-outline" href="https://waze.com/ul?q=Hotel+Aret%C3%AA,+B%C3%BAzios" target="_blank" rel="noopener">Waze</a>
         </div>
       </div>
     </section>
@@ -337,20 +329,32 @@
     var currentSeason = 0;
     var seasonOrder = ['verao', 'outono', 'inverno', 'primavera'];
 
+    function showText(season) {
+      document.querySelectorAll('.seasons-name, .seasons-months, .seasons-desc').forEach(function(el) {
+        el.style.display = el.dataset.season === season ? '' : 'none';
+      });
+    }
+
     function goToSeason(target) {
       var targetIndex = seasonOrder.indexOf(target);
       if (targetIndex === currentSeason) return;
 
-      slides[currentSeason].classList.remove('active');
-      navBtns[currentSeason].classList.remove('active');
       var prev = currentSeason;
       currentSeason = targetIndex;
 
+      // Crossfade images
+      slides[currentSeason].classList.add('active');
+      navBtns[currentSeason].classList.add('active');
       setTimeout(function() {
-        slides[currentSeason].classList.add('active');
-        navBtns[currentSeason].classList.add('active');
-      }, 800);
+        slides[prev].classList.remove('active');
+        navBtns[prev].classList.remove('active');
+      }, 600);
+
+      // Switch text immediately
+      showText(target);
     }
+
+    showText('verao');
 
     navBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
