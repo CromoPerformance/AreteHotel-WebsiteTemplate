@@ -2144,7 +2144,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   font-size: 13px;
   font-weight: 500;
   color: rgba(36,56,84,0.50);
-  margin: 4px 0 8px;
+  margin: 0 0 20px;
 }
 .eco-asset-image {
   background-size: cover;
