@@ -3745,7 +3745,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   pointer-events: auto;
 }
 .mobile-nav-logo {
-  margin-bottom: 48px;
+  margin-bottom: 72px;
 }
 .mobile-nav-logo img {
   height: 60px;
@@ -3780,14 +3780,14 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .mobile-nav-link {
   font-family: var(--sans);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.80);
   text-decoration: none;
   transition: color 0.2s ease;
-  padding: 16px 0;
+  padding: 10px 0;
   display: block;
   text-align: center;
 }
