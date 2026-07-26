@@ -988,7 +988,9 @@ main { padding-top: 0; }
 .split-media {
   position: relative;
   min-height: 520px;
-  background: top/cover no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 .split-media::before {
   content: '';
