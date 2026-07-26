@@ -2663,9 +2663,8 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   font-size: 13px;
   width: auto;
 }
-.btn-outline--sm {
-  padding: 10px 24px;
-  font-size: 11px;
+.nature-split .btn-outline {
+  width: fit-content;
 }
 /* Menu ver mais (mobile only) */
 .menu-ver-mais {
