@@ -2896,6 +2896,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .menu-inner {
   max-width: 600px;
+  padding-left: 4px;
 }
 .menu-category {
   margin-top: 64px;
