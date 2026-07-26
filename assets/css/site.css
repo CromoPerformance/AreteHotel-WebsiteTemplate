@@ -2523,6 +2523,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .suite-content { padding: 48px 24px; }
   .suite-title { font-size: 28px; }
   .amenities-section { padding: 60px 24px; }
+  .amenities-title { margin-bottom: 24px; }
   .amenities-list { flex-direction: column; gap: 0; }
   .amenities-list span { padding: 6px 0; }
   .amenities-sep { display: none; }
