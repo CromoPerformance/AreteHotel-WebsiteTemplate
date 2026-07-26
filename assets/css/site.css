@@ -4036,6 +4036,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .nature-split { grid-template-columns: 1fr; }
   .nature-split-content { padding: 56px 24px; }
   .nature-split-image { min-height: 52vw; }
+  .nature-split--no-img-mobile .nature-split-image { display: none; }
   .nature-split-gallery { min-height: 52vw; }
   .nature-split-reverse .nature-split-image { order: 0; }
   .nature-split-img-first .nature-split-image { order: -1; }
