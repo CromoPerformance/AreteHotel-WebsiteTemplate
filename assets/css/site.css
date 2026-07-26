@@ -2139,25 +2139,12 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   letter-spacing: 0.02em;
   margin: 12px 0 0;
 }
-.eco-asset-dist-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 8px 0 4px;
-}
-.eco-asset-dist-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+.eco-asset-dist-km {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(36,56,84,0.50);
-}
-.eco-asset-dist-item img {
-  width: 16px;
-  height: 16px;
-  filter: opacity(0.40);
+  margin: 4px 0 8px;
 }
 .eco-asset-image {
   background-size: cover;
