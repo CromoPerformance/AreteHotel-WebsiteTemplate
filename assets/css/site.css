@@ -3848,6 +3848,10 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .hero.hero-home {
     background-position: center center;
   }
+  .hero.hero-hotel {
+    background-image: url('../shared/DSCF4232.avif') !important;
+    background-position: center center;
+  }
   .hero-inner {
     padding: 80px 24px 240px;
   }
