@@ -202,7 +202,7 @@ main { padding-top: 0; }
 .hero.hero-experiencias { background-position: center center; }
 .hero.hero-events { background-position: center center; }
 .hero.hero-faq { background: var(--navy); }
-.hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.png') center center / cover no-repeat; opacity: 0.04; }
+.hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.avif') center center / cover no-repeat; opacity: 0.04; }
 .hero.hero-ecossistema { background-position: bottom top; }
 .hero.hero-ecossistema .hero-title,
 .hero.hero-events .hero-title { margin-left: 5px; }
@@ -713,10 +713,62 @@ main { padding-top: 0; }
 .seasons-text-area {
   padding-top: 16px;
 }
+.seasons-cta {
+  display: inline-flex;
+  margin-top: 50px;
+}
 .seasons-track {
   position: relative;
   height: 420px;
   overflow: hidden;
+}
+/* Desktop: grid 2 colunas — texto à esquerda, imagem à direita */
+@media (min-width: 769px) {
+  .seasons-slider {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+    align-items: start;
+  }
+  .seasons-track {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+  .seasons-text-area {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+/* Mobile: imagem entre header e nav */
+@media (max-width: 768px) {
+  .seasons-section { padding: 60px 20px; }
+  .seasons-header { margin-bottom: 36px; }
+  .seasons-slider {
+    display: block;
+  }
+  .seasons-name,
+  .seasons-months,
+  .seasons-desc {
+    display: none !important;
+  }
+  .seasons-track {
+    height: 240px;
+    margin: 28px 0;
+  }
+  .seasons-nav {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
+  }
+  .seasons-cta {
+    margin-top: 32px;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }
 .seasons-name {
   font-family: var(--sans);
@@ -805,13 +857,6 @@ main { padding-top: 0; }
 }
 .seasons-nav-btn:hover {
   color: var(--navy);
-}
-@media (max-width: 768px) {
-  .seasons-section { padding: 60px 20px; }
-  .seasons-header { margin-bottom: 36px; }
-  .seasons-slider { grid-template-columns: 1fr; gap: 24px 0; }
-  .seasons-track { height: 240px; }
-  .seasons-nav { gap: 16px; flex-wrap: wrap; justify-content: center; width: 100%; margin-top: 24px; }
 }
 
 /* Testimonials */
@@ -2165,6 +2210,50 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   }
 }
 
+/* ── Sustentabilidade List ── */
+.sust-bridge {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink);
+  margin: 16px 0 0;
+  line-height: 1.6;
+}
+.sust-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.sust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(36,56,84,0.08);
+}
+.sust-item:last-child {
+  border-bottom: none;
+}
+.sust-item-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sust-item-label {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.sust-item-label strong {
+  font-weight: 700;
+}
+
 /* ========================================
    ECO ASSET SECTIONS
    ======================================== */
@@ -3060,7 +3149,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .hours-block {
   text-align: center;
-  background-image: url('../grafismos/QUADRADO-MOLDURA-BRANCO.png');
+  background-image: url('../grafismos/QUADRADO-MOLDURA-BRANCO.avif');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -3444,6 +3533,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 .eco-graph {
@@ -3767,7 +3857,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   right: -20px;
   width: 320px;
   height: 320px;
-  background: url('../grafismos/GRAFISMOS-ICONE-FOLHA.png') no-repeat center/contain;
+  background: url('../grafismos/GRAFISMOS-ICONE-FOLHA.avif') no-repeat center/contain;
   opacity: 0.12;
   pointer-events: none;
 }
@@ -3925,7 +4015,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     background-position: center center;
   }
   .hero.hero-hotel {
-    background-image: url('../shared/1808-ARETE-BUZIOS-066.avif') !important;
+    background-image: url('../shared/DSCF4860.avif') !important;
     background-position: center center;
   }
   .hero-inner {
@@ -4246,6 +4336,9 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     gap: 32px;
   }
 
+  /* ── Sustentabilidade ── */
+  .sust-item { gap: 24px; }
+
   /* ── Menu layout ── */
   .menu-layout {
     grid-template-columns: 1fr;
@@ -4355,6 +4448,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
   /* ── Nature split dual ── */
   .nature-split-dual { grid-template-columns: 1fr; }
+  .nature-split-dual-item { min-height: 300px; }
 }
 
 /* ========================================
