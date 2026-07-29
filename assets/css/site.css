@@ -2242,6 +2242,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  filter: brightness(1.35);
 }
 .sust-item-label {
   font-family: var(--sans);
