@@ -195,7 +195,7 @@ main { padding-top: 0; }
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
 .hero.hero-home { background-position: center calc(50% + 200px); overflow: visible; }
-.hero.hero-hotel { background-position: center center; }
+.hero.hero-hotel { background-position: center bottom; }
 .hero.hero-rooms { background-position: center center; }
 .hero.hero-restaurant { background-position: right center; }
 .hero.hero-buzios { background-position: center calc(50% - 100px); }
@@ -4015,7 +4015,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     background-position: center center;
   }
   .hero.hero-hotel {
-    background-image: url('../shared/DSCF4860.avif') !important;
+    background-image: url('../shared/DSCF4611.avif') !important;
     background-position: center center;
   }
   .hero-inner {
