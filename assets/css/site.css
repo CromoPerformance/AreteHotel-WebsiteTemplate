@@ -2145,7 +2145,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   background: #fff;
   border-color: #fff;
 }
-.nature-split-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-height: 400px; }
+.nature-split-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 400px; }
 .nature-split-dual-item { background-size: cover; background-position: center; }
 .nature-split-content .eyebrow {
   font-family: var(--sans);
