@@ -195,14 +195,14 @@ main { padding-top: 0; }
   background: linear-gradient(180deg, rgba(7, 20, 34, 0.50) 0%, rgba(7, 20, 34, 0.42) 32%, rgba(7, 20, 34, 0.65) 100%);
 }
 .hero.hero-home { background-position: center calc(50% + 200px); overflow: visible; }
-.hero.hero-hotel { background-position: center calc(50% - 200px); }
+.hero.hero-hotel { background-position: center center; }
 .hero.hero-rooms { background-position: center center; }
 .hero.hero-restaurant { background-position: right center; }
 .hero.hero-buzios { background-position: center calc(50% - 100px); }
 .hero.hero-experiencias { background-position: center center; }
 .hero.hero-events { background-position: center center; }
 .hero.hero-faq { background: var(--navy); }
-.hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.avif') center center / cover no-repeat; opacity: 0.04; }
+.hero.hero-faq::before { background: url('../grafismos/GRAFISMOS-ONDA.png') center center / cover no-repeat; opacity: 0.04; }
 .hero.hero-ecossistema { background-position: bottom top; }
 .hero.hero-ecossistema .hero-title,
 .hero.hero-events .hero-title { margin-left: 5px; }
@@ -713,62 +713,10 @@ main { padding-top: 0; }
 .seasons-text-area {
   padding-top: 16px;
 }
-.seasons-cta {
-  display: inline-flex;
-  margin-top: 50px;
-}
 .seasons-track {
   position: relative;
   height: 420px;
   overflow: hidden;
-}
-/* Desktop: grid 2 colunas — texto à esquerda, imagem à direita */
-@media (min-width: 769px) {
-  .seasons-slider {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 48px;
-    align-items: start;
-  }
-  .seasons-track {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0;
-  }
-  .seasons-text-area {
-    grid-column: 1;
-    grid-row: 1;
-  }
-}
-/* Mobile: imagem entre header e nav */
-@media (max-width: 768px) {
-  .seasons-section { padding: 60px 20px; }
-  .seasons-header { margin-bottom: 36px; }
-  .seasons-slider {
-    display: block;
-  }
-  .seasons-name,
-  .seasons-months,
-  .seasons-desc {
-    display: none !important;
-  }
-  .seasons-track {
-    height: 240px;
-    margin: 28px 0;
-  }
-  .seasons-nav {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-top: 24px;
-  }
-  .seasons-cta {
-    margin-top: 32px;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
 }
 .seasons-name {
   font-family: var(--sans);
@@ -825,6 +773,9 @@ main { padding-top: 0; }
   margin-top: 32px;
   width: 50%;
 }
+.seasons-cta {
+  margin-top: 48px;
+}
 .seasons-nav-btn {
   background: none;
   border: none;
@@ -857,6 +808,14 @@ main { padding-top: 0; }
 }
 .seasons-nav-btn:hover {
   color: var(--navy);
+}
+@media (max-width: 768px) {
+  .seasons-section { padding: 60px 20px; }
+  .seasons-header { margin-bottom: 36px; }
+  .seasons-slider { grid-template-columns: 1fr; gap: 24px 0; }
+  .seasons-track { height: 240px; }
+  .seasons-nav { gap: 16px; flex-wrap: wrap; justify-content: center; width: 100%; margin-top: 24px; }
+  .seasons-cta { margin-top: 32px; }
 }
 
 /* Testimonials */
@@ -2145,7 +2104,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   background: #fff;
   border-color: #fff;
 }
-.nature-split-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 400px; }
+.nature-split-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-height: 400px; }
 .nature-split-dual-item { background-size: cover; background-position: center; }
 .nature-split-content .eyebrow {
   font-family: var(--sans);
@@ -2208,51 +2167,6 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     height: auto;
     aspect-ratio: 1 / 1;
   }
-}
-
-/* ── Sustentabilidade List ── */
-.sust-bridge {
-  font-family: var(--sans);
-  font-size: 16px;
-  color: var(--ink);
-  margin: 16px 0 0;
-  line-height: 1.6;
-}
-.sust-list {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
-  display: flex;
-  flex-direction: column;
-}
-.sust-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(36,56,84,0.08);
-}
-.sust-item:last-child {
-  border-bottom: none;
-}
-.sust-item-icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(1.35);
-}
-.sust-item-label {
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 17px;
-  color: var(--navy);
-  line-height: 1.5;
-}
-.sust-item-label strong {
-  font-weight: 700;
 }
 
 /* ========================================
@@ -3144,13 +3058,14 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .hours-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 340px);
+  justify-content: center;
   gap: 0;
   margin-top: 32px;
 }
 .hours-block {
   text-align: center;
-  background-image: url('../grafismos/QUADRADO-MOLDURA-BRANCO.avif');
+  background-image: url('../grafismos/QUADRADO-MOLDURA-BRANCO.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -3371,9 +3286,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 @media (max-width: 768px) {
   .events-showcase-grid { grid-template-columns: 1fr; gap: 16px; }
   .events-showcase-item { height: 320px; }
-  .events-showcase-overlay { background: linear-gradient(to top, rgba(8,21,37,0.95) 0%, rgba(8,21,37,0.5) 50%, rgba(8,21,37,0.2) 100%); }
-  .events-showcase-desc { opacity: 1; transform: none; color: rgba(255,255,255,0.95); }
-  .events-showcase-name { font-size: clamp(22px, 6vw, 26px); }
+  .events-showcase-desc { opacity: 1; transform: none; }
 }
 
 /* ========================================
@@ -3536,7 +3449,6 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
   display: block;
 }
 .eco-graph {
@@ -3860,7 +3772,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   right: -20px;
   width: 320px;
   height: 320px;
-  background: url('../grafismos/GRAFISMOS-ICONE-FOLHA.avif') no-repeat center/contain;
+  background: url('../grafismos/GRAFISMOS-ICONE-FOLHA.png') no-repeat center/contain;
   opacity: 0.12;
   pointer-events: none;
 }
@@ -4018,11 +3930,8 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     background-position: center center;
   }
   .hero.hero-hotel {
-    background-image: url('../shared/DSCF4860.avif') !important;
+    background-image: url('../shared/1808-ARETE-BUZIOS-066.avif') !important;
     background-position: center center;
-  }
-  .hero.hero-events::before {
-    background: linear-gradient(0deg, rgba(7, 20, 34, 0.97) 0%, rgba(7, 20, 34, 0.70) 70%, rgba(7, 20, 34, 0.35) 100%);
   }
   .hero-inner {
     padding: 80px 24px 240px;
@@ -4342,9 +4251,6 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     gap: 32px;
   }
 
-  /* ── Sustentabilidade ── */
-  .sust-item { gap: 24px; }
-
   /* ── Menu layout ── */
   .menu-layout {
     grid-template-columns: 1fr;
@@ -4454,7 +4360,6 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 
   /* ── Nature split dual ── */
   .nature-split-dual { grid-template-columns: 1fr; }
-  .nature-split-dual-item { min-height: 300px; }
 }
 
 /* ========================================
