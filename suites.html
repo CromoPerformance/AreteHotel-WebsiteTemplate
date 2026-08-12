@@ -43,8 +43,42 @@
       </div>
     </section>
 
+    <!-- Menu de Categorias -->
+    <section class="suites-menu" style="padding: 100px 20px; text-align: center; background: #f8f8f8;">
+      <div class="suites-menu-inner" style="max-width: 1200px; margin: 0 auto;">
+        <div class="eyebrow" style="margin-bottom: 15px;">Conheça nossas opções</div>
+        <h2 class="section-heading" style="margin-bottom: 40px;">Categorias de Suítes</h2>
+        <div class="suites-menu-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+          <a href="#suite-luxo" class="suites-menu-item" style="padding: 20px; background: white; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Suíte Luxo</h3>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">22 m² | Decoração contemporânea</p>
+          </a>
+          <a href="#suite-luxo-marina" class="suites-menu-item" style="padding: 20px; background: white; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Suíte Luxo Marina</h3>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">22 m² | Vista para a Marina</p>
+          </a>
+          <a href="#suite-master" class="suites-menu-item" style="padding: 20px; background: white; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Suíte Master</h3>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">30 m² | Varanda com jardim</p>
+          </a>
+          <a href="#suite-master-familia" class="suites-menu-item" style="padding: 20px; background: white; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Suíte Master Família</h3>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">Duas camas de casal</p>
+          </a>
+          <a href="#suite-master-marina" class="suites-menu-item" style="padding: 20px; background: white; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Suíte Master Marina</h3>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">30 m² | Vista Marina</p>
+          </a>
+          <a href="#suite-master-marina-familia" class="suites-menu-item" style="padding: 20px; background: white; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Suíte Master Marina Família</h3>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">Duas camas & Vista Marina</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Suíte Luxo -->
-    <section class="suite-block">
+    <section class="suite-block" id="suite-luxo">
       <div class="suite-image" style="background-image:url('assets/shared/suites-luxo.avif')" aria-hidden="true"></div>
       <div class="suite-content">
         <h3 class="suite-title">Suíte Luxo</h3>
@@ -62,7 +96,7 @@
     </section>
 
     <!-- Suíte Luxo com Vista Marina -->
-    <section class="suite-block suite-block-reverse">
+    <section class="suite-block suite-block-reverse" id="suite-luxo-marina">
       <div class="suite-content">
         <div class="suite-eyebrow">Vista Privilegiada</div>
         <h3 class="suite-title">Suíte Luxo Marina</h3>
@@ -81,7 +115,7 @@
     </section>
 
     <!-- Suíte Master -->
-    <section class="suite-block">
+    <section class="suite-block" id="suite-master">
       <div class="suite-image" style="background-image:url('assets/shared/suites-master.avif')" aria-hidden="true"></div>
       <div class="suite-content">
         <div class="suite-eyebrow">Experiência Completa</div>
@@ -100,7 +134,7 @@
     </section>
 
     <!-- Suíte Master Família -->
-    <section class="suite-block suite-block-reverse">
+    <section class="suite-block suite-block-reverse" id="suite-master-familia">
       <div class="suite-content">
         <div class="suite-eyebrow">Espaço para Famílias</div>
         <h3 class="suite-title">Suíte Master Família</h3>
@@ -117,7 +151,7 @@
     </section>
 
     <!-- Suíte Master Marina -->
-    <section class="suite-block">
+    <section class="suite-block" id="suite-master-marina">
       <div class="suite-image" style="background-image:url('assets/shared/suites-master-marina.avif')" aria-hidden="true"></div>
       <div class="suite-content">
         <div class="suite-eyebrow">Espaço & Conforto</div>
@@ -136,7 +170,7 @@
     </section>
 
     <!-- Suíte Master Marina Família -->
-    <section class="suite-block suite-block-reverse">
+    <section class="suite-block suite-block-reverse" id="suite-master-marina-familia">
       <div class="suite-content">
         <div class="suite-eyebrow">Família & Vista Marina</div>
         <h3 class="suite-title">Suíte Master Marina Família</h3>
@@ -214,8 +248,7 @@
     <section class="cta-section">
       <div class="cta-inner">
         <div class="cta-eyebrow">Disponibilidade</div>
-        <h2 class="cta-title">Escolha sua suíte</h2>
-        <p class="cta-subtitle">Reserve diretamente pelo nosso sistema e garanta boas condições</p>
+        <p class="cta-subtitle">Reserve diretamente pelo site e garanta boas condições</p>
         <a class="cta-btn" href="https://book.omnibees.com/hotel/21102" target="_blank" rel="noopener">Verificar disponibilidade</a>
       </div>
     </section>
