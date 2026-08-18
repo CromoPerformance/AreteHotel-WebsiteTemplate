@@ -596,88 +596,83 @@
         });
       });
 
-      // Infinite carousel with peek
+      // Carousel
       document.querySelectorAll('.suites-carousel').forEach(carousel => {
         const track = carousel.querySelector('.suites-carousel-track');
-        const origSlides = Array.from(track.querySelectorAll('.suites-carousel-slide'));
-        const totalOrig = origSlides.length;
+        const slides = Array.from(track.querySelectorAll('.suites-carousel-slide'));
+        const total = slides.length;
         const prevBtn = carousel.querySelector('.suites-carousel-prev');
         const nextBtn = carousel.querySelector('.suites-carousel-next');
+        let current = 0;
+        let locked = false;
 
-        // Clone: prepend last, append first (for infinite wrap)
-        const firstClone = origSlides[0].cloneNode(true);
-        const lastClone = origSlides[totalOrig - 1].cloneNode(true);
-        firstClone.classList.add('is-clone');
-        lastClone.classList.add('is-clone');
-        track.appendChild(firstClone);
-        track.insertBefore(lastClone, origSlides[0]);
-
-        const allSlides = track.querySelectorAll('.suites-carousel-slide');
-        const total = allSlides.length; // original + 2 clones
-
-        // Start on the first real slide (index 1 because of prepended clone)
-        let current = 1;
-        let isAnimating = true;
-
-        function getSlideWidth() {
-          return allSlides[0].offsetWidth;
-        }
-
-        function goTo(index, animate) {
-          if (animate === false) {
-            track.style.transition = 'none';
-          } else {
-            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)';
+        function getOffset(index) {
+          const slideW = slides[0].offsetWidth;
+          const isMobile = window.innerWidth <= 640;
+          if (isMobile) {
+            return -(index * slideW);
           }
-          current = index;
-          const slideW = getSlideWidth();
           const containerW = carousel.offsetWidth;
-          const stride = slideW + 16; // slide width + gap
-          const offset = (containerW * 0.1) - (current * stride);
-          track.style.transform = 'translateX(' + offset + 'px)';
-        }
-
-        function jumpTo(index) {
-          track.style.transition = 'none';
-          current = index;
-          const containerW = carousel.offsetWidth;
-          const slideW = getSlideWidth();
           const stride = slideW + 16;
-          const offset = (containerW * 0.1) - (current * stride);
-          track.style.transform = 'translateX(' + offset + 'px)';
-          // Force reflow then re-enable transition
-          track.offsetHeight;
-          track.style.transition = '';
+          return (containerW * 0.1) - (index * stride);
         }
 
-        if (prevBtn) prevBtn.addEventListener('click', () => {
-          goTo(current - 1, true);
-        });
-        if (nextBtn) nextBtn.addEventListener('click', () => {
-          goTo(current + 1, true);
-        });
+        function goTo(index) {
+          if (locked) return;
+          if (index < 0) index = total - 1;
+          if (index >= total) index = 0;
 
-        // After transition ends, check if we're on a clone and jump to real slide
-        track.addEventListener('transitionend', () => {
-          // First clone (index = total - 1) → jump to real first (index 1)
-          if (current === total - 1) {
-            jumpTo(1);
+          // Wrap-around: instant snap to virtual position, then animate
+          if ((current === total - 1 && index === 0) || (current === 0 && index === total - 1)) {
+            locked = true;
+            var virtual = (current === total - 1) ? total : -1;
+            track.style.transition = 'none';
+            track.style.transform = 'translateX(' + getOffset(virtual) + 'px)';
+            track.offsetHeight;
+            current = index;
+            track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            track.style.transform = 'translateX(' + getOffset(current) + 'px)';
+            setTimeout(function() { locked = false; }, 650);
+          } else {
+            locked = true;
+            current = index;
+            track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            track.style.transform = 'translateX(' + getOffset(current) + 'px)';
+            setTimeout(function() { locked = false; }, 650);
           }
-          // Last clone (index = 0) → jump to real last (index totalOrig)
-          if (current === 0) {
-            jumpTo(totalOrig);
+        }
+
+        prevBtn.addEventListener('click', function() { goTo(current - 1); });
+        nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+        // Touch swipe
+        var startX = 0;
+        var swiping = false;
+        carousel.addEventListener('touchstart', function(e) {
+          startX = e.touches[0].clientX;
+          swiping = true;
+          track.style.transition = 'none';
+        }, { passive: true });
+
+        carousel.addEventListener('touchmove', function(e) {
+          if (!swiping) return;
+          var diff = e.touches[0].clientX - startX;
+          track.style.transform = 'translateX(' + (getOffset(current) + diff) + 'px)';
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function(e) {
+          if (!swiping) return;
+          swiping = false;
+          var diff = e.changedTouches[0].clientX - startX;
+          if (Math.abs(diff) > 50) {
+            goTo(diff < 0 ? current + 1 : current - 1);
+          } else {
+            goTo(current);
           }
         });
 
         // Initial position
-        goTo(1, false);
-
-        // Recalculate on resize
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(() => goTo(current, false), 100);
-        });
+        goTo(0);
       });
 
       // Handle URL hash on load

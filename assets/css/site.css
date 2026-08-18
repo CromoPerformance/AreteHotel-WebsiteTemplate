@@ -2900,9 +2900,19 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .amenities-sep { display: none; }
 
   /* Suites detail — mobile */
-  .suites-detail { padding: 60px 20px; }
-  .suites-carousel { aspect-ratio: 1.6/1; }
-  .suites-info { grid-template-columns: 1fr; gap: 32px; }
+  .suites-detail { padding: 40px 16px; }
+  .suites-carousel { aspect-ratio: 1.6/1; overflow: hidden; }
+  .suites-carousel-track { gap: 0; }
+  .suites-carousel-slide { flex: 0 0 100%; border-radius: 8px; }
+  .suites-carousel-btn { display: none; }
+  .suites-info { grid-template-columns: 1fr; gap: 32px; width: 100%; }
+  /* Show all panels stacked on mobile */
+  .suites-tab-panel { display: flex !important; flex-direction: column; gap: 32px; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #eee; }
+  .suites-tab-panel:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .suites-tab-panel.active { display: flex !important; }
+  /* Reduce gap between menu cards */
+  .suites-menu-grid { gap: 10px !important; }
+  .suites-menu-item { padding: 14px 16px !important; }
 
   .stats-inner { flex-direction: column; gap: 0; }
   .stat-divider { width: 60px; height: 1px; }
