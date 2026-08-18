@@ -849,6 +849,66 @@
   <script src="assets/js/lazy-bg.js"></script>
   <script src="assets/js/mobile-nav.js"></script>
   <script src="assets/js/cookie-consent.js"></script>
+  <script src="assets/js/sticky-booking.js"></script>
+
+  <!-- Sticky Booking Bar -->
+  <div class="sticky-booking" id="stickyBooking">
+    <div class="sticky-booking-inner">
+      <div class="booking-field custom-select" id="stickyCheckinField">
+        <label class="booking-label">Check-in</label>
+        <div class="booking-display placeholder" id="stickyCheckinDisplay">Selecionar data</div>
+        <div class="booking-dropdown booking-calendar" id="stickyCheckinDropdown">
+          <div class="cal-header">
+            <button class="cal-nav cal-prev" type="button">&lsaquo;</button>
+            <span class="cal-month-label"></span>
+            <button class="cal-nav cal-next" type="button">&rsaquo;</button>
+          </div>
+          <div class="cal-grid">
+            <span class="cal-dow">dom</span><span class="cal-dow">seg</span><span class="cal-dow">ter</span><span class="cal-dow">qua</span><span class="cal-dow">qui</span><span class="cal-dow">sex</span><span class="cal-dow">sáb</span>
+          </div>
+          <div class="cal-days"></div>
+        </div>
+      </div>
+      <div class="booking-field custom-select" id="stickyCheckoutField">
+        <label class="booking-label">Check-out</label>
+        <div class="booking-display placeholder" id="stickyCheckoutDisplay">Selecionar data</div>
+        <div class="booking-dropdown booking-calendar" id="stickyCheckoutDropdown">
+          <div class="cal-header">
+            <button class="cal-nav cal-prev" type="button">&lsaquo;</button>
+            <span class="cal-month-label"></span>
+            <button class="cal-nav cal-next" type="button">&rsaquo;</button>
+          </div>
+          <div class="cal-grid">
+            <span class="cal-dow">dom</span><span class="cal-dow">seg</span><span class="cal-dow">ter</span><span class="cal-dow">qua</span><span class="cal-dow">qui</span><span class="cal-dow">sex</span><span class="cal-dow">sáb</span>
+          </div>
+          <div class="cal-days"></div>
+        </div>
+      </div>
+      <div class="booking-field custom-select" id="stickyAdultsField">
+        <label class="booking-label">Adultos</label>
+        <div class="booking-display" id="stickyAdultsDisplay">2 Adultos</div>
+        <div class="booking-dropdown" id="stickyAdultsDropdown">
+          <div class="booking-option selected" data-value="2">2 Adultos</div>
+          <div class="booking-option" data-value="1">1 Adulto</div>
+          <div class="booking-option" data-value="3">3 Adultos</div>
+          <div class="booking-option" data-value="4">4 Adultos</div>
+        </div>
+      </div>
+      <div class="booking-field custom-select" id="stickyChildrenField">
+        <label class="booking-label">Crianças</label>
+        <div class="booking-display" id="stickyChildrenDisplay">Nenhuma</div>
+        <div class="booking-dropdown" id="stickyChildrenDropdown">
+          <div class="booking-option selected" data-value="0">Nenhuma</div>
+          <div class="booking-option" data-value="1">1 Criança</div>
+          <div class="booking-option" data-value="2">2 Crianças</div>
+        </div>
+      </div>
+      <a href="#resForm" class="booking-btn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Reservar
+      </a>
+    </div>
+  </div>
 
   <!-- WhatsApp Float -->
   <a href="#resForm" class="whatsapp-float" aria-label="Fale conosco pelo formulário">

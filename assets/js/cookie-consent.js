@@ -14,6 +14,7 @@
     '</div>';
 
   document.body.appendChild(bar);
+  document.body.classList.add('has-cookie-bar');
 
   /* ── Privacy modal ── */
   var modal = document.createElement('div');
@@ -49,6 +50,7 @@
   function dismiss(value) {
     localStorage.setItem(KEY, value);
     bar.classList.add('cc-hiding');
+    document.body.classList.remove('has-cookie-bar');
     setTimeout(function () { bar.remove(); }, 350);
   }
 
