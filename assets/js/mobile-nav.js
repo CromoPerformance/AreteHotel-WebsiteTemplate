@@ -46,6 +46,16 @@
       ul.appendChild(a);
     });
 
+    /* Clone Reservar button into overlay */
+    var reservarBtn = document.querySelector('.nav-btn-reservar');
+    if (reservarBtn) {
+      var rb = document.createElement('a');
+      rb.href = reservarBtn.href;
+      rb.textContent = reservarBtn.textContent;
+      rb.className = 'mobile-nav-reservar';
+      ul.appendChild(rb);
+    }
+
     /* Close button inside overlay */
     var closeBtn = document.createElement('button');
     closeBtn.className = 'mobile-nav-close';
