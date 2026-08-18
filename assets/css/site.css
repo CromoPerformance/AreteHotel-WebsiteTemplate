@@ -4743,6 +4743,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   z-index: 9998;
   transform: translateY(100%);
   transition: transform .4s ease;
+  overflow: visible;
 }
 .sticky-booking.is-visible {
   transform: translateY(0);
@@ -4757,6 +4758,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   backdrop-filter: blur(16px);
   box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
   border-top: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: visible;
 }
 .sticky-booking .booking-field {
   flex: 1;
@@ -4817,10 +4819,21 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .sticky-booking .booking-btn { min-width: 120px; padding: 0 16px; font-size: 11px; }
 }
 @media (max-width: 640px) {
-  .sticky-booking-inner { flex-wrap: wrap; }
-  .sticky-booking .booking-field { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(27, 38, 51, 0.06); }
+  .sticky-booking-inner { flex-wrap: wrap; overflow: visible; }
+  .sticky-booking .booking-field { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(27, 38, 51, 0.06); position: relative; overflow: visible; }
   .sticky-booking .booking-field:nth-child(odd) { border-right: 1px solid rgba(27, 38, 51, 0.06); }
   .sticky-booking .booking-btn { flex: 0 0 100%; min-width: 0; padding: 14px; }
+  .sticky-booking .booking-dropdown.booking-calendar {
+    position: fixed;
+    bottom: 60px;
+    left: 8px;
+    right: 8px;
+    top: auto;
+    min-width: 0;
+    width: auto;
+    border-radius: 8px;
+    z-index: 9999;
+  }
 }
 
 /* ── Cookie Consent ─────────────────────────────────── */
