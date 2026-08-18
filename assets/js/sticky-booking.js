@@ -7,9 +7,13 @@
   /* ── Show/hide on scroll ── */
   function onScroll() {
     var scrollY = window.scrollY || window.pageYOffset;
-    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 0;
+    var threshold = 200;
 
-    if (scrollY > heroBottom - 100) {
+    if (hero) {
+      threshold = hero.offsetTop + hero.offsetHeight - 100;
+    }
+
+    if (scrollY > threshold) {
       bar.classList.add('is-visible');
     } else {
       bar.classList.remove('is-visible');
