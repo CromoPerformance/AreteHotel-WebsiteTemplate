@@ -4735,7 +4735,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   flex: 1;
 }
 .cc-link {
-  color: var(--clr-accent);
+  color: var(--navy);
   text-decoration: underline;
   font-weight: 600;
 }
@@ -4749,13 +4749,13 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   letter-spacing: .04em;
   text-transform: uppercase;
   color: #fff;
-  background: var(--clr-accent);
+  background: var(--navy);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: opacity .3s ease;
+  transition: background .3s ease;
 }
-.cc-btn-accept:hover { opacity: .85; }
+.cc-btn-accept:hover { background: #0d2137; }
 
 @media (max-width: 640px) {
   .cc-modal {
