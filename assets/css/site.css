@@ -4741,8 +4741,12 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 }
 .cc-link:hover { opacity: .8; }
 
-.cc-btn-accept {
+.cc-actions {
+  display: flex;
+  gap: 12px;
   flex-shrink: 0;
+}
+.cc-btn-accept {
   padding: 12px 28px;
   font-size: 14px;
   font-weight: 600;
@@ -4756,6 +4760,20 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   transition: background .3s ease;
 }
 .cc-btn-accept:hover { background: #0d2137; }
+.cc-btn-reject {
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: transparent;
+  border: 1px solid var(--navy);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .3s ease, color .3s ease;
+}
+.cc-btn-reject:hover { background: var(--navy); color: #fff; }
 
 @media (max-width: 640px) {
   .cc-modal {
@@ -4764,4 +4782,5 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     gap: 14px;
     text-align: center;
   }
+  .cc-actions { justify-content: center; }
 }
