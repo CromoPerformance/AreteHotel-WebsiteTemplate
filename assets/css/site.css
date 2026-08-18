@@ -3611,6 +3611,9 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .events-showcase-grid { grid-template-columns: 1fr; gap: 16px; }
   .events-showcase-item { height: 320px; }
   .events-showcase-desc { opacity: 1; transform: none; }
+  .events-showcase-overlay {
+    background: linear-gradient(to top, rgba(8,21,37,0.92) 0%, rgba(8,21,37,0.55) 40%, rgba(8,21,37,0.2) 100%);
+  }
 }
 
 /* ========================================
