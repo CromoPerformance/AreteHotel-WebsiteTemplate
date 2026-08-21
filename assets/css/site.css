@@ -4168,7 +4168,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   justify-content: center;
   position: fixed;
   inset: 0;
-  z-index: 1050;
+  z-index: 10002;
   background: var(--navy);
   opacity: 0;
   pointer-events: none;
