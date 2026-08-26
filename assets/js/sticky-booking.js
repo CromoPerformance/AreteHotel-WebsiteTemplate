@@ -13,7 +13,7 @@
       threshold = hero.offsetTop + hero.offsetHeight - 100;
     }
 
-    if (scrollY > threshold) {
+    if (scrollY > threshold && !bar.dataset.dismissed) {
       bar.classList.add('is-visible');
     } else {
       bar.classList.remove('is-visible');
@@ -29,6 +29,16 @@
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ── Close button ── */
+  var closeBtn = bar.querySelector('.sticky-booking-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      bar.classList.remove('is-visible');
+      bar.dataset.dismissed = '1';
+    });
+  }
 
   /* ── Calendar state ── */
   var checkinDisplay = document.getElementById('stickyCheckinDisplay');
@@ -197,4 +207,35 @@
       document.querySelectorAll('.sticky-booking .booking-dropdown.open').forEach(function (d) { d.classList.remove('open'); });
     }
   });
+
+  /* ── Reservar button → OmniBees booking engine ── */
+  function fmtDate(d) {
+    var day = d.getDate();
+    var mon = d.getMonth() + 1;
+    return (day < 10 ? '0' : '') + day + (mon < 10 ? '0' : '') + mon + d.getFullYear();
+  }
+
+  var reservarBtn = bar.querySelector('.booking-btn');
+  if (reservarBtn) {
+    reservarBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var ci = checkinValue ? fmtDate(checkinValue) : '';
+      var co = checkoutValue ? fmtDate(checkoutValue) : '';
+      var ad = document.getElementById('stickyAdultsDisplay');
+      var ch = document.getElementById('stickyChildrenDisplay');
+      var adCount = ad ? (ad.textContent.match(/\d+/) || ['2'])[0] : '2';
+      var chCount = ch ? (ch.textContent.match(/\d+/) || ['0'])[0] : '0';
+
+      if (!ci || !co) {
+        alert('Por favor, selecione as datas de check-in e check-out.');
+        return;
+      }
+
+      var url = 'https://book.omnibees.com/hotelresults?c=11107&q=21102&currencyId=16&lang=pt-BR&hotel_folder=&NRooms=1&version=4'
+        + '&CheckIn=' + ci + '&CheckOut=' + co
+        + '&ad=' + adCount + '&ch=' + chCount + '&ag=0'
+        + '&mobile=true&Code=&group_code=';
+      window.location.href = url;
+    });
+  }
 })();

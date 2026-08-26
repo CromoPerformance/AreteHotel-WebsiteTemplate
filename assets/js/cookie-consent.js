@@ -25,22 +25,48 @@
     '<button class="cc-pp-close" id="ccClosePolicy">&times;</button>' +
     '</div>' +
     '<div class="cc-pp-body">' +
-    '<h4>1. Informações Coletadas</h4>' +
-    '<p>Podemos coletar informações pessoais fornecidas voluntariamente, como nome, e-mail e telefone, quando você preenche formulários em nosso site. Também coletamos automaticamente dados de navegação, como endereço IP, páginas visitadas e tempo de permanência, por meio de cookies e tecnologias semelhantes.</p>' +
-    '<h4>2. Uso das Informações</h4>' +
-    '<p>As informações coletadas são utilizadas para: responder a solicitações e mensagens enviadas pelo site; melhorar a experiência de navegação; enviar comunicações sobre serviços, eventos e novidades, quando autorizado; e gerar estatísticas de uso para aprimoramento do site.</p>' +
-    '<h4>3. Cookies</h4>' +
-    '<p>Utilizamos cookies para personalizar conteúdo, analisar tráfego e facilitar o uso do site. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade do site. ao continuar navegando e aceitar nossa política de cookies, você concorda com o uso de cookies conforme descrito.</p>' +
-    '<h4>4. Compartilhamento de Dados</h4>' +
-    '<p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins de marketing. Podemos compartilhar dados apenas quando exigido por lei, ou com prestadores de serviços que auxiliam na operação do site, sob acordos de confidencialidade.</p>' +
-    '<h4>5. Segurança</h4>' +
-    '<p>Adotamos medidas de segurança para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição. No entanto, nenhum método de transmissão pela internet é totalmente seguro, e não podemos garantir segurança absoluta.</p>' +
-    '<h4>6. Seus Direitos</h4>' +
-    '<p>Em conformidade com a Lei Geral de Proteção de Dados (LGPD), você tem direito de acessar, corrigir ou solicitar a exclusão dos seus dados pessoais. Para exercer esses entre em contato conosco.</p>' +
-    '<h4>7. Alterações nesta Política</h4>' +
-    '<p>Esta política pode ser atualizada periodicamente. Recomendamos que consulte esta página regularmente para se manter informado sobre como protegemos suas informações.</p>' +
-    '<h4>8. Contato</h4>' +
-    '<p>Em caso de dúvidas sobre esta política de privacidade, entre em contato conosco pelo formulário disponível em nosso site.</p>' +
+    '<p>O Hotel Aretê valoriza a privacidade e a proteção dos dados pessoais de seus hóspedes, clientes e visitantes, comprometendo-se a tratá-los em conformidade com a Lei Geral de Proteção de Dados (LGPD).</p>' +
+    '<h4>Coleta de Dados</h4>' +
+    '<p>Algumas informações poderão ser exigidas por força da legislação aplicável à atividade de hospedagem, incluindo registros obrigatórios de hóspedes.</p>' +
+    '<p>Podemos coletar dados pessoais fornecidos diretamente por você, como nome, telefone, e-mail e informações necessárias para reservas, hospedagem e atendimento. Também coletamos informações de navegação em nosso site, como endereço IP, tipo de navegador, cookies e dados de acesso.</p>' +
+    '<p>Além disso, poderemos receber informações de parceiros e plataformas de reservas utilizadas por você, observadas as autorizações e consentimentos exigidos pela legislação.</p>' +
+    '<p>Durante a hospedagem, poderão ser registrados dados relacionados às suas preferências e informações necessárias para prestação e personalização dos serviços.</p>' +
+    '<p>Para acesso à rede Wi-Fi, poderão ser solicitados dados necessários à identificação e conexão.</p>' +
+    '<h4>Utilização dos Dados</h4>' +
+    '<p>Os dados coletados são utilizados para:</p>' +
+    '<ul>' +
+    '<li>Realizar reservas, hospedagens e demais serviços contratados;</li>' +
+    '<li>Processar pagamentos e atender solicitações dos hóspedes;</li>' +
+    '<li>Personalizar e aprimorar a experiência de hospedagem;</li>' +
+    '<li>Enviar comunicações relacionadas aos serviços contratados;</li>' +
+    '<li>Poderemos utilizar o seu e-mail e demais meios de contato para envio de ofertas, novidades, eventos e comunicações promocionais relacionadas ao Hotel Aretê. O titular poderá solicitar o cancelamento dessas comunicações a qualquer momento;</li>' +
+    '<li>Garantir a segurança de hóspedes, colaboradores e patrimônio;</li>' +
+    '<li>Cumprir obrigações legais e regulatórias;</li>' +
+    '<li>Prevenir fraudes e atividades ilícitas.</li>' +
+    '</ul>' +
+    '<h4>Compartilhamento de Dados</h4>' +
+    '<p>Os dados poderão ser compartilhados com operadores de reservas, sistema de gestão hoteleira, plataformas de pagamento, provedores de tecnologia, ferramentas de marketing e autoridades públicas quando exigido por lei.</p>' +
+    '<h4>Base Legal</h4>' +
+    '<p>O tratamento dos dados pessoais poderá ocorrer com base na execução de contrato, cumprimento de obrigação legal, legítimo interesse ou consentimento do titular, conforme aplicável.</p>' +
+    '<h4>Cookies e Tecnologias de Navegação</h4>' +
+    '<p>Utilizamos cookies e tecnologias semelhantes para melhorar a experiência de navegação, personalizar conteúdos e analisar o desempenho do site. O usuário pode configurar seu navegador para bloquear ou excluir cookies, ciente de que algumas funcionalidades poderão ser afetadas.</p>' +
+    '<h4>Segurança e Armazenamento</h4>' +
+    '<p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perdas, alterações ou divulgações indevidas. Os dados serão mantidos pelo período necessário para cumprimento das finalidades descritas nesta política ou conforme exigido por lei.</p>' +
+    '<h4>Direitos do Titular</h4>' +
+    '<p>Você poderá, a qualquer momento, solicitar:</p>' +
+    '<ul>' +
+    '<li>Confirmação da existência de tratamento de seus dados;</li>' +
+    '<li>Acesso, correção ou atualização de informações;</li>' +
+    '<li>Anonimização, bloqueio ou eliminação de dados, quando aplicável;</li>' +
+    '<li>Revogação do consentimento concedido;</li>' +
+    '<li>Informações sobre compartilhamento e tratamento dos dados.</li>' +
+    '</ul>' +
+    '<h4>Aplicações de Terceiros</h4>' +
+    '<p>Nosso site pode conter links para sites e serviços de terceiros. O Hotel Aretê não é responsável pelas práticas de privacidade desses ambientes, recomendando a leitura de suas respectivas políticas.</p>' +
+    '<h4>Alterações desta Política</h4>' +
+    '<p>Esta Política de Privacidade poderá ser atualizada periodicamente. A versão mais recente estará sempre disponível em nossos canais oficiais.</p>' +
+    '<h4>Contato</h4>' +
+    '<p>Em caso de dúvidas, solicitações ou para exercer seus direitos relacionados à proteção de dados pessoais, entre em contato pelo e-mail: <a href="mailto:reservas@hotelarete.com.br">reservas@hotelarete.com.br</a>.</p>' +
     '</div>' +
     '</div>';
 
