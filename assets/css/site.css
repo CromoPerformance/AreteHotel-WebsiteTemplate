@@ -2760,7 +2760,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   text-decoration: none;
   color: #fff;
   background: var(--navy);
-  border-radius: 6px;
+  border-radius: 0;
   transition: background 0.3s, transform 0.3s;
   align-self: flex-start;
 }
