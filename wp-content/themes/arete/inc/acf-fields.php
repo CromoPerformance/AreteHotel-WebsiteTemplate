@@ -73,6 +73,16 @@ function arete_asset_or_url( $value ) {
 	if ( empty( $value ) ) {
 		return '';
 	}
+	// Valor de imagem ACF (return_format array) -> extrai URL.
+	if ( is_array( $value ) ) {
+		if ( ! empty( $value['url'] ) ) {
+			return $value['url'];
+		}
+		if ( ! empty( $value[0] ) && is_array( $value[0] ) && ! empty( $value[0]['url'] ) ) {
+			return $value[0]['url'];
+		}
+		return '';
+	}
 	if ( is_numeric( $value ) ) {
 		$url = wp_get_attachment_image_url( (int) $value, 'full' );
 		return $url ? $url : '';
