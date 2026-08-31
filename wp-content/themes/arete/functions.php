@@ -18,6 +18,12 @@ define( 'ARETE_URI', get_template_directory_uri() );
 // Campos ACF (Advanced Custom Fields) locais do tema.
 require get_template_directory() . '/inc/acf-fields.php';
 
+// Grupos de campos ACF por página (acf-fields-{slug}.php). Cada arquivo
+// registra o grupo da sua página com hook próprio, permitindo paralelismo.
+foreach ( glob( get_template_directory() . '/inc/acf-fields-*.php' ) as $file ) {
+	require $file;
+}
+
 /**
  * Theme setup.
  */
