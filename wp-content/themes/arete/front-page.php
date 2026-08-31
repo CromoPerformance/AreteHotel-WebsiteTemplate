@@ -91,7 +91,7 @@
     <section class="manifesto manifesto--spaced manifesto--no-lines" id="hotel">
       <div class="manifesto-ghost-bg" aria-hidden="true"></div>
       <div class="manifesto-inner">
-        <p class="manifesto-text"><?php echo wp_kses_post( wpautop( $manifesto_text ) ); ?></p>
+        <p class="manifesto-text"><?php echo wp_kses_post( $manifesto_text ); ?></p>
       </div>
     </section>
 
@@ -126,7 +126,8 @@
     ?>
     <section class="hub">
       <?php foreach ( $hub_items as $i => $panel ) :
-        $panel_img  = ! empty( $panel['image'] ) ? $panel['image'] : arete_asset( 'home/HOME-CARD-O-HOTEL.avif' );
+        $panel_img  = arete_asset_or_url( $panel['image'] );
+        if ( ! $panel_img ) { $panel_img = arete_asset( 'home/HOME-CARD-O-HOTEL.avif' ); }
         $panel_link = ! empty( $panel['link'] ) ? $panel['link'] : '#';
         $panel_label = ! empty( $panel['link_label'] ) ? $panel['link_label'] : 'Explorar';
       ?>
@@ -247,7 +248,8 @@
       <div class="testimonials-slider">
         <?php foreach ( $tst_items as $idx => $t ) : ?>
         <div class="testimonial<?php echo 0 === $idx ? ' active' : ''; ?>" data-index="<?php echo (int) $idx; ?>">
-          <img class="quote-icon" src="<?php echo esc_url( ! empty( $t['icon'] ) ? $t['icon'] : arete_asset( 'grafismos/icone-folha-azul.avif' ) ); ?>" alt="" width="52" height="52">
+          <?php $tst_icon = arete_asset_or_url( $t['icon'] ); if ( ! $tst_icon ) { $tst_icon = arete_asset( 'grafismos/icone-folha-azul.avif' ); } ?>
+          <img class="quote-icon" src="<?php echo esc_url( $tst_icon ); ?>" alt="" width="52" height="52">
           <p class="testimonial-text"><?php echo esc_html( $t['text'] ); ?></p>
           <div class="testimonial-author"><?php echo esc_html( $t['author'] ); ?> <span class="author-divider">|</span> via <a class="author-link" href="<?php echo esc_url( $t['via_url'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $t['via'] ); ?></a></div>
         </div>

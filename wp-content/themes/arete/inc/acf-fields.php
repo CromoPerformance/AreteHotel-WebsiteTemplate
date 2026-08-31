@@ -60,6 +60,34 @@ function arete_image( $name, $fallback = '' ) {
 }
 
 /**
+ * Converte um valor de imagem para URL final.
+ *
+ * - Se já for URL absoluta (http/https), usa como está.
+ * - Se for caminho relativo de asset do tema (ex.: "home/X.avif"), resolve com arete_asset().
+ * - Se for um ID de anexo numérico, resolve com wp_get_attachment_image_url().
+ *
+ * @param string|int $value Imagem ACF (URL, ID) ou caminho relativo de asset.
+ * @return string URL final ('' se nada).
+ */
+function arete_asset_or_url( $value ) {
+	if ( empty( $value ) ) {
+		return '';
+	}
+	if ( is_numeric( $value ) ) {
+		$url = wp_get_attachment_image_url( (int) $value, 'full' );
+		return $url ? $url : '';
+	}
+	if ( is_string( $value ) ) {
+		if ( 0 === strpos( $value, 'http://' ) || 0 === strpos( $value, 'https://' ) ) {
+			return $value;
+		}
+		// Caminho relativo ao theme assets.
+		return arete_asset( ltrim( $value, '/' ) );
+	}
+	return '';
+}
+
+/**
  * Registro dos grupos de campos locais.
  */
 function arete_register_acf_fields() {
