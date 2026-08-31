@@ -1,0 +1,18 @@
+/*
+Theme Name: Aretê Hotel
+Theme URI: https://hotelarete.com.br
+Author: Cromo Performance
+Author URI: https://cromoperformance.com.br
+Description: Tema WordPress que replica fielmente o site estático do Hotel Aretê (Búzios, RJ). Réplica exata do template HTML: 9 páginas, carrosséis de suítes, booking OmniBees, WhatsApp, barra de reserva fixa e consentimento de cookies (LGPD).
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aretehotel
+Tags: hotel, hospitality, one-column, custom-menu, custom-logo
+*/
+
+/* O tema carrega todo o CSS em assets/css/site.css via functions.php.
+   Este arquivo serve apenas como manifesto (metadata) do tema. */
