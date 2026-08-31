@@ -681,5 +681,157 @@ function arete_register_acf_fields() {
 			'menu_order' => 10,
 		)
 	);
+
+	/* ------------------------------------------------------------------
+	 * SUÍTES
+	 * ---------------------------------------------------------------- */
+
+	acf_add_local_field_group(
+		array(
+			'key'      => 'group_suites',
+			'title'    => 'Suítes - Conteúdo',
+			'fields'   => array(
+
+				// ---- Hero ----
+				array(
+					'key'        => 'field_suites_hero',
+					'label'      => 'Hero',
+					'name'       => 'suites_hero',
+					'type'       => 'group',
+					'layout'     => 'block',
+					'sub_fields' => array(
+						array( 'key' => 'field_suites_hero_kicker', 'label' => 'Kicker', 'name' => 'kicker', 'type' => 'text', 'default_value' => 'Sossego' ),
+						array( 'key' => 'field_suites_hero_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text', 'default_value' => 'Suítes' ),
+						array( 'key' => 'field_suites_hero_subtitle', 'label' => 'Subtítulo', 'name' => 'subtitle', 'type' => 'textarea', 'new_lines' => 'br', 'rows' => 3, 'default_value' => 'Acordar com o som dos pássaros e sentir que cada detalhe foi pensado para você.' ),
+						array( 'key' => 'field_suites_hero_bg', 'label' => 'Imagem de fundo', 'name' => 'bg', 'type' => 'image', 'return_format' => 'array' ),
+					),
+				),
+
+				// ---- Categorias (menu) ----
+				array(
+					'key'          => 'field_suites_categories',
+					'label'        => 'Menu de Categorias (8 suítes)',
+					'name'         => 'suites_categories',
+					'type'         => 'repeater',
+					'layout'       => 'block',
+					'button_label' => 'Adicionar categoria',
+					'min'          => 0,
+					'max'          => 0,
+					'sub_fields'   => array(
+						array( 'key' => 'field_suites_cat_tab', 'label' => 'Identificador (data-tab, ex.: luxo)', 'name' => 'tab', 'type' => 'text' ),
+						array( 'key' => 'field_suites_cat_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text' ),
+						array( 'key' => 'field_suites_cat_subtitle', 'label' => 'Subtítulo (ex.: 22 m² | Descrição)', 'name' => 'subtitle', 'type' => 'text' ),
+					),
+				),
+
+				// ---- Detalhes das suítes ----
+				array(
+					'key'          => 'field_suites_details',
+					'label'        => 'Detalhes das Suítes (tabs + carrossel)',
+					'name'         => 'suites_details',
+					'type'         => 'repeater',
+					'layout'       => 'block',
+					'button_label' => 'Adicionar suíte',
+					'min'          => 0,
+					'max'          => 0,
+					'sub_fields'   => array(
+						array( 'key' => 'field_suites_detail_tab', 'label' => 'Identificador (data-tab)', 'name' => 'tab', 'type' => 'text' ),
+						array( 'key' => 'field_suites_detail_eyebrow', 'label' => 'Eyebrow (ex.: Conforto com Vista)', 'name' => 'eyebrow', 'type' => 'text' ),
+						array( 'key' => 'field_suites_detail_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text' ),
+						array( 'key' => 'field_suites_detail_text', 'label' => 'Texto', 'name' => 'text', 'type' => 'textarea', 'new_lines' => 'br', 'rows' => 6 ),
+						array(
+							'key'          => 'field_suites_detail_badges',
+							'label'        => 'Badges (linha acima do botão)',
+							'name'         => 'badges',
+							'type'         => 'repeater',
+							'layout'       => 'list',
+							'button_label' => 'Adicionar badge',
+							'min'          => 0,
+							'max'          => 0,
+							'sub_fields'   => array(
+								array( 'key' => 'field_suites_badge', 'label' => 'Badge', 'name' => 'badge', 'type' => 'text' ),
+							),
+						),
+						array(
+							'key'          => 'field_suites_detail_amenities',
+							'label'        => 'Comodidades (lista)',
+							'name'         => 'amenities',
+							'type'         => 'repeater',
+							'layout'       => 'list',
+							'button_label' => 'Adicionar comodidade',
+							'min'          => 0,
+							'max'          => 0,
+							'sub_fields'   => array(
+								array( 'key' => 'field_suites_amenity', 'label' => 'Comodidade', 'name' => 'amenity', 'type' => 'text' ),
+							),
+						),
+						array(
+							'key'          => 'field_suites_detail_gallery',
+							'label'        => 'Galeria (fotos do carrossel)',
+							'name'         => 'gallery',
+							'type'         => 'repeater',
+							'layout'       => 'block',
+							'button_label' => 'Adicionar foto',
+							'min'          => 0,
+							'max'          => 0,
+							'sub_fields'   => array(
+								array( 'key' => 'field_suites_gallery_img', 'label' => 'Imagem', 'name' => 'img', 'type' => 'image', 'return_format' => 'array' ),
+							),
+						),
+					),
+				),
+
+				// ---- Amenities ----
+				array(
+					'key'        => 'field_suites_amenities_section',
+					'label'      => 'Todas as suítes incluem',
+					'name'       => 'suites_amenities_section',
+					'type'       => 'group',
+					'layout'     => 'block',
+					'sub_fields' => array(
+						array( 'key' => 'field_suites_amenities_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text', 'default_value' => 'Todas as suítes incluem' ),
+						array(
+							'key'          => 'field_suites_amenities_list',
+							'label'        => 'Itens',
+							'name'         => 'list',
+							'type'         => 'repeater',
+							'layout'       => 'list',
+							'button_label' => 'Adicionar item',
+							'min'          => 0,
+							'max'          => 0,
+							'sub_fields'   => array(
+								array( 'key' => 'field_suites_amenity_item', 'label' => 'Item', 'name' => 'item', 'type' => 'text' ),
+							),
+						),
+					),
+				),
+
+				// ---- CTA ----
+				array(
+					'key'        => 'field_suites_cta',
+					'label'      => 'CTA final',
+					'name'       => 'suites_cta',
+					'type'       => 'group',
+					'layout'     => 'block',
+					'sub_fields' => array(
+						array( 'key' => 'field_suites_cta_eyebrow', 'label' => 'Eyebrow', 'name' => 'eyebrow', 'type' => 'text', 'default_value' => 'Disponibilidade' ),
+						array( 'key' => 'field_suites_cta_subtitle', 'label' => 'Subtítulo', 'name' => 'subtitle', 'type' => 'text', 'default_value' => 'Reserve diretamente pelo site e garanta boas condições' ),
+						array( 'key' => 'field_suites_cta_btn', 'label' => 'Texto do botão', 'name' => 'btn', 'type' => 'text', 'default_value' => 'Verificar disponibilidade' ),
+					),
+				),
+
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'page',
+						'operator' => '==',
+						'value'    => $suites,
+					),
+				),
+			),
+			'menu_order' => 20,
+		)
+	);
 }
 add_action( 'acf/init', 'arete_register_acf_fields' );
