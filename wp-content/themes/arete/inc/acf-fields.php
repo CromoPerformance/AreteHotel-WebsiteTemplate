@@ -64,6 +64,11 @@ function arete_image( $name, $fallback = '' ) {
  */
 function arete_register_acf_fields() {
 
+	// A regra de localização por "página" compara com o ID do post (não o slug).
+	// Resolve o ID da página Início de forma dinâmica para funcionar em qualquer ambiente.
+	$inicio = get_page_by_path( 'inicio' );
+	$inicio_id = $inicio ? (int) $inicio->ID : 0;
+
 	/* ------------------------------------------------------------------
 	 * HOME
 	 * ---------------------------------------------------------------- */
@@ -396,7 +401,7 @@ function arete_register_acf_fields() {
 					array(
 						'param'    => 'page',
 						'operator' => '==',
-						'value'    => 'inicio',
+						'value'    => $inicio_id,
 					),
 				),
 			),
