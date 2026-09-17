@@ -53,7 +53,7 @@
     <?php
     $assets    = get_field( 'ecossistema_assets' );
     $asset_fb  = array(
-		array( 'img' => 'shared/arete-clube-sede-praia-mapafotografia 031.jpg', 'subtitle' => 'Beach Club', 'title' => 'Beach Club Aretê', 'km' => '1,3 km', 'text' => 'Pé na areia, restaurante com deck, sauna a vapor, área kids, e exclusividade.', 'note' => 'Acesso liberado ao hóspede' ),
+		array( 'img' => 'new/arete-clube-sede-praia.avif', 'subtitle' => 'Beach Club', 'title' => 'Beach Club Aretê', 'km' => '1,3 km', 'text' => 'Pé na areia, restaurante com deck, sauna a vapor, área kids, e exclusividade.', 'note' => 'Acesso liberado ao hóspede' ),
 		array( 'img' => 'new/arete-clube-golfe-mapafotografia 007.avif', 'subtitle' => 'Campo de Golfe', 'title' => 'Sede Golf', 'km' => '4 km', 'text' => 'Prazeroso e divertido, o golfe proporciona momentos de descontração com os amigos. O Búzios Golf Club, projetado pelos arquitetos Pete e Perry Dye, é uma das referências da América Latina.', 'note' => 'Day use mediante consulta de disponibilidade e valores' ),
 		array( 'img' => 'new/arete-clube-sede-social-mapafotografia 016.avif', 'subtitle' => 'Esporte & Lazer', 'title' => 'Sede Esportiva', 'km' => '3,5 km', 'text' => 'Quadras de beach tênis para jogar ao ar livre. Um lugar completo para quem curte manter a rotina ativa, mesmo em férias.', 'note' => '' ),
 		array( 'img' => 'new/arete-pista-ciclismo-mapafotografia 014.avif', 'subtitle' => 'Ao Ar Livre', 'title' => 'Pista de Bike', 'km' => '4 km', 'text' => 'Um circuito que atravessa a vegetação nativa, com vistas para o mar e a marina. Ideal para pedalar no amanhecer ou no fim da tarde, em qualquer nível.', 'note' => 'Day use mediante consulta de disponibilidade e valores' ),
@@ -82,7 +82,7 @@
     <!-- Galeria 02 -->
     <?php
     $gallery2 = get_field( 'ecossistema_gallery2' );
-    $g2_fb    = array( 'new/arete-clube-sede-social-mapafotografia 023.avif', 'new/arete-clube-sede-social-mapafotografia 003.avif', 'new/arete-clube-golfe-mapafotografia 004.avif', 'new/arete-clube-golfe-mapafotografia 014.avif' );
+    $g2_fb    = array( 'new/arete-clube-sede-social-mapafotografia 023.avif', 'shared/arete-clube-sede-praia-mapafotografia 031.jpg', 'new/arete-clube-golfe-mapafotografia 004.avif', 'new/arete-clube-golfe-mapafotografia 014.avif' );
     if ( ! empty( $gallery2 ) ) :
       ?>
       <div class="image-strip image-strip--gallery-02">
