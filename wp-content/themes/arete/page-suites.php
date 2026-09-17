@@ -110,7 +110,7 @@
 			'text'     => 'A Suíte Ygará é a experiência mais marcante do Hotel Aretê. Com 70 m², é a mais reservada da casa, varanda ampla no quarto e no banheiro com vista direta para os barquinhos. Um refúgio íntimo.',
 			'badges'   => array( '70 m²', 'Varanda ampla', 'Vista barcos', 'Exclusiva' ),
 			'amenities'=> array( 'Wi-fi de alta velocidade', 'Smart TV 40" 4K', 'Ar-condicionado Split', 'Varanda ampla no quarto', 'Varanda no banheiro', 'Vista direta para barcos', 'Lençóis Trussardi 300 fios', 'Chuveiro alta pressão' ),
-			'gallery'  => array( 'suites/ygara/1.avif', 'suites/ygara/2.avif', 'suites/ygara/3.avif', 'suites/ygara/4.avif', 'suites/ygara/5.avif' ),
+			'gallery'  => array( 'suites/ygara/1.png', 'suites/ygara/2.avif', 'suites/ygara/3.avif', 'suites/ygara/4.avif', 'suites/ygara/5.avif' ),
 			'menu'     => array( 'title' => 'Suíte Ygará', 'subtitle' => '70 m² | A Mais Exclusiva' ),
 		),
     );
