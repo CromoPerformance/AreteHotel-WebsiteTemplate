@@ -15,6 +15,7 @@
     $hero_title     = ! empty( $hero['title'] )    ? $hero['title']    : 'Suítes';
     $hero_subtitle  = ! empty( $hero['subtitle'] ) ? $hero['subtitle'] : 'Acordar com o som dos pássaros e sentir que cada detalhe foi pensado para você.';
     $hero_bg        = ( ! empty( $hero['bg'] ) && is_array( $hero['bg'] ) && ! empty( $hero['bg']['url'] ) ) ? $hero['bg']['url'] : arete_asset( 'new/DSCF4496.avif' );
+    $hero_scroll    = ! empty( $hero['scroll'] ) ? $hero['scroll'] : 'Descobrir';
     ?>
     <!-- Hero -->
     <section class="hero hero-rooms hero-subpage" style="background-image:url('<?php echo esc_url( $hero_bg ); ?>')">
@@ -24,7 +25,7 @@
         <p class="hero-subtitle"><?php echo nl2br( esc_html( $hero_subtitle ) ); ?></p>
       </div>
       <div class="hero-scroll">
-        <span class="hero-scroll-text">Descobrir</span>
+        <span class="hero-scroll-text"><?php echo esc_html( $hero_scroll ); ?></span>
         <div class="hero-scroll-line"></div>
       </div>
     </section>

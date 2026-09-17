@@ -473,6 +473,7 @@ function arete_register_acf_fields() {
 						array( 'key' => 'field_hotel_hero_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text', 'default_value' => 'Aretê' ),
 						array( 'key' => 'field_hotel_hero_subtitle', 'label' => 'Subtítulo', 'name' => 'subtitle', 'type' => 'textarea', 'new_lines' => 'br', 'rows' => 3, 'default_value' => 'Um refúgio entre os canais navegáveis e a mata, onde cada detalhe foi pensado para o seu conforto.' ),
 						array( 'key' => 'field_hotel_hero_bg', 'label' => 'Imagem de fundo', 'name' => 'bg', 'type' => 'image', 'return_format' => 'array' ),
+						array( 'key' => 'field_hotel_hero_scroll', 'label' => 'Texto do scroll (Descobrir)', 'name' => 'scroll', 'type' => 'text', 'default_value' => 'Descobrir' ),
 					),
 				),
 
@@ -714,6 +715,7 @@ function arete_register_acf_fields() {
 						array( 'key' => 'field_suites_hero_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text', 'default_value' => 'Suítes' ),
 						array( 'key' => 'field_suites_hero_subtitle', 'label' => 'Subtítulo', 'name' => 'subtitle', 'type' => 'textarea', 'new_lines' => 'br', 'rows' => 3, 'default_value' => 'Acordar com o som dos pássaros e sentir que cada detalhe foi pensado para você.' ),
 						array( 'key' => 'field_suites_hero_bg', 'label' => 'Imagem de fundo', 'name' => 'bg', 'type' => 'image', 'return_format' => 'array' ),
+						array( 'key' => 'field_suites_hero_scroll', 'label' => 'Texto do scroll (Descobrir)', 'name' => 'scroll', 'type' => 'text', 'default_value' => 'Descobrir' ),
 					),
 				),
 

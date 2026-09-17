@@ -3776,11 +3776,17 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
 .eco-map {
   background: #e8e4de;
   overflow: hidden;
+  position: relative;
 }
-.eco-map img {
+/* Google Maps (My Maps embed): corta barra superior (nome) e inferior (créditos).
+   Ajustar --map-crop-top / --map-crop-bottom se necessário. */
+.eco-map iframe {
+  position: absolute;
+  top: calc(-1 * var(--map-crop-top, 64px));
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: calc(100% + var(--map-crop-top, 64px) + var(--map-crop-bottom, 96px));
+  border: 0;
   display: block;
 }
 .eco-graph {

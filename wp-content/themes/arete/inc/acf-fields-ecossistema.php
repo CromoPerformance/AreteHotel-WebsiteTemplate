@@ -136,8 +136,7 @@ function arete_register_ecossistema_acf() {
 					'type'       => 'group',
 					'layout'     => 'block',
 					'sub_fields' => array(
-						array( 'key' => 'field_eco_map_img', 'label' => 'Imagem do mapa', 'name' => 'img', 'type' => 'image', 'return_format' => 'array' ),
-						array( 'key' => 'field_eco_map_alt', 'label' => 'Alt da imagem', 'name' => 'alt', 'type' => 'text', 'default_value' => 'Mapa de turismo do ecossistema Hotel Aretê' ),
+						array( 'key' => 'field_eco_map_embed', 'label' => 'URL do Google Maps (embed)', 'name' => 'embed', 'type' => 'textarea', 'new_lines' => '', 'rows' => 2, 'default_value' => 'https://www.google.com/maps/d/embed?mid=1VLyK-nvs4FKyy6BHsp2sLlb2A8_5iu4&ehbc=2E312F&noprof=1' ),
 					),
 				),
 

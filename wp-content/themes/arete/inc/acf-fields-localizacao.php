@@ -90,7 +90,7 @@ function arete_register_localizacao_acf() {
 					'type'       => 'group',
 					'layout'     => 'block',
 					'sub_fields' => array(
-						array( 'key' => 'field_loc_guide_map', 'label' => 'Imagem do mapa', 'name' => 'map', 'type' => 'image', 'return_format' => 'array' ),
+						array( 'key' => 'field_loc_guide_embed', 'label' => 'URL do Google Maps (embed)', 'name' => 'embed', 'type' => 'textarea', 'new_lines' => '', 'rows' => 2, 'default_value' => 'https://www.google.com/maps/d/embed?mid=1-yidErlCwBpbFpTRUfENuZL7_s6BT2k&ehbc=2E312F&noprof=1' ),
 						array( 'key' => 'field_loc_guide_eyebrow', 'label' => 'Eyebrow', 'name' => 'eyebrow', 'type' => 'text', 'default_value' => 'Guia Local' ),
 						array( 'key' => 'field_loc_guide_title', 'label' => 'Título', 'name' => 'title', 'type' => 'text', 'default_value' => 'Logo ali, perto do hotel' ),
 						array(

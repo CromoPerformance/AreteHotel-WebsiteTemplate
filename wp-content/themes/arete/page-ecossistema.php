@@ -147,9 +147,13 @@
 
       <!-- MAPA — Direita -->
       <div class="eco-map">
-        <img
-          src="<?php echo esc_url( arete_image( 'ecossistema_map_img', 'mapa/equipamentos.avif' ) ); ?>"
-          alt="<?php echo esc_attr( arete_field( 'ecossistema_map_alt', 'Mapa de turismo do ecossistema Hotel Aretê' ) ); ?>">
+        <iframe
+          src="<?php echo esc_url( arete_field( 'ecossistema_map_embed', 'https://www.google.com/maps/d/embed?mid=1VLyK-nvs4FKyy6BHsp2sLlb2A8_5iu4&ehbc=2E312F&noprof=1' ) ); ?>"
+          width="640" height="480"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa do ecossistema Hotel Aretê"></iframe>
       </div>
 
     </section>

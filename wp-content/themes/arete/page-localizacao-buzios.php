@@ -84,7 +84,7 @@
 
     <?php
     $guide = (array) arete_field( 'localizacao_guide', array() );
-    $guide_map     = ( ! empty( $guide['map'] ) && is_array( $guide['map'] ) && ! empty( $guide['map']['url'] ) ) ? $guide['map']['url'] : arete_asset( 'mapa/turismo.avif' );
+    $guide_embed    = ! empty( $guide['embed'] ) ? $guide['embed'] : 'https://www.google.com/maps/d/embed?mid=1-yidErlCwBpbFpTRUfENuZL7_s6BT2k&ehbc=2E312F&noprof=1';
     $guide_eyebrow = ! empty( $guide['eyebrow'] ) ? $guide['eyebrow'] : 'Guia Local';
     $guide_title   = ! empty( $guide['title'] )   ? $guide['title']   : 'Logo ali, perto do hotel';
     $guide_points_defaults = array(
@@ -103,7 +103,13 @@
     <!-- Guia Local -->
     <section class="eco-section">
       <div class="eco-map">
-        <img src="<?php echo esc_url( $guide_map ); ?>" alt="Mapa do ecossistema Hotel Aretê" class="eco-map-img">
+        <iframe
+          src="<?php echo esc_url( $guide_embed ); ?>"
+          width="640" height="480"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa do ecossistema Hotel Aretê"></iframe>
       </div>
       <div class="eco-blank">
         <div class="eco-list-inner">
