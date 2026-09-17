@@ -117,7 +117,7 @@
     $diff_defaults = array(
 		array( 'heading' => 'Completo Apoio Náutico', 'text' => 'O Hotel Aretê em conjunto com a BR Marinas Búzios proporcionam a comodidade de ancorar seu barco bem em frente ao Hotel. Vagas para barcos de até 55 pés.' ),
 		array( 'heading' => 'Aeroporto Umberto Modiano', 'text' => 'Com o aeroporto a apenas 7 minutos da recepção do Hotel Aretê, você chega mais rápido e aproveita as delícias de Búzios sem pressa.' ),
-		array( 'heading' => 'Beach Club Aretê', 'text' => 'O Beach Club Aretê fica a 2 minutos de carro, com acesso liberado para hóspedes. Restaurante com deck, piscina, sauna seca e a vapor, spa e área kids, pé na areia, sem multidão.' ),
+		array( 'heading' => 'Beach Club Aretê', 'text' => 'O Beach Club Aretê fica a 2 minutos de carro, com acesso liberado para hóspedes. Restaurante com deck, piscina, sauna a vapor, spa e área kids, pé na areia, sem multidão.' ),
 		array( 'heading' => 'Gastronomia Autoral', 'text' => 'Horta própria, produção artesanal, culinária local, e o melhor lugar da marina para ver o sol se pôr.' ),
     );
     $diff_items = array();

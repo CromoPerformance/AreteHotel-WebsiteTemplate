@@ -53,7 +53,7 @@
     <?php
     $assets    = get_field( 'ecossistema_assets' );
     $asset_fb  = array(
-		array( 'img' => 'new/arete-clube-sede-praia.avif', 'subtitle' => 'Beach Club', 'title' => 'Beach Club Aretê', 'km' => '1,3 km', 'text' => 'Pé na areia, restaurante com deck, sauna seca e a vapor, área kids, e exclusividade.', 'note' => 'Acesso liberado ao hóspede' ),
+		array( 'img' => 'new/arete-clube-sede-praia.avif', 'subtitle' => 'Beach Club', 'title' => 'Beach Club Aretê', 'km' => '1,3 km', 'text' => 'Pé na areia, restaurante com deck, sauna a vapor, área kids, e exclusividade.', 'note' => 'Acesso liberado ao hóspede' ),
 		array( 'img' => 'new/arete-clube-golfe-mapafotografia 007.avif', 'subtitle' => 'Campo de Golfe', 'title' => 'Sede Golf', 'km' => '4 km', 'text' => 'Prazeroso e divertido, o golfe proporciona momentos de descontração com os amigos. O Búzios Golf Club, projetado pelos arquitetos Pete e Perry Dye, é uma das referências da América Latina.', 'note' => 'Day use mediante consulta de disponibilidade e valores' ),
 		array( 'img' => 'new/arete-clube-sede-social-mapafotografia 016.avif', 'subtitle' => 'Esporte & Lazer', 'title' => 'Sede Esportiva', 'km' => '3,5 km', 'text' => 'Quadras de beach tênis para jogar ao ar livre. Um lugar completo para quem curte manter a rotina ativa, mesmo em férias.', 'note' => '' ),
 		array( 'img' => 'new/arete-pista-ciclismo-mapafotografia 014.avif', 'subtitle' => 'Ao Ar Livre', 'title' => 'Pista de Bike', 'km' => '4 km', 'text' => 'Um circuito que atravessa a vegetação nativa, com vistas para o mar e a marina. Ideal para pedalar no amanhecer ou no fim da tarde, em qualquer nível.', 'note' => 'Day use mediante consulta de disponibilidade e valores' ),
@@ -111,11 +111,11 @@
             <?php
             $dist_items = get_field( 'ecossistema_dist_items' );
             $dist_fb    = array(
-				array( 'num' => '1', 'name' => 'Beach Club Aretê', 'walk' => '3 min', 'bike' => '5 min', 'car' => '3 min' ),
-				array( 'num' => '2', 'name' => 'Sede Golf', 'walk' => '45 min', 'bike' => '12 min', 'car' => '10 min' ),
-				array( 'num' => '3', 'name' => 'Sede Esportiva', 'walk' => '8 min', 'bike' => '8 min', 'car' => '4 min' ),
-				array( 'num' => '4', 'name' => 'Pista de Bike', 'walk' => '45 min', 'bike' => '12 min', 'car' => '10 min' ),
-				array( 'num' => '5', 'name' => 'Cervejaria Búzios', 'walk' => '30 min', 'bike' => '8 min', 'car' => '5 min' ),
+				array( 'num' => '1', 'name' => 'Beach Club Aretê', 'walk' => '26 min', 'bike' => '5 min', 'car' => '5 min' ),
+				array( 'num' => '2', 'name' => 'Sede Golf', 'walk' => '51 min', 'bike' => '10 min', 'car' => '10 min' ),
+				array( 'num' => '3', 'name' => 'Sede Esportiva', 'walk' => '49 min', 'bike' => '11 min', 'car' => '10 min' ),
+				array( 'num' => '4', 'name' => 'Pista de Bike', 'walk' => '49 min', 'bike' => '12 min', 'car' => '10 min' ),
+				array( 'num' => '5', 'name' => 'Cervejaria Búzios', 'walk' => '38 min', 'bike' => '10 min', 'car' => '8 min' ),
             );
             $use_dist  = ! empty( $dist_items ) ? $dist_items : $dist_fb;
             foreach ( $use_dist as $d ) :
