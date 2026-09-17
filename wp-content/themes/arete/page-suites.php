@@ -40,7 +40,7 @@
 			'text'     => 'Funcional, confortável e bem resolvida. A Suíte Luxo oferece um ambiente acolhedor, com bom aproveitamento de espaço e decoração contemporânea. Ideal para quem busca conforto e praticidade para desfrutar os dias em Búzios, com a qualidade e o cuidado característicos do Hotel Aretê.',
 			'badges'   => array( '22 m²', 'Smart TV 40" 4K', 'Ar-condicionado Split', 'Cofre eletrônico', 'Máquina de café', 'Minicopa com frigobar' ),
 			'amenities'=> array( 'Wi-fi de alta velocidade', 'Smart TV 40" 4K', 'Ar-condicionado Split', 'Cofre eletrônico', 'Máquina de café expresso', 'Minicopa com frigobar', 'Lençóis Trussardi 300 fios', 'Chuveiro alta pressão' ),
-			'gallery'  => array( 'suites/luxo/1.avif', 'suites/luxo/2.avif', 'suites/luxo/3.avif', 'suites/luxo/4.avif' ),
+			'gallery'  => array( 'suites/luxo/1.avif', 'suites/luxo/2.jpg', 'suites/luxo/3.avif', 'suites/luxo/4.avif' ),
 			'menu'     => array( 'title' => 'Suíte Luxo', 'subtitle' => '22 m² | Decoração contemporânea' ),
 		),
 		'luxo-marina' => array(
@@ -70,7 +70,7 @@
 			'text'     => 'Conforto pensado para compartilhar. Projetada para receber famílias com comodidade, a Suíte Master Família oferece duas camas de casal e um ambiente amplo, que acomoda todos com conforto e fluidez. Ideal para quem deseja viajar junto sem abrir mão de espaço e bem-estar.',
 			'badges'   => array( 'Duas camas de casal', 'Layout amplo', 'Elegante', 'Ideal para famílias' ),
 			'amenities'=> array( 'Wi-fi de alta velocidade', 'Smart TV 40" 4K', 'Ar-condicionado Split', 'Duas camas de casal', 'Cofre eletrônico', 'Máquina de café expresso', 'Lençóis Trussardi 300 fios', 'Chuveiro alta pressão' ),
-			'gallery'  => array( 'suites/master-familia/1.avif', 'suites/master-familia/2.avif', 'suites/master-familia/3.avif', 'suites/master-familia/4.avif' ),
+			'gallery'  => array( 'suites/master-familia/1.avif', 'suites/master-familia/2.avif', 'suites/master-familia/4.avif' ),
 			'menu'     => array( 'title' => 'Suíte Master Família', 'subtitle' => 'Duas camas de casal' ),
 		),
 		'master-marina' => array(
@@ -100,7 +100,7 @@
 			'text'     => 'A Suíte Aretê é a assinatura do Hotel Aretê. Com ante sala e varanda com vista para a marina e pôr do sol, equilibra sofisticação e contemplação.',
 			'badges'   => array( 'Ante sala', 'Varanda', 'Vista Marina', 'Pôr do sol' ),
 			'amenities'=> array( 'Wi-fi de alta velocidade', 'Smart TV 40" 4K', 'Ar-condicionado Split', 'Ante sala', 'Varanda com vista Marina', 'Cofre eletrônico', 'Lençóis Trussardi 300 fios', 'Chuveiro alta pressão' ),
-			'gallery'  => array( 'suites/arete/1.avif', 'suites/arete/240013143.avif', 'suites/arete/3.avif', 'suites/arete/4.avif' ),
+			'gallery'  => array( 'suites/arete/1.avif', 'suites/arete/240013143.avif', 'suites/arete/3.avif', 'shared/suites-master-familia.avif' ),
 			'menu'     => array( 'title' => 'Suíte Aretê', 'subtitle' => 'A assinatura do Hotel' ),
 		),
 		'ygara' => array(
